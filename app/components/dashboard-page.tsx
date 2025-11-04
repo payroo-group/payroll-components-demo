@@ -1,6 +1,7 @@
 import { UserCircle, Car, Route, AlertTriangle } from "lucide-react";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 
 export function DashboardPage() {
   return (
@@ -20,56 +21,74 @@ export function DashboardPage() {
           </div>
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {/* Quick Stats Placeholder */}
-            <div className="rounded-lg border bg-card p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Active Drivers</p>
-                  <p className="text-2xl font-bold mt-2">248</p>
-                </div>
-                <UserCircle className="h-8 w-8 text-muted-foreground" />
-              </div>
-            </div>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Active Drivers</CardTitle>
+                <UserCircle className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">248</div>
+                <p className="text-xs text-muted-foreground">
+                  Currently on duty
+                </p>
+              </CardContent>
+            </Card>
             
-            <div className="rounded-lg border bg-card p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Vehicles</p>
-                  <p className="text-2xl font-bold mt-2">156</p>
-                </div>
-                <Car className="h-8 w-8 text-muted-foreground" />
-              </div>
-            </div>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Vehicles</CardTitle>
+                <Car className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">156</div>
+                <p className="text-xs text-muted-foreground">
+                  Fleet operational
+                </p>
+              </CardContent>
+            </Card>
             
-            <div className="rounded-lg border bg-card p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Active Routes</p>
-                  <p className="text-2xl font-bold mt-2">89</p>
-                </div>
-                <Route className="h-8 w-8 text-muted-foreground" />
-              </div>
-            </div>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Active Routes</CardTitle>
+                <Route className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">89</div>
+                <p className="text-xs text-muted-foreground">
+                  In progress today
+                </p>
+              </CardContent>
+            </Card>
             
-            <div className="rounded-lg border bg-card p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Incidents</p>
-                  <p className="text-2xl font-bold mt-2">3</p>
-                </div>
-                <AlertTriangle className="h-8 w-8 text-muted-foreground" />
-              </div>
-            </div>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Incidents</CardTitle>
+                <AlertTriangle className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">3</div>
+                <p className="text-xs text-muted-foreground">
+                  Reported this week
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="mt-8">
-            <div className="rounded-lg border bg-card p-6">
-              <h3 className="text-lg font-semibold mb-4">Getting Started</h3>
-              <p className="text-muted-foreground">
-                Use the sidebar to navigate through different sections of the driver management system.
-                Start by viewing driver profiles, managing your fleet, or checking operational status.
-              </p>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Getting Started</CardTitle>
+                <CardDescription>
+                  Quick tips to navigate the driver management system
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Use the sidebar to navigate through different sections of the driver management system.
+                  Start by viewing driver profiles, managing your fleet, or checking operational status.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </main>
       </SidebarInset>
