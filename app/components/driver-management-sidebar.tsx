@@ -55,9 +55,11 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton isActive={true}>
-                  <LayoutDashboard className="h-4 w-4" />
-                  <span>Dashboard</span>
+                <SidebarMenuButton asChild isActive={true}>
+                  <a href="/dashboard">
+                    <LayoutDashboard className="h-4 w-4" />
+                    <span>Dashboard</span>
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
