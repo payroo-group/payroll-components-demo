@@ -31,7 +31,7 @@ import { Label } from "~/components/ui/label";
 // Sample driver data
 const driversData = [
   {
-    id: 1,
+    id: "1",
     name: "John Martinez",
     employeeId: "DRV-001",
     status: "Active",
@@ -42,7 +42,7 @@ const driversData = [
     reviewer: "Eddie Lake",
   },
   {
-    id: 2,
+    id: "2",
     name: "Sarah Chen",
     employeeId: "DRV-002",
     status: "Active",
@@ -53,7 +53,7 @@ const driversData = [
     reviewer: "Eddie Lake",
   },
   {
-    id: 3,
+    id: "3",
     name: "Michael Johnson",
     employeeId: "DRV-003",
     status: "On Leave",
@@ -64,7 +64,7 @@ const driversData = [
     reviewer: "Jamik Tashpulatov",
   },
   {
-    id: 4,
+    id: "4",
     name: "Emily Rodriguez",
     employeeId: "DRV-004",
     status: "Active",
@@ -75,7 +75,7 @@ const driversData = [
     reviewer: "Jamik Tashpulatov",
   },
   {
-    id: 5,
+    id: "5",
     name: "David Kim",
     employeeId: "DRV-005",
     status: "Inactive",
@@ -86,7 +86,7 @@ const driversData = [
     reviewer: "Eddie Lake",
   },
   {
-    id: 6,
+    id: "6",
     name: "Lisa Anderson",
     employeeId: "DRV-006",
     status: "Active",
@@ -97,7 +97,7 @@ const driversData = [
     reviewer: "Jamik Tashpulatov",
   },
   {
-    id: 7,
+    id: "7",
     name: "Robert Taylor",
     employeeId: "DRV-007",
     status: "Active",
@@ -108,7 +108,7 @@ const driversData = [
     reviewer: "Eddie Lake",
   },
   {
-    id: 8,
+    id: "8",
     name: "Maria Garcia",
     employeeId: "DRV-008",
     status: "On Leave",
@@ -119,7 +119,7 @@ const driversData = [
     reviewer: "Jamik Tashpulatov",
   },
   {
-    id: 9,
+    id: "9",
     name: "James Wilson",
     employeeId: "DRV-009",
     status: "Active",
@@ -130,7 +130,7 @@ const driversData = [
     reviewer: "Eddie Lake",
   },
   {
-    id: 10,
+    id: "10",
     name: "Jennifer Brown",
     employeeId: "DRV-010",
     status: "Active",
@@ -143,11 +143,11 @@ const driversData = [
 ];
 
 export function DriverProfilesPage() {
-  const [selectedRows, setSelectedRows] = useState<number[]>([]);
+  const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
 
-  const toggleRowSelection = (id: number) => {
+  const toggleRowSelection = (id: string) => {
     setSelectedRows((prev) =>
       prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id]
     );
@@ -327,7 +327,9 @@ export function DriverProfilesPage() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>View Details</DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <a href={`/driver-detail/${driver.id}`}>View Details</a>
+                          </DropdownMenuItem>
                           <DropdownMenuItem>Edit Driver</DropdownMenuItem>
                           <DropdownMenuItem>Assign Vehicle</DropdownMenuItem>
                           <DropdownMenuItem className="text-red-600">

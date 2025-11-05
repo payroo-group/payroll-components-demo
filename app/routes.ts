@@ -4,4 +4,5 @@ export default [
   index("routes/home.tsx"),
   route("dashboard", "routes/dashboard.tsx"),
   route("driver-profiles", "routes/driver-profiles.tsx"),
+  route("driver-detail/:id", "routes/driver-detail.$id.tsx"),
 ] satisfies RouteConfig;

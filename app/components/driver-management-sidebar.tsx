@@ -88,7 +88,7 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/driver-profiles"}>
+                <SidebarMenuButton asChild isActive={location.pathname === "/driver-profiles" || location.pathname.startsWith("/driver-detail")}>
                   <a href="/driver-profiles">
                     <UserCircle className="h-4 w-4" />
                     <span>Driver Profiles</span>
