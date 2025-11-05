@@ -86,9 +86,11 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <UserCircle className="h-4 w-4" />
-                  <span>Driver Profiles</span>
+                <SidebarMenuButton asChild>
+                  <a href="/driver-profiles">
+                    <UserCircle className="h-4 w-4" />
+                    <span>Driver Profiles</span>
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
