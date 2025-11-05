@@ -20,6 +20,13 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { Badge } from "~/components/ui/badge";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "~/components/ui/popover";
+import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
 
 // Sample driver data
 const driversData = [
@@ -188,10 +195,64 @@ export function DriverProfilesPage() {
                 <Settings2 className="mr-2 h-4 w-4" />
                 Customize Columns
               </Button>
-              <Button size="sm">
-                <Plus className="mr-2 h-4 w-4" />
-                Add Driver
-              </Button>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button size="sm">
+                    <Plus className="mr-2 h-4 w-4" />
+                    Add Driver
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-96" align="end">
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <h4 className="font-semibold text-lg">Add New Driver</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Fill in the driver information below
+                      </p>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Full Name</Label>
+                        <Input id="name" placeholder="John Doe" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="employeeId">Employee ID</Label>
+                        <Input id="employeeId" placeholder="DRV-011" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="vehicleType">Vehicle Type</Label>
+                        <Input id="vehicleType" placeholder="Delivery Van" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="licenseNumber">License Number</Label>
+                        <Input id="licenseNumber" placeholder="DL-1234567" />
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="rating">Rating</Label>
+                          <Input id="rating" type="number" step="0.1" placeholder="4.5" />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="totalDeliveries">Total Deliveries</Label>
+                          <Input id="totalDeliveries" type="number" placeholder="100" />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="reviewer">Reviewer</Label>
+                        <Input id="reviewer" placeholder="Eddie Lake" />
+                      </div>
+                      <div className="flex gap-2 justify-end pt-2">
+                        <Button variant="outline" size="sm">
+                          Cancel
+                        </Button>
+                        <Button size="sm">
+                          Add Driver
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
 
