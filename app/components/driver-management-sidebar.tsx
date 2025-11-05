@@ -20,6 +20,7 @@ import {
   Building2,
   Lock,
 } from "lucide-react";
+import { useLocation } from "react-router";
 import {
   Sidebar,
   SidebarContent,
@@ -34,6 +35,7 @@ import {
 } from "~/components/ui/sidebar";
 
 export function DriverManagementSidebar() {
+  const location = useLocation();
   return (
     <Sidebar>
       <SidebarHeader>
@@ -55,7 +57,7 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={true}>
+                <SidebarMenuButton asChild isActive={location.pathname === "/dashboard"}>
                   <a href="/dashboard">
                     <LayoutDashboard className="h-4 w-4" />
                     <span>Dashboard</span>
@@ -86,7 +88,7 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
+                <SidebarMenuButton asChild isActive={location.pathname === "/driver-profiles"}>
                   <a href="/driver-profiles">
                     <UserCircle className="h-4 w-4" />
                     <span>Driver Profiles</span>
