@@ -109,55 +109,14 @@ export function DriverManagementSidebar() {
                   <span>Driver Status</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <GraduationCap className="h-4 w-4" />
-                  <span>Training & Certs</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
         <SidebarSeparator />
 
-        {/* Vehicle Management Section */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Vehicle Management</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <Car className="h-4 w-4" />
-                  <span>Fleet Overview</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <Wrench className="h-4 w-4" />
-                  <span>Maintenance</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <Fuel className="h-4 w-4" />
-                  <span>Fuel Management</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <MapPin className="h-4 w-4" />
-                  <span>GPS Tracking</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarSeparator />
-
-        {/* Financial Section */}
-        <SidebarGroup>
+         {/* Financial Section */}
+         <SidebarGroup>
           <SidebarGroupLabel>Financial</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -190,6 +149,31 @@ export function DriverManagementSidebar() {
         </SidebarGroup>
 
         <SidebarSeparator />
+
+        {/* Vehicle Management Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Vehicle Management</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <Car className="h-4 w-4" />
+                  <span>Fleet Overview</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <MapPin className="h-4 w-4" />
+                  <span>GPS Tracking</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+       
 
         {/* Settings Section */}
         <SidebarGroup>
