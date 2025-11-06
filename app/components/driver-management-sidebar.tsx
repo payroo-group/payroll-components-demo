@@ -114,16 +114,18 @@ export function DriverManagementSidebar() {
         <SidebarSeparator />
 
          {/* Financial Section */}
-         <SidebarGroup>
-          <SidebarGroupLabel>Financial</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <DollarSign className="h-4 w-4" />
-                  <span>Payroll</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+             <SidebarGroup>
+              <SidebarGroupLabel>Financial</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={location.pathname === "/payroll"}>
+                      <a href="/payroll">
+                        <DollarSign className="h-4 w-4" />
+                        <span>Payroll</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <CreditCard className="h-4 w-4" />
@@ -147,31 +149,6 @@ export function DriverManagementSidebar() {
         </SidebarGroup>
 
         <SidebarSeparator />
-
-        {/* Vehicle Management Section */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Vehicle Management</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <Car className="h-4 w-4" />
-                  <span>Fleet Overview</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <MapPin className="h-4 w-4" />
-                  <span>GPS Tracking</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarSeparator />
-
-       
 
         {/* Settings Section */}
         <SidebarGroup>

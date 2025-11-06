@@ -1,7 +1,7 @@
 "use client"
 
 import { useParams, useNavigate } from "react-router";
-import { ArrowLeft, Mail, Phone, MapPin, Calendar, Star, Package, AlertCircle, DollarSign, CreditCard } from "lucide-react";
+import { ArrowLeft, Mail, Phone, MapPin, Calendar, Star, Package, AlertCircle, DollarSign, CreditCard, Building2, Hash, CheckCircle2, Plus } from "lucide-react";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
@@ -30,16 +30,32 @@ const driversData = [
     totalDeliveries: 1247,
     reviewer: "Eddie Lake",
     email: "john.martinez@company.com",
-    phone: "+1 (555) 123-4567",
+    phone: "+61 2 9876 5432",
     address: "123 Main St, San Francisco, CA 94102",
     joinDate: "January 15, 2022",
     vehicleAssigned: "Van #247 (Toyota Hiace)",
-    emergencyContact: "Maria Martinez - +1 (555) 987-6543",
+    emergencyContact: "Maria Martinez - +61 412 345 678",
     licenseExpiry: "December 31, 2025",
     completionRate: 98,
     onTimeRate: 96,
     customerRating: 4.8,
     totalDistance: "45,678 km",
+    bankAccounts: [
+      {
+        id: 1,
+        bankName: "Commonwealth Bank",
+        accountNumber: "****5678",
+        accountType: "Transaction",
+        isPrimary: true,
+      },
+      {
+        id: 2,
+        bankName: "Westpac",
+        accountNumber: "****3421",
+        accountType: "Savings",
+        isPrimary: false,
+      },
+    ],
     payHistory: [
       { date: "Dec 15, 2024", amount: "$2,450.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
       { date: "Nov 15, 2024", amount: "$2,450.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
@@ -59,16 +75,32 @@ const driversData = [
     totalDeliveries: 982,
     reviewer: "Eddie Lake",
     email: "sarah.chen@company.com",
-    phone: "+1 (555) 234-5678",
+    phone: "+61 3 8765 4321",
     address: "456 Oak Ave, Oakland, CA 94601",
     joinDate: "March 22, 2022",
     vehicleAssigned: "Truck #189 (Isuzu NPR)",
-    emergencyContact: "David Chen - +1 (555) 876-5432",
+    emergencyContact: "David Chen - +61 423 456 789",
     licenseExpiry: "June 15, 2026",
     completionRate: 99,
     onTimeRate: 97,
     customerRating: 4.9,
     totalDistance: "52,341 km",
+    bankAccounts: [
+      {
+        id: 1,
+        bankName: "ANZ Bank",
+        accountNumber: "****8901",
+        accountType: "Transaction",
+        isPrimary: true,
+      },
+      {
+        id: 2,
+        bankName: "NAB",
+        accountNumber: "****6789",
+        accountType: "Savings",
+        isPrimary: false,
+      },
+    ],
     payHistory: [
       { date: "Dec 15, 2024", amount: "$2,650.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
       { date: "Nov 15, 2024", amount: "$2,650.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
@@ -87,16 +119,32 @@ const driversData = [
     totalDeliveries: 756,
     reviewer: "Jamik Tashpulatov",
     email: "michael.j@company.com",
-    phone: "+1 (555) 345-6789",
+    phone: "+61 7 5432 1098",
     address: "789 Pine St, Berkeley, CA 94704",
     joinDate: "June 10, 2022",
     vehicleAssigned: "Van #312 (Mercedes Sprinter)",
-    emergencyContact: "Lisa Johnson - +1 (555) 765-4321",
+    emergencyContact: "Lisa Johnson - +61 434 567 890",
     licenseExpiry: "March 20, 2026",
     completionRate: 95,
     onTimeRate: 93,
     customerRating: 4.6,
     totalDistance: "38,912 km",
+    bankAccounts: [
+      {
+        id: 1,
+        bankName: "Westpac",
+        accountNumber: "****2345",
+        accountType: "Transaction",
+        isPrimary: true,
+      },
+      {
+        id: 2,
+        bankName: "Bendigo Bank",
+        accountNumber: "****7890",
+        accountType: "Transaction",
+        isPrimary: false,
+      },
+    ],
     payHistory: [
       { date: "Nov 15, 2024", amount: "$2,300.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
       { date: "Oct 15, 2024", amount: "$2,300.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
@@ -182,6 +230,9 @@ export function DriverDetailPage() {
               </div>
             </div>
             <div className="flex gap-2">
+              <Button variant="outline" onClick={() => navigate("/payroll")}>
+                Manage Payroll
+              </Button>
               <Button variant="outline">Edit Profile</Button>
             </div>
           </div>
@@ -307,24 +358,48 @@ export function DriverDetailPage() {
               </CardContent>
             </Card>
 
-            {/* Reviewer */}
+            {/* Bank Accounts */}
             <Card>
               <CardHeader>
-                <CardTitle>Assigned Reviewer</CardTitle>
-                <CardDescription>Performance supervisor</CardDescription>
+                <CardTitle>Bank Accounts</CardTitle>
+                <CardDescription>
+                  Salary deposits can be split across up to 2 bank accounts
+                </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-sm font-bold text-primary">
-                      {driver.reviewer.split(" ").map(n => n[0]).join("")}
-                    </span>
+              <CardContent className="space-y-3">
+                {driver.bankAccounts?.map((account) => (
+                  <div
+                    key={account.id}
+                    className="flex items-center justify-between p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Building2 className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <p className="text-sm font-semibold">{account.bankName}</p>
+                          {account.isPrimary && (
+                            <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20 text-xs">
+                              Primary
+                            </Badge>
+                          )}
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          {account.accountType} • {account.accountNumber}
+                        </p>
+                      </div>
+                    </div>
+                    {account.isPrimary && (
+                      <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    )}
                   </div>
-                  <div>
-                    <p className="text-sm font-medium">{driver.reviewer}</p>
-                    <p className="text-xs text-muted-foreground">Performance Manager</p>
-                  </div>
-                </div>
+                ))}
+                
+                <Button variant="outline" className="w-full" size="sm">
+                  <Plus className="mr-2 h-4 w-4" />
+                  Add Bank Account
+                </Button>
               </CardContent>
             </Card>
           </div>
