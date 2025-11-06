@@ -70,14 +70,6 @@ export function DriverManagementSidebar() {
                   <span>Notifications</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/calendar"}>
-                  <a href="/calendar">
-                    <CalendarDays className="h-4 w-4" />
-                    <span>Calendar</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -101,6 +93,14 @@ export function DriverManagementSidebar() {
                 <SidebarMenuButton>
                   <Award className="h-4 w-4" />
                   <span>Timesheets</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={location.pathname === "/calendar"}>
+                  <a href="/calendar">
+                    <CalendarDays className="h-4 w-4" />
+                    <span>Calendar</span>
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
