@@ -6,4 +6,5 @@ export default [
   route("driver-profiles", "routes/driver-profiles.tsx"),
   route("driver-detail/:id", "routes/driver-detail.$id.tsx"),
   route("payroll", "routes/payroll.tsx"),
+  route("payroll-history", "routes/payroll-history.tsx"),
 ] satisfies RouteConfig;

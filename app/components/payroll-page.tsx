@@ -1,6 +1,7 @@
 "use client"
 
 import { DollarSign, Download, Filter, Search, History } from "lucide-react";
+import { useNavigate } from "react-router";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
@@ -117,6 +118,8 @@ const payrollData = [
 ];
 
 export function PayrollPage() {
+  const navigate = useNavigate();
+  
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "Paid":
@@ -160,7 +163,7 @@ export function PayrollPage() {
                 Manage and process driver salaries and payments
               </p>
             </div>
-            <Button>
+            <Button onClick={() => navigate("/payroll-history")}>
               <History className="mr-2 h-4 w-4" />
               Payroll History
             </Button>
