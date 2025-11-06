@@ -4,7 +4,7 @@ import {
   CalendarDays,
   UserCircle,
   UserPlus,
-  Award,
+  ClipboardList,
   CircleDot,
   GraduationCap,
   Car,
@@ -91,7 +91,7 @@ export function DriverManagementSidebar() {
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
-                  <Award className="h-4 w-4" />
+                  <ClipboardList className="h-4 w-4" />
                   <span>Timesheets</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
