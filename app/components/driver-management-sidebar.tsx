@@ -73,7 +73,7 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <TrendingUp className="h-4 w-4" />
-                  <span>Analytics</span>
+                  <span>Calendar</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
