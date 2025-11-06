@@ -1,7 +1,7 @@
 import {
   LayoutDashboard,
   Bell,
-  TrendingUp,
+  CalendarDays,
   UserCircle,
   UserPlus,
   Award,
@@ -71,9 +71,11 @@ export function DriverManagementSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <TrendingUp className="h-4 w-4" />
-                  <span>Calendar</span>
+                <SidebarMenuButton asChild isActive={location.pathname === "/calendar"}>
+                  <a href="/calendar">
+                    <CalendarDays className="h-4 w-4" />
+                    <span>Calendar</span>
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
