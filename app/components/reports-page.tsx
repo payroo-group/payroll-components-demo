@@ -1,11 +1,10 @@
 "use client"
 
-import { FileText, Download, Filter, Search } from "lucide-react";
+import { FileText } from "lucide-react";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 
 export function ReportsPage() {
   return (
@@ -17,65 +16,395 @@ export function ReportsPage() {
           <h1 className="text-lg font-semibold">Reports</h1>
         </header>
         <main className="flex-1 p-6">
-          <div className="mb-6 flex items-start justify-between">
-            <div>
-              <h2 className="text-3xl font-bold">Financial Reports & Payslips</h2>
-              <p className="text-muted-foreground mt-2">
-                Access payslips, financial reports, and payment documentation
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm">
-                <Filter className="mr-2 h-4 w-4" />
-                Filter
-              </Button>
-              <Button size="sm">
-                <Download className="mr-2 h-4 w-4" />
-                Export
-              </Button>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-3xl font-bold">Financial Reports & Payslips</h2>
+            <p className="text-muted-foreground mt-2">
+              Access payslips, financial reports, and payment documentation
+            </p>
           </div>
 
-          {/* Search and Actions */}
-          <div className="mb-6 flex gap-4">
-            <div className="relative flex-1 max-w-sm">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search reports..."
-                className="pl-9"
-              />
-            </div>
-          </div>
+          {/* Tabs Navigation */}
+          <Tabs defaultValue="payroll-summary" className="w-full">
+            <TabsList className="w-full h-auto flex flex-wrap justify-start gap-1">
+              <TabsTrigger value="payroll-summary">Payroll Summary</TabsTrigger>
+              <TabsTrigger value="payroll-variance">Payroll Variance</TabsTrigger>
+              <TabsTrigger value="payroll-tax">Payroll Tax</TabsTrigger>
+              <TabsTrigger value="finalisations">Finalisations</TabsTrigger>
+              <TabsTrigger value="timesheets">Timesheets</TabsTrigger>
+              <TabsTrigger value="leave-balances">Leave Balances</TabsTrigger>
+              <TabsTrigger value="leave-requests">Leave Requests</TabsTrigger>
+              <TabsTrigger value="expense-claims">Expense Claims</TabsTrigger>
+              <TabsTrigger value="costing">Costing</TabsTrigger>
+              <TabsTrigger value="pay-items">Pay Items</TabsTrigger>
+              <TabsTrigger value="super-contributions">Super Contributions</TabsTrigger>
+              <TabsTrigger value="gross-to-net">Gross To Net</TabsTrigger>
+              <TabsTrigger value="employee-contact">Employee Contact Details</TabsTrigger>
+            </TabsList>
 
-          {/* Placeholder for Embedded Payslip/Reports Component */}
-          <Card className="min-h-[600px]">
-            <CardHeader>
-              <CardTitle>Payslips & Financial Reports</CardTitle>
-              <CardDescription>Embedded reports component will be added here</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col items-center justify-center min-h-[500px]">
-              <div className="flex flex-col items-center gap-4 text-center">
-                <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center">
-                  <FileText className="h-10 w-10 text-muted-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Embedded Payslip & Reports Placeholder</h3>
-                  <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for your embedded reports component.
-                    Add payslip management, financial reports, payment summaries, and document downloads here.
-                  </p>
-                </div>
-                <div className="mt-4 space-y-3">
-                  <div className="p-4 bg-muted/50 rounded-lg">
-                    <code className="text-sm text-muted-foreground">
-                      {`{/* Add your embedded reports component here */}`}
-                    </code>
+            {/* Payroll Summary Tab */}
+            <TabsContent value="payroll-summary">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Payroll Summary</CardTitle>
+                  <CardDescription>Embedded payroll summary component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Payroll Summary Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded payroll summary component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
                   </div>
-                  
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Payroll Variance Tab */}
+            <TabsContent value="payroll-variance">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Payroll Variance</CardTitle>
+                  <CardDescription>Embedded payroll variance component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Payroll Variance Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded payroll variance component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Payroll Tax Tab */}
+            <TabsContent value="payroll-tax">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Payroll Tax</CardTitle>
+                  <CardDescription>Embedded payroll tax component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Payroll Tax Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded payroll tax component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Finalisations Tab */}
+            <TabsContent value="finalisations">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Finalisations</CardTitle>
+                  <CardDescription>Embedded finalisations component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Finalisations Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded finalisations component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Timesheets Tab */}
+            <TabsContent value="timesheets">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Timesheets</CardTitle>
+                  <CardDescription>Embedded timesheets component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Timesheets Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded timesheets component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Leave Balances Tab */}
+            <TabsContent value="leave-balances">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Leave Balances</CardTitle>
+                  <CardDescription>Embedded leave balances component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Leave Balances Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded leave balances component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Leave Requests Tab */}
+            <TabsContent value="leave-requests">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Leave Requests</CardTitle>
+                  <CardDescription>Embedded leave requests component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Leave Requests Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded leave requests component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Expense Claims Tab */}
+            <TabsContent value="expense-claims">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Expense Claims</CardTitle>
+                  <CardDescription>Embedded expense claims component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Expense Claims Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded expense claims component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Costing Tab */}
+            <TabsContent value="costing">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Costing</CardTitle>
+                  <CardDescription>Embedded costing component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Costing Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded costing component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Pay Items Tab */}
+            <TabsContent value="pay-items">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Pay Items</CardTitle>
+                  <CardDescription>Embedded pay items component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Pay Items Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded pay items component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Super Contributions Tab */}
+            <TabsContent value="super-contributions">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Super Contributions</CardTitle>
+                  <CardDescription>Embedded super contributions component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Super Contributions Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded super contributions component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Gross To Net Tab */}
+            <TabsContent value="gross-to-net">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Gross To Net</CardTitle>
+                  <CardDescription>Embedded gross to net component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Gross To Net Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded gross to net component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Employee Contact Details Tab */}
+            <TabsContent value="employee-contact">
+              <Card className="min-h-[500px]">
+                <CardHeader>
+                  <CardTitle>Employee Contact Details</CardTitle>
+                  <CardDescription>Embedded employee contact details component will be added here</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                  <div className="flex flex-col items-center gap-4 text-center">
+                    <div className="h-16 w-16 rounded-full bg-muted flex items-center justify-center">
+                      <FileText className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Employee Contact Details Placeholder</h3>
+                      <p className="text-sm text-muted-foreground max-w-md">
+                        Add your embedded employee contact details component here
+                      </p>
+                    </div>
+                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                      <code className="text-sm text-muted-foreground">
+                        {`{/* Embedded component */}`}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </main>
       </SidebarInset>
     </SidebarProvider>
