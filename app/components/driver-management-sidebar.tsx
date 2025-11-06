@@ -49,7 +49,7 @@ export function DriverManagementSidebar() {
           </div>
         </div>
       </SidebarHeader>
-      
+
       <SidebarContent>
         {/* Overview Section */}
         <SidebarGroup>
@@ -117,19 +117,27 @@ export function DriverManagementSidebar() {
 
         <SidebarSeparator />
 
-         {/* Financial Section */}
-             <SidebarGroup>
-              <SidebarGroupLabel>Financial</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={location.pathname === "/payroll"}>
-                      <a href="/payroll">
-                        <DollarSign className="h-4 w-4" />
-                        <span>Payroll</span>
-                      </a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+        {/* Financial Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Financial</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={location.pathname === "/payroll"}>
+                  <a href="/payroll">
+                    <DollarSign className="h-4 w-4" />
+                    <span>Payroll</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={location.pathname === "/reports"}>
+                  <a href="/reports">
+                    <PieChart className="h-4 w-4" />
+                    <span>Reports</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <CreditCard className="h-4 w-4" />
@@ -142,14 +150,7 @@ export function DriverManagementSidebar() {
                   <span>Invoicing</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/reports"}>
-                  <a href="/reports">
-                    <PieChart className="h-4 w-4" />
-                    <span>Reports</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
