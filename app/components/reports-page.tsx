@@ -25,20 +25,85 @@ export function ReportsPage() {
 
           {/* Tabs Navigation */}
           <Tabs defaultValue="payroll-summary" className="w-full">
-            <TabsList className="w-full h-auto flex flex-wrap justify-start gap-1">
-              <TabsTrigger value="payroll-summary">Payroll Summary</TabsTrigger>
-              <TabsTrigger value="payroll-variance">Payroll Variance</TabsTrigger>
-              <TabsTrigger value="payroll-tax">Payroll Tax</TabsTrigger>
-              <TabsTrigger value="finalisations">Finalisations</TabsTrigger>
-              <TabsTrigger value="timesheets">Timesheets</TabsTrigger>
-              <TabsTrigger value="leave-balances">Leave Balances</TabsTrigger>
-              <TabsTrigger value="leave-requests">Leave Requests</TabsTrigger>
-              <TabsTrigger value="expense-claims">Expense Claims</TabsTrigger>
-              <TabsTrigger value="costing">Costing</TabsTrigger>
-              <TabsTrigger value="pay-items">Pay Items</TabsTrigger>
-              <TabsTrigger value="super-contributions">Super Contributions</TabsTrigger>
-              <TabsTrigger value="gross-to-net">Gross To Net</TabsTrigger>
-              <TabsTrigger value="employee-contact">Employee Contact Details</TabsTrigger>
+            <TabsList className="w-full h-auto flex flex-wrap justify-start gap-0 bg-transparent p-0 border-b border-border mb-6">
+              <TabsTrigger 
+                value="payroll-summary" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Payroll Summary
+              </TabsTrigger>
+              <TabsTrigger 
+                value="payroll-variance" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Payroll Variance
+              </TabsTrigger>
+              <TabsTrigger 
+                value="payroll-tax" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Payroll Tax
+              </TabsTrigger>
+              <TabsTrigger 
+                value="finalisations" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Finalisations
+              </TabsTrigger>
+              <TabsTrigger 
+                value="timesheets" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Timesheets
+              </TabsTrigger>
+              <TabsTrigger 
+                value="leave-balances" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Leave Balances
+              </TabsTrigger>
+              <TabsTrigger 
+                value="leave-requests" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Leave Requests
+              </TabsTrigger>
+              <TabsTrigger 
+                value="expense-claims" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Expense Claims
+              </TabsTrigger>
+              <TabsTrigger 
+                value="costing" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Costing
+              </TabsTrigger>
+              <TabsTrigger 
+                value="pay-items" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Pay Items
+              </TabsTrigger>
+              <TabsTrigger 
+                value="super-contributions" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Super Contributions
+              </TabsTrigger>
+              <TabsTrigger 
+                value="gross-to-net" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Gross To Net
+              </TabsTrigger>
+              <TabsTrigger 
+                value="employee-contact" 
+                className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
+              >
+                Employee Contact Details
+              </TabsTrigger>
             </TabsList>
 
             {/* Payroll Summary Tab */}
