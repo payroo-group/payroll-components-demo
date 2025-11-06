@@ -100,7 +100,7 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <Award className="h-4 w-4" />
-                  <span>Performance</span>
+                  <span>Timesheets</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
@@ -143,7 +143,7 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <PieChart className="h-4 w-4" />
-                  <span>Financial Reports</span>
+                  <span>Reports</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
