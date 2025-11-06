@@ -90,9 +90,11 @@ export function DriverManagementSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <ClipboardList className="h-4 w-4" />
-                  <span>Timesheets</span>
+                <SidebarMenuButton asChild isActive={location.pathname === "/timesheets"}>
+                  <a href="/timesheets">
+                    <ClipboardList className="h-4 w-4" />
+                    <span>Timesheets</span>
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
