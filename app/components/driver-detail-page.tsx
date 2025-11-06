@@ -1,7 +1,7 @@
 "use client"
 
 import { useParams, useNavigate } from "react-router";
-import { ArrowLeft, Mail, Phone, MapPin, Calendar, Star, Package, AlertCircle, DollarSign, CreditCard, Building2, Hash, CheckCircle2, Plus } from "lucide-react";
+import { ArrowLeft, Mail, Phone, MapPin, Calendar, Star, Package, AlertCircle, DollarSign, CreditCard, Building2, Hash, CheckCircle2, Plus, FileText } from "lucide-react";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
@@ -422,37 +422,24 @@ export function DriverDetailPage() {
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Date</TableHead>
-                      <TableHead>Type</TableHead>
-                      <TableHead>Payment Method</TableHead>
-                      <TableHead>Amount</TableHead>
-                      <TableHead>Status</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {driver.payHistory?.map((payment, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{payment.date}</TableCell>
-                        <TableCell>
-                          <Badge variant="outline">{payment.type}</Badge>
-                        </TableCell>
-                        <TableCell className="text-muted-foreground">
-                          {payment.method}
-                        </TableCell>
-                        <TableCell className="font-semibold">{payment.amount}</TableCell>
-                        <TableCell>
-                          <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20">
-                            {payment.status}
-                          </Badge>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+              <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
+                <div className="flex flex-col items-center gap-4 text-center">
+                  <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center">
+                    <FileText className="h-10 w-10 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Embedded Payslip Placeholder</h3>
+                    <p className="text-sm text-muted-foreground max-w-md">
+                      This section is reserved for your embedded payslip component.
+                      Add detailed payment history, salary breakdowns, and downloadable payslips here.
+                    </p>
+                  </div>
+                  <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                    <code className="text-sm text-muted-foreground">
+                      {`{/* Add your embedded payslip component here */}`}
+                    </code>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
