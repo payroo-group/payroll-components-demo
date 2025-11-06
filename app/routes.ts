@@ -7,5 +7,6 @@ export default [
   route("driver-detail/:id", "routes/driver-detail.$id.tsx"),
   route("payroll", "routes/payroll.tsx"),
   route("payroll-history", "routes/payroll-history.tsx"),
+  route("employee-payroll/:id", "routes/employee-payroll.$id.tsx"),
   route("calendar", "routes/calendar.tsx"),
 ] satisfies RouteConfig;
