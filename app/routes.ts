@@ -9,4 +9,5 @@ export default [
   route("payroll-history", "routes/payroll-history.tsx"),
   route("employee-payroll/:id", "routes/employee-payroll.$id.tsx"),
   route("calendar", "routes/calendar.tsx"),
+  route("reports", "routes/reports.tsx"),
 ] satisfies RouteConfig;

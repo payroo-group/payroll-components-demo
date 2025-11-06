@@ -141,9 +141,11 @@ export function DriverManagementSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <PieChart className="h-4 w-4" />
-                  <span>Reports</span>
+                <SidebarMenuButton asChild isActive={location.pathname === "/reports"}>
+                  <a href="/reports">
+                    <PieChart className="h-4 w-4" />
+                    <span>Reports</span>
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
