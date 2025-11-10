@@ -36,6 +36,7 @@ import {
 
 export function DriverManagementSidebar() {
   const location = useLocation();
+  
   return (
     <Sidebar>
       <SidebarHeader>
