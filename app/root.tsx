@@ -8,7 +8,9 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import "@payroo-group/payroll-components/styles.css";
 import "./app.css";
+import "./payroll-components.css";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

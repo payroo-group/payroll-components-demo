@@ -1,9 +1,19 @@
-"use client"
+"use client";
 
 import { Calendar as CalendarIcon } from "lucide-react";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 
 export function CalendarPage() {
   return (
@@ -26,7 +36,9 @@ export function CalendarPage() {
           <Card className="min-h-[700px]">
             <CardHeader>
               <CardTitle>Calendar View</CardTitle>
-              <CardDescription>Embedded calendar component will be added here</CardDescription>
+              <CardDescription>
+                Embedded calendar component will be added here
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center min-h-[600px]">
               <div className="flex flex-col items-center gap-4 text-center">
@@ -34,10 +46,13 @@ export function CalendarPage() {
                   <CalendarIcon className="h-10 w-10 text-muted-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Embedded Calendar Placeholder</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Embedded Calendar Placeholder
+                  </h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for your embedded calendar component.
-                    Add your custom calendar view, schedule management, or appointment booking system here.
+                    This section is reserved for your embedded calendar
+                    component. Add your custom calendar view, schedule
+                    management, or appointment booking system here.
                   </p>
                 </div>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
@@ -53,4 +68,3 @@ export function CalendarPage() {
     </SidebarProvider>
   );
 }
-

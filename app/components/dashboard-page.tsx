@@ -1,11 +1,46 @@
-"use client"
+"use client";
 
 import { UserCircle, Car, Route, AlertTriangle } from "lucide-react";
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart, RadialBar, RadialBarChart, PolarAngleAxis, PolarRadiusAxis, PolarGrid, Legend, Pie, PieChart, Label, Radar, RadarChart } from "recharts";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Line,
+  LineChart,
+  RadialBar,
+  RadialBarChart,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  PolarGrid,
+  Legend,
+  Pie,
+  PieChart,
+  Label,
+  Radar,
+  RadarChart,
+} from "recharts";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "~/components/ui/chart";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "~/components/ui/chart";
 import type { ChartConfig } from "~/components/ui/chart";
 
 export function DashboardPage() {
@@ -24,11 +59,13 @@ export function DashboardPage() {
               Manage your drivers, vehicles, and operations from one central hub
             </p>
           </div>
-          
+
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Drivers</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Active Drivers
+                </CardTitle>
                 <UserCircle className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -38,7 +75,7 @@ export function DashboardPage() {
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Vehicles</CardTitle>
@@ -51,10 +88,12 @@ export function DashboardPage() {
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Routes</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Active Routes
+                </CardTitle>
                 <Route className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -64,7 +103,7 @@ export function DashboardPage() {
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Incidents</CardTitle>
@@ -90,12 +129,14 @@ export function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <ChartContainer
-                  config={{
-                    drivers: {
-                      label: "Active Drivers",
-                      color: "hsl(270, 70%, 60%)",
-                    },
-                  } satisfies ChartConfig}
+                  config={
+                    {
+                      drivers: {
+                        label: "Active Drivers",
+                        color: "hsl(270, 70%, 60%)",
+                      },
+                    } satisfies ChartConfig
+                  }
                   className="h-[300px] w-full"
                 >
                   <AreaChart
@@ -110,7 +151,11 @@ export function DashboardPage() {
                     ]}
                     margin={{ left: 12, right: 12, top: 12, bottom: 12 }}
                   >
-                    <CartesianGrid strokeDasharray="0" stroke="hsl(240, 3%, 15%)" vertical={false} />
+                    <CartesianGrid
+                      strokeDasharray="0"
+                      stroke="hsl(240, 3%, 15%)"
+                      vertical={false}
+                    />
                     <XAxis
                       dataKey="day"
                       tickLine={false}
@@ -120,10 +165,28 @@ export function DashboardPage() {
                     />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <defs>
-                      <linearGradient id="fillDrivers" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="hsl(270, 70%, 60%)" stopOpacity={0.9} />
-                        <stop offset="50%" stopColor="hsl(270, 70%, 55%)" stopOpacity={0.5} />
-                        <stop offset="100%" stopColor="hsl(270, 70%, 50%)" stopOpacity={0.1} />
+                      <linearGradient
+                        id="fillDrivers"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="hsl(270, 70%, 60%)"
+                          stopOpacity={0.9}
+                        />
+                        <stop
+                          offset="50%"
+                          stopColor="hsl(270, 70%, 55%)"
+                          stopOpacity={0.5}
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="hsl(270, 70%, 50%)"
+                          stopOpacity={0.1}
+                        />
                       </linearGradient>
                     </defs>
                     <Area
@@ -147,45 +210,74 @@ export function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <ChartContainer
-                  config={{
-                    utilization: {
-                      label: "Utilization",
-                      color: "hsl(270, 80%, 70%)",
-                    },
-                    efficiency: {
-                      label: "Efficiency",
-                      color: "hsl(270, 75%, 60%)",
-                    },
-                    maintenance: {
-                      label: "Maintenance",
-                      color: "hsl(270, 70%, 50%)",
-                    },
-                    safety: {
-                      label: "Safety",
-                      color: "hsl(270, 65%, 40%)",
-                    },
-                  } satisfies ChartConfig}
+                  config={
+                    {
+                      utilization: {
+                        label: "Utilization",
+                        color: "hsl(270, 80%, 70%)",
+                      },
+                      efficiency: {
+                        label: "Efficiency",
+                        color: "hsl(270, 75%, 60%)",
+                      },
+                      maintenance: {
+                        label: "Maintenance",
+                        color: "hsl(270, 70%, 50%)",
+                      },
+                      safety: {
+                        label: "Safety",
+                        color: "hsl(270, 65%, 40%)",
+                      },
+                    } satisfies ChartConfig
+                  }
                   className="h-[300px] w-full"
                 >
                   <RadarChart
                     data={[
-                      { category: "Delivery", utilization: 88, efficiency: 92, maintenance: 85, safety: 95 },
-                      { category: "Cargo", utilization: 75, efficiency: 82, maintenance: 78, safety: 88 },
-                      { category: "Passenger", utilization: 92, efficiency: 90, maintenance: 88, safety: 93 },
-                      { category: "Service", utilization: 68, efficiency: 78, maintenance: 82, safety: 85 },
-                      { category: "Emergency", utilization: 65, efficiency: 95, maintenance: 90, safety: 98 },
+                      {
+                        category: "Delivery",
+                        utilization: 88,
+                        efficiency: 92,
+                        maintenance: 85,
+                        safety: 95,
+                      },
+                      {
+                        category: "Cargo",
+                        utilization: 75,
+                        efficiency: 82,
+                        maintenance: 78,
+                        safety: 88,
+                      },
+                      {
+                        category: "Passenger",
+                        utilization: 92,
+                        efficiency: 90,
+                        maintenance: 88,
+                        safety: 93,
+                      },
+                      {
+                        category: "Service",
+                        utilization: 68,
+                        efficiency: 78,
+                        maintenance: 82,
+                        safety: 85,
+                      },
+                      {
+                        category: "Emergency",
+                        utilization: 65,
+                        efficiency: 95,
+                        maintenance: 90,
+                        safety: 98,
+                      },
                     ]}
                   >
-                    <PolarGrid 
-                      stroke="hsl(240, 5%, 20%)" 
-                      strokeWidth={1}
-                    />
-                    <PolarAngleAxis 
-                      dataKey="category" 
+                    <PolarGrid stroke="hsl(240, 5%, 20%)" strokeWidth={1} />
+                    <PolarAngleAxis
+                      dataKey="category"
                       tick={{ fill: "hsl(0, 0%, 70%)", fontSize: 12 }}
                     />
-                    <PolarRadiusAxis 
-                      angle={90} 
+                    <PolarRadiusAxis
+                      angle={90}
                       domain={[0, 100]}
                       tick={{ fill: "hsl(0, 0%, 50%)", fontSize: 10 }}
                     />
@@ -238,8 +330,9 @@ export function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Use the sidebar to navigate through different sections of the driver management system.
-                  Start by viewing driver profiles, managing your fleet, or checking operational status.
+                  Use the sidebar to navigate through different sections of the
+                  driver management system. Start by viewing driver profiles,
+                  managing your fleet, or checking operational status.
                 </p>
               </CardContent>
             </Card>
@@ -249,4 +342,3 @@ export function DashboardPage() {
     </SidebarProvider>
   );
 }
-

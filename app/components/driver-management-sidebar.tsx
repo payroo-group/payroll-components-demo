@@ -57,7 +57,10 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/dashboard"}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/dashboard"}
+                >
                   <a href="/dashboard">
                     <LayoutDashboard className="h-4 w-4" />
                     <span>Dashboard</span>
@@ -82,7 +85,13 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/driver-profiles" || location.pathname.startsWith("/driver-detail")}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={
+                    location.pathname === "/driver-profiles" ||
+                    location.pathname.startsWith("/driver-detail")
+                  }
+                >
                   <a href="/driver-profiles">
                     <UserCircle className="h-4 w-4" />
                     <span>Driver Profiles</span>
@@ -90,7 +99,10 @@ export function DriverManagementSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/timesheets"}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/timesheets"}
+                >
                   <a href="/timesheets">
                     <ClipboardList className="h-4 w-4" />
                     <span>Timesheets</span>
@@ -98,7 +110,10 @@ export function DriverManagementSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/calendar"}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/calendar"}
+                >
                   <a href="/calendar">
                     <CalendarDays className="h-4 w-4" />
                     <span>Calendar</span>
@@ -123,7 +138,10 @@ export function DriverManagementSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/payroll"}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/payroll"}
+                >
                   <a href="/payroll">
                     <DollarSign className="h-4 w-4" />
                     <span>Payroll</span>
@@ -131,7 +149,10 @@ export function DriverManagementSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={location.pathname === "/reports"}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/reports"}
+                >
                   <a href="/reports">
                     <PieChart className="h-4 w-4" />
                     <span>Reports</span>
@@ -150,7 +171,6 @@ export function DriverManagementSidebar() {
                   <span>Invoicing</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -193,4 +213,3 @@ export function DriverManagementSidebar() {
     </Sidebar>
   );
 }
-

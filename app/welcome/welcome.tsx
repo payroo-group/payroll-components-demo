@@ -5,7 +5,6 @@ export function Welcome() {
   return (
     <SidebarProvider>
       <DriverManagementSidebar />
-      
     </SidebarProvider>
   );
 }

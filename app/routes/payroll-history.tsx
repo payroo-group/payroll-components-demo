@@ -11,4 +11,3 @@ export function meta({}: Route.MetaArgs) {
 export default function PayrollHistoryRoute() {
   return <PayrollHistoryPage />;
 }
-

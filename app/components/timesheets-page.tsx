@@ -1,9 +1,25 @@
-"use client"
+"use client";
 
-import { ClipboardList, Download, Filter, Search, Calendar } from "lucide-react";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import {
+  ClipboardList,
+  Download,
+  Filter,
+  Search,
+  Calendar,
+} from "lucide-react";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 
@@ -40,7 +56,9 @@ export function TimesheetsPage() {
           <Card className="min-h-[600px]">
             <CardHeader>
               <CardTitle>Timesheet Management</CardTitle>
-              <CardDescription>Embedded timesheets component will be added here</CardDescription>
+              <CardDescription>
+                Embedded timesheets component will be added here
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center min-h-[500px]">
               <div className="flex flex-col items-center gap-4 text-center">
@@ -48,10 +66,13 @@ export function TimesheetsPage() {
                   <ClipboardList className="h-10 w-10 text-muted-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Embedded Timesheets Placeholder</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Embedded Timesheets Placeholder
+                  </h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for your embedded timesheets component.
-                    Add time tracking, work hours management, shift scheduling, and attendance records here.
+                    This section is reserved for your embedded timesheets
+                    component. Add time tracking, work hours management, shift
+                    scheduling, and attendance records here.
                   </p>
                 </div>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
@@ -67,4 +88,3 @@ export function TimesheetsPage() {
     </SidebarProvider>
   );
 }
-

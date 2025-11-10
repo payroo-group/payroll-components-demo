@@ -1,8 +1,12 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { MoreHorizontal, Plus, Settings2 } from "lucide-react";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
 import {
   Table,
@@ -149,7 +153,7 @@ export function DriverProfilesPage() {
 
   const toggleRowSelection = (id: string) => {
     setSelectedRows((prev) =>
-      prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id],
     );
   };
 
@@ -164,11 +168,23 @@ export function DriverProfilesPage() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "Active":
-        return <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20">Active</Badge>;
+        return (
+          <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20">
+            Active
+          </Badge>
+        );
       case "On Leave":
-        return <Badge className="bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20">On Leave</Badge>;
+        return (
+          <Badge className="bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20">
+            On Leave
+          </Badge>
+        );
       case "Inactive":
-        return <Badge className="bg-gray-500/10 text-gray-500 hover:bg-gray-500/20">Inactive</Badge>;
+        return (
+          <Badge className="bg-gray-500/10 text-gray-500 hover:bg-gray-500/20">
+            Inactive
+          </Badge>
+        );
       default:
         return <Badge>{status}</Badge>;
     }
@@ -230,11 +246,22 @@ export function DriverProfilesPage() {
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="rating">Rating</Label>
-                          <Input id="rating" type="number" step="0.1" placeholder="4.5" />
+                          <Input
+                            id="rating"
+                            type="number"
+                            step="0.1"
+                            placeholder="4.5"
+                          />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="totalDeliveries">Total Deliveries</Label>
-                          <Input id="totalDeliveries" type="number" placeholder="100" />
+                          <Label htmlFor="totalDeliveries">
+                            Total Deliveries
+                          </Label>
+                          <Input
+                            id="totalDeliveries"
+                            type="number"
+                            placeholder="100"
+                          />
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -245,9 +272,7 @@ export function DriverProfilesPage() {
                         <Button variant="outline" size="sm">
                           Cancel
                         </Button>
-                        <Button size="sm">
-                          Add Driver
-                        </Button>
+                        <Button size="sm">Add Driver</Button>
                       </div>
                     </div>
                   </div>
@@ -322,13 +347,19 @@ export function DriverProfilesPage() {
                     <TableCell>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                          >
                             <MoreHorizontal className="h-4 w-4" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem asChild>
-                            <a href={`/driver-detail/${driver.id}`}>View Details</a>
+                            <a href={`/driver-detail/${driver.id}`}>
+                              View Details
+                            </a>
                           </DropdownMenuItem>
                           <DropdownMenuItem>Edit Driver</DropdownMenuItem>
                           <DropdownMenuItem>Assign Vehicle</DropdownMenuItem>
@@ -353,7 +384,8 @@ export function DriverProfilesPage() {
                 Rows per page: {rowsPerPage}
               </p>
               <p className="text-sm text-muted-foreground">
-                Page {currentPage} of {Math.ceil(driversData.length / rowsPerPage)}
+                Page {currentPage} of{" "}
+                {Math.ceil(driversData.length / rowsPerPage)}
               </p>
               <div className="flex gap-1">
                 <Button
@@ -378,7 +410,9 @@ export function DriverProfilesPage() {
                   variant="outline"
                   size="icon"
                   className="h-8 w-8"
-                  disabled={currentPage === Math.ceil(driversData.length / rowsPerPage)}
+                  disabled={
+                    currentPage === Math.ceil(driversData.length / rowsPerPage)
+                  }
                   onClick={() => setCurrentPage((prev) => prev + 1)}
                 >
                   ›
@@ -387,8 +421,12 @@ export function DriverProfilesPage() {
                   variant="outline"
                   size="icon"
                   className="h-8 w-8"
-                  disabled={currentPage === Math.ceil(driversData.length / rowsPerPage)}
-                  onClick={() => setCurrentPage(Math.ceil(driversData.length / rowsPerPage))}
+                  disabled={
+                    currentPage === Math.ceil(driversData.length / rowsPerPage)
+                  }
+                  onClick={() =>
+                    setCurrentPage(Math.ceil(driversData.length / rowsPerPage))
+                  }
                 >
                   »
                 </Button>
@@ -400,4 +438,3 @@ export function DriverProfilesPage() {
     </SidebarProvider>
   );
 }
-

@@ -1,10 +1,21 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card"
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "~/components/ui/chart"
-import { Button } from "~/components/ui/button"
+import * as React from "react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "~/components/ui/chart";
+import { Button } from "~/components/ui/button";
 
 const chartData = [
   { date: "Jun 24", visitors: 2400, sessions: 1800 },
@@ -14,7 +25,7 @@ const chartData = [
   { date: "Jun 28", visitors: 2600, sessions: 2000 },
   { date: "Jun 29", visitors: 3400, sessions: 2800 },
   { date: "Jun 30", visitors: 2900, sessions: 2300 },
-]
+];
 
 const chartConfig = {
   visitors: {
@@ -25,10 +36,10 @@ const chartConfig = {
     label: "Sessions",
     color: "hsl(270, 70%, 50%)",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export function VisitorsChart() {
-  const [timeRange, setTimeRange] = React.useState("3months")
+  const [timeRange, setTimeRange] = React.useState("3months");
 
   return (
     <Card>
@@ -114,7 +125,11 @@ export function VisitorsChart() {
                 />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="0" stroke="transparent" vertical={false} />
+            <CartesianGrid
+              strokeDasharray="0"
+              stroke="transparent"
+              vertical={false}
+            />
             <XAxis
               dataKey="date"
               tickLine={false}
@@ -146,6 +161,5 @@ export function VisitorsChart() {
         </ChartContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
-

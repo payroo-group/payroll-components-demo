@@ -1,10 +1,36 @@
-"use client"
+"use client";
 
 import { useParams, useNavigate } from "react-router";
-import { ArrowLeft, Mail, Phone, MapPin, Calendar, Star, Package, AlertCircle, DollarSign, CreditCard, Building2, Hash, CheckCircle2, Plus, FileText } from "lucide-react";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import {
+  ArrowLeft,
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  Star,
+  Package,
+  AlertCircle,
+  DollarSign,
+  CreditCard,
+  Building2,
+  Hash,
+  CheckCircle2,
+  Plus,
+  FileText,
+} from "lucide-react";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { Progress } from "~/components/ui/progress";
@@ -57,11 +83,41 @@ const driversData = [
       },
     ],
     payHistory: [
-      { date: "Dec 15, 2024", amount: "$2,450.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Nov 15, 2024", amount: "$2,450.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Oct 31, 2024", amount: "$350.00", type: "Bonus", method: "Direct Deposit", status: "Paid" },
-      { date: "Oct 15, 2024", amount: "$2,450.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Sep 15, 2024", amount: "$2,450.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
+      {
+        date: "Dec 15, 2024",
+        amount: "$2,450.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Nov 15, 2024",
+        amount: "$2,450.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Oct 31, 2024",
+        amount: "$350.00",
+        type: "Bonus",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Oct 15, 2024",
+        amount: "$2,450.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Sep 15, 2024",
+        amount: "$2,450.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
     ],
   },
   {
@@ -102,10 +158,34 @@ const driversData = [
       },
     ],
     payHistory: [
-      { date: "Dec 15, 2024", amount: "$2,650.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Nov 15, 2024", amount: "$2,650.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Oct 15, 2024", amount: "$2,650.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Sep 15, 2024", amount: "$2,650.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
+      {
+        date: "Dec 15, 2024",
+        amount: "$2,650.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Nov 15, 2024",
+        amount: "$2,650.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Oct 15, 2024",
+        amount: "$2,650.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Sep 15, 2024",
+        amount: "$2,650.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
     ],
   },
   {
@@ -146,9 +226,27 @@ const driversData = [
       },
     ],
     payHistory: [
-      { date: "Nov 15, 2024", amount: "$2,300.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Oct 15, 2024", amount: "$2,300.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
-      { date: "Sep 15, 2024", amount: "$2,300.00", type: "Salary", method: "Direct Deposit", status: "Paid" },
+      {
+        date: "Nov 15, 2024",
+        amount: "$2,300.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Oct 15, 2024",
+        amount: "$2,300.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
+      {
+        date: "Sep 15, 2024",
+        amount: "$2,300.00",
+        type: "Salary",
+        method: "Direct Deposit",
+        status: "Paid",
+      },
     ],
   },
 ];
@@ -157,7 +255,7 @@ export function DriverDetailPage() {
   const params = useParams();
   const navigate = useNavigate();
   const driverId = params.id;
-  
+
   // Find the driver by ID
   const driver = driversData.find((d) => d.id === driverId);
 
@@ -174,7 +272,9 @@ export function DriverDetailPage() {
             <div className="flex flex-col items-center justify-center h-full">
               <AlertCircle className="h-16 w-16 text-muted-foreground mb-4" />
               <h2 className="text-2xl font-bold mb-2">Driver Not Found</h2>
-              <p className="text-muted-foreground mb-4">The driver you're looking for doesn't exist.</p>
+              <p className="text-muted-foreground mb-4">
+                The driver you're looking for doesn't exist.
+              </p>
               <Button onClick={() => navigate("/driver-profiles")}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Driver Profiles
@@ -189,11 +289,23 @@ export function DriverDetailPage() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "Active":
-        return <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20">Active</Badge>;
+        return (
+          <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20">
+            Active
+          </Badge>
+        );
       case "On Leave":
-        return <Badge className="bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20">On Leave</Badge>;
+        return (
+          <Badge className="bg-yellow-500/10 text-yellow-500 hover:bg-yellow-500/20">
+            On Leave
+          </Badge>
+        );
       case "Inactive":
-        return <Badge className="bg-gray-500/10 text-gray-500 hover:bg-gray-500/20">Inactive</Badge>;
+        return (
+          <Badge className="bg-gray-500/10 text-gray-500 hover:bg-gray-500/20">
+            Inactive
+          </Badge>
+        );
       default:
         return <Badge>{status}</Badge>;
     }
@@ -205,7 +317,11 @@ export function DriverDetailPage() {
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
-          <Button variant="ghost" size="sm" onClick={() => navigate("/driver-profiles")}>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate("/driver-profiles")}
+          >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Button>
@@ -217,7 +333,10 @@ export function DriverDetailPage() {
             <div className="flex items-center gap-4">
               <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center">
                 <span className="text-2xl font-bold text-primary">
-                  {driver.name.split(" ").map(n => n[0]).join("")}
+                  {driver.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </span>
               </div>
               <div>
@@ -242,7 +361,9 @@ export function DriverDetailPage() {
             <Card className="col-span-1 md:col-span-2">
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
-                <CardDescription>Personal and emergency contact details</CardDescription>
+                <CardDescription>
+                  Personal and emergency contact details
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -250,34 +371,44 @@ export function DriverDetailPage() {
                     <Mail className="h-5 w-5 text-muted-foreground mt-0.5" />
                     <div>
                       <p className="text-sm font-medium">Email</p>
-                      <p className="text-sm text-muted-foreground">{driver.email}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {driver.email}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-muted-foreground mt-0.5" />
                     <div>
                       <p className="text-sm font-medium">Phone</p>
-                      <p className="text-sm text-muted-foreground">{driver.phone}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {driver.phone}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="h-5 w-5 text-muted-foreground mt-0.5" />
                     <div>
                       <p className="text-sm font-medium">Address</p>
-                      <p className="text-sm text-muted-foreground">{driver.address}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {driver.address}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Calendar className="h-5 w-5 text-muted-foreground mt-0.5" />
                     <div>
                       <p className="text-sm font-medium">Join Date</p>
-                      <p className="text-sm text-muted-foreground">{driver.joinDate}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {driver.joinDate}
+                      </p>
                     </div>
                   </div>
                 </div>
                 <div className="pt-4 border-t">
                   <p className="text-sm font-medium mb-2">Emergency Contact</p>
-                  <p className="text-sm text-muted-foreground">{driver.emergencyContact}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {driver.emergencyContact}
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -292,14 +423,18 @@ export function DriverDetailPage() {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium">Completion Rate</span>
-                    <span className="text-sm font-bold">{driver.completionRate}%</span>
+                    <span className="text-sm font-bold">
+                      {driver.completionRate}%
+                    </span>
                   </div>
                   <Progress value={driver.completionRate} />
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium">On-Time Rate</span>
-                    <span className="text-sm font-bold">{driver.onTimeRate}%</span>
+                    <span className="text-sm font-bold">
+                      {driver.onTimeRate}%
+                    </span>
                   </div>
                   <Progress value={driver.onTimeRate} />
                 </div>
@@ -308,7 +443,9 @@ export function DriverDetailPage() {
                     <span className="text-sm font-medium">Customer Rating</span>
                     <div className="flex items-center gap-1">
                       <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                      <span className="text-sm font-bold">{driver.customerRating}</span>
+                      <span className="text-sm font-bold">
+                        {driver.customerRating}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -324,15 +461,21 @@ export function DriverDetailPage() {
               <CardContent className="space-y-4">
                 <div>
                   <p className="text-sm font-medium mb-1">License Number</p>
-                  <p className="text-sm text-muted-foreground font-mono">{driver.licenseNumber}</p>
+                  <p className="text-sm text-muted-foreground font-mono">
+                    {driver.licenseNumber}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm font-medium mb-1">License Expiry</p>
-                  <p className="text-sm text-muted-foreground">{driver.licenseExpiry}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {driver.licenseExpiry}
+                  </p>
                 </div>
                 <div className="pt-4 border-t">
                   <p className="text-sm font-medium mb-1">Assigned Vehicle</p>
-                  <p className="text-sm text-muted-foreground">{driver.vehicleAssigned}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {driver.vehicleAssigned}
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -347,13 +490,19 @@ export function DriverDetailPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Package className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-sm font-medium">Total Deliveries</span>
+                    <span className="text-sm font-medium">
+                      Total Deliveries
+                    </span>
                   </div>
-                  <span className="text-2xl font-bold">{driver.totalDeliveries}</span>
+                  <span className="text-2xl font-bold">
+                    {driver.totalDeliveries}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between pt-4 border-t">
                   <span className="text-sm font-medium">Total Distance</span>
-                  <span className="text-xl font-bold">{driver.totalDistance}</span>
+                  <span className="text-xl font-bold">
+                    {driver.totalDistance}
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -378,7 +527,9 @@ export function DriverDetailPage() {
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <p className="text-sm font-semibold">{account.bankName}</p>
+                          <p className="text-sm font-semibold">
+                            {account.bankName}
+                          </p>
                           {account.isPrimary && (
                             <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20 text-xs">
                               Primary
@@ -395,7 +546,7 @@ export function DriverDetailPage() {
                     )}
                   </div>
                 ))}
-                
+
                 <Button variant="outline" className="w-full" size="sm">
                   <Plus className="mr-2 h-4 w-4" />
                   Add Bank Account
@@ -414,7 +565,9 @@ export function DriverDetailPage() {
                       <DollarSign className="h-5 w-5" />
                       Payment History
                     </CardTitle>
-                    <CardDescription>Recent salary and bonus payments</CardDescription>
+                    <CardDescription>
+                      Recent salary and bonus payments
+                    </CardDescription>
                   </div>
                   <Button variant="outline" size="sm">
                     <CreditCard className="mr-2 h-4 w-4" />
@@ -428,10 +581,13 @@ export function DriverDetailPage() {
                     <FileText className="h-10 w-10 text-muted-foreground" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Embedded Payslip Placeholder</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      Embedded Payslip Placeholder
+                    </h3>
                     <p className="text-sm text-muted-foreground max-w-md">
-                      This section is reserved for your embedded payslip component.
-                      Add detailed payment history, salary breakdowns, and downloadable payslips here.
+                      This section is reserved for your embedded payslip
+                      component. Add detailed payment history, salary
+                      breakdowns, and downloadable payslips here.
                     </p>
                   </div>
                   <div className="mt-4 p-4 bg-muted/50 rounded-lg">
@@ -448,4 +604,3 @@ export function DriverDetailPage() {
     </SidebarProvider>
   );
 }
-

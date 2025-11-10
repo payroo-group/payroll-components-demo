@@ -1,10 +1,26 @@
-"use client"
+"use client";
 
-import { ArrowLeft, DollarSign, Calendar, TrendingUp, Download } from "lucide-react";
+import {
+  ArrowLeft,
+  DollarSign,
+  Calendar,
+  TrendingUp,
+  Download,
+} from "lucide-react";
 import { useParams, useNavigate } from "react-router";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
 
@@ -46,7 +62,7 @@ export function EmployeePayrollPage() {
   const params = useParams();
   const navigate = useNavigate();
   const driverId = params.id;
-  
+
   // Find the driver by ID
   const driver = driversData.find((d) => d.id === driverId);
 
@@ -62,7 +78,9 @@ export function EmployeePayrollPage() {
           <main className="flex-1 p-6">
             <div className="flex flex-col items-center justify-center h-full">
               <h2 className="text-2xl font-bold mb-2">Employee Not Found</h2>
-              <p className="text-muted-foreground mb-4">The employee payroll details you're looking for don't exist.</p>
+              <p className="text-muted-foreground mb-4">
+                The employee payroll details you're looking for don't exist.
+              </p>
               <Button onClick={() => navigate("/payroll")}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Payroll
@@ -80,7 +98,11 @@ export function EmployeePayrollPage() {
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
-          <Button variant="ghost" size="sm" onClick={() => navigate(`/driver-detail/${driverId}`)}>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate(`/driver-detail/${driverId}`)}
+          >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Profile
           </Button>
@@ -95,7 +117,6 @@ export function EmployeePayrollPage() {
                 {driver.employeeId} • {driver.position}
               </p>
             </div>
-         
           </div>
 
           {/* Employee Info Cards */}
@@ -107,15 +128,15 @@ export function EmployeePayrollPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{driver.payRate}</div>
-                <p className="text-xs text-muted-foreground">
-                  Standard rate
-                </p>
+                <p className="text-xs text-muted-foreground">Standard rate</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Pay Schedule</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Pay Schedule
+                </CardTitle>
                 <Calendar className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -128,14 +149,14 @@ export function EmployeePayrollPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Department</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Department
+                </CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{driver.department}</div>
-                <p className="text-xs text-muted-foreground">
-                  Work division
-                </p>
+                <p className="text-xs text-muted-foreground">Work division</p>
               </CardContent>
             </Card>
           </div>
@@ -143,7 +164,9 @@ export function EmployeePayrollPage() {
           <Card className="min-h-[500px]">
             <CardHeader>
               <CardTitle>Detailed Payroll Information</CardTitle>
-              <CardDescription>Embedded payroll component will be added here</CardDescription>
+              <CardDescription>
+                Embedded payroll component will be added here
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
               <div className="flex flex-col items-center gap-4 text-center">
@@ -151,10 +174,13 @@ export function EmployeePayrollPage() {
                   <DollarSign className="h-10 w-10 text-muted-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Employee Payroll Details Placeholder</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Employee Payroll Details Placeholder
+                  </h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for detailed payroll information including pay periods, 
-                    earnings breakdown, deductions, tax information, and payment history for {driver.name}.
+                    This section is reserved for detailed payroll information
+                    including pay periods, earnings breakdown, deductions, tax
+                    information, and payment history for {driver.name}.
                   </p>
                 </div>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
@@ -170,4 +196,3 @@ export function EmployeePayrollPage() {
     </SidebarProvider>
   );
 }
-

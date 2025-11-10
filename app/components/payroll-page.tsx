@@ -1,14 +1,28 @@
-"use client"
+"use client";
 
-import { DollarSign, History, Database } from "lucide-react";
-import { useNavigate } from "react-router";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import { History, Database } from "lucide-react";
+import { Link, useNavigate, useSearchParams } from "react-router";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { useState } from "react";
 
 export function PayrollPage() {
   const navigate = useNavigate();
+  const [query] = useSearchParams();
+  const [setupRequired] = useState(query.get("onboarded") !== "true");
 
   return (
     <SidebarProvider>
@@ -31,12 +45,28 @@ export function PayrollPage() {
               Payroll History
             </Button>
           </div>
+          <Alert variant="default" hidden={!setupRequired}>
+            <AlertTitle>Payroll Setup Required</AlertTitle>
+            <AlertDescription>
+              <p className="my-2">
+                To manage driver payroll, please onboard your business onto your
+                payroll solution. This will enable you to process salaries and
+                payments efficiently.
+              </p>
+              <Link to="/payroll/onboarding">
+                <Button className="cursor-pointer">Enable Payroll</Button>
+              </Link>
+            </AlertDescription>
+          </Alert>
+          <div className="my-6" />
 
           {/* Placeholder for Embedded Component */}
-          <Card className="min-h-[600px]">
+          <Card className="min-h-[600px]" hidden={setupRequired}>
             <CardHeader>
-              <CardTitle>Current Payroll Data</CardTitle>
-              <CardDescription>Embedded component will be added here</CardDescription>
+              <CardTitle>Run Payroll</CardTitle>
+              <CardDescription>
+                Embedded component will be added here
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center min-h-[500px]">
               <div className="flex flex-col items-center gap-4 text-center">
@@ -44,10 +74,13 @@ export function PayrollPage() {
                   <Database className="h-10 w-10 text-muted-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Embedded Component Placeholder</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Embedded Component Placeholder
+                  </h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for your embedded current payroll component.
-                    Replace this placeholder with your custom payroll data component when ready.
+                    This section is reserved for your embedded current payroll
+                    component. Replace this placeholder with your custom payroll
+                    data component when ready.
                   </p>
                 </div>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
@@ -63,4 +96,3 @@ export function PayrollPage() {
     </SidebarProvider>
   );
 }
-

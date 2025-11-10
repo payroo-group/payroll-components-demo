@@ -1,9 +1,19 @@
-"use client"
+"use client";
 
 import { FileText } from "lucide-react";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "~/components/ui/sidebar";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 
 export function ReportsPage() {
@@ -26,80 +36,80 @@ export function ReportsPage() {
           {/* Tabs Navigation */}
           <Tabs defaultValue="payroll-summary" className="w-full">
             <TabsList className="w-full h-auto flex flex-wrap justify-start gap-0 bg-transparent p-0 border-b border-border mb-6">
-              <TabsTrigger 
-                value="payroll-summary" 
+              <TabsTrigger
+                value="payroll-summary"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Payroll Summary
               </TabsTrigger>
-              <TabsTrigger 
-                value="payroll-variance" 
+              <TabsTrigger
+                value="payroll-variance"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Payroll Variance
               </TabsTrigger>
-              <TabsTrigger 
-                value="payroll-tax" 
+              <TabsTrigger
+                value="payroll-tax"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Payroll Tax
               </TabsTrigger>
-              <TabsTrigger 
-                value="finalisations" 
+              <TabsTrigger
+                value="finalisations"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Finalisations
               </TabsTrigger>
-              <TabsTrigger 
-                value="timesheets" 
+              <TabsTrigger
+                value="timesheets"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Timesheets
               </TabsTrigger>
-              <TabsTrigger 
-                value="leave-balances" 
+              <TabsTrigger
+                value="leave-balances"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Leave Balances
               </TabsTrigger>
-              <TabsTrigger 
-                value="leave-requests" 
+              <TabsTrigger
+                value="leave-requests"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Leave Requests
               </TabsTrigger>
-              <TabsTrigger 
-                value="expense-claims" 
+              <TabsTrigger
+                value="expense-claims"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Expense Claims
               </TabsTrigger>
-              <TabsTrigger 
-                value="costing" 
+              <TabsTrigger
+                value="costing"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Costing
               </TabsTrigger>
-              <TabsTrigger 
-                value="pay-items" 
+              <TabsTrigger
+                value="pay-items"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Pay Items
               </TabsTrigger>
-              <TabsTrigger 
-                value="super-contributions" 
+              <TabsTrigger
+                value="super-contributions"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Super Contributions
               </TabsTrigger>
-              <TabsTrigger 
-                value="gross-to-net" 
+              <TabsTrigger
+                value="gross-to-net"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Gross To Net
               </TabsTrigger>
-              <TabsTrigger 
-                value="employee-contact" 
+              <TabsTrigger
+                value="employee-contact"
                 className="rounded-none border-0 border-b-2 border-b-transparent data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2"
               >
                 Employee Contact Details
@@ -111,7 +121,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Payroll Summary</CardTitle>
-                  <CardDescription>Embedded payroll summary component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded payroll summary component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -119,7 +131,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Payroll Summary Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Payroll Summary Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded payroll summary component here
                       </p>
@@ -139,7 +153,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Payroll Variance</CardTitle>
-                  <CardDescription>Embedded payroll variance component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded payroll variance component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -147,7 +163,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Payroll Variance Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Payroll Variance Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded payroll variance component here
                       </p>
@@ -167,7 +185,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Payroll Tax</CardTitle>
-                  <CardDescription>Embedded payroll tax component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded payroll tax component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -175,7 +195,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Payroll Tax Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Payroll Tax Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded payroll tax component here
                       </p>
@@ -195,7 +217,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Finalisations</CardTitle>
-                  <CardDescription>Embedded finalisations component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded finalisations component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -203,7 +227,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Finalisations Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Finalisations Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded finalisations component here
                       </p>
@@ -223,7 +249,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Timesheets</CardTitle>
-                  <CardDescription>Embedded timesheets component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded timesheets component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -231,7 +259,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Timesheets Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Timesheets Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded timesheets component here
                       </p>
@@ -251,7 +281,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Leave Balances</CardTitle>
-                  <CardDescription>Embedded leave balances component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded leave balances component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -259,7 +291,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Leave Balances Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Leave Balances Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded leave balances component here
                       </p>
@@ -279,7 +313,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Leave Requests</CardTitle>
-                  <CardDescription>Embedded leave requests component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded leave requests component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -287,7 +323,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Leave Requests Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Leave Requests Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded leave requests component here
                       </p>
@@ -307,7 +345,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Expense Claims</CardTitle>
-                  <CardDescription>Embedded expense claims component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded expense claims component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -315,7 +355,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Expense Claims Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Expense Claims Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded expense claims component here
                       </p>
@@ -335,7 +377,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Costing</CardTitle>
-                  <CardDescription>Embedded costing component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded costing component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -343,7 +387,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Costing Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Costing Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded costing component here
                       </p>
@@ -363,7 +409,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Pay Items</CardTitle>
-                  <CardDescription>Embedded pay items component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded pay items component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -371,7 +419,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Pay Items Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Pay Items Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded pay items component here
                       </p>
@@ -391,7 +441,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Super Contributions</CardTitle>
-                  <CardDescription>Embedded super contributions component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded super contributions component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -399,7 +451,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Super Contributions Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Super Contributions Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded super contributions component here
                       </p>
@@ -419,7 +473,9 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Gross To Net</CardTitle>
-                  <CardDescription>Embedded gross to net component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded gross to net component will be added here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -427,7 +483,9 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Gross To Net Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Gross To Net Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
                         Add your embedded gross to net component here
                       </p>
@@ -447,7 +505,10 @@ export function ReportsPage() {
               <Card className="min-h-[500px]">
                 <CardHeader>
                   <CardTitle>Employee Contact Details</CardTitle>
-                  <CardDescription>Embedded employee contact details component will be added here</CardDescription>
+                  <CardDescription>
+                    Embedded employee contact details component will be added
+                    here
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
                   <div className="flex flex-col items-center gap-4 text-center">
@@ -455,9 +516,12 @@ export function ReportsPage() {
                       <FileText className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Employee Contact Details Placeholder</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        Employee Contact Details Placeholder
+                      </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
-                        Add your embedded employee contact details component here
+                        Add your embedded employee contact details component
+                        here
                       </p>
                     </div>
                     <div className="mt-4 p-4 bg-muted/50 rounded-lg">
@@ -475,4 +539,3 @@ export function ReportsPage() {
     </SidebarProvider>
   );
 }
-

@@ -11,4 +11,3 @@ export function meta({ params }: Route.MetaArgs) {
 export default function DriverDetailRoute() {
   return <DriverDetailPage />;
 }
-
