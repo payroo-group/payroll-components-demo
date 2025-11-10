@@ -1,27 +1,28 @@
 /** Customize the appearance of payroll components **/
 :root {
-  --payroo-space-sm: 4px;
-  --payroo-space-md: 8px;
-  --payroo-space-lg: 14px;
-  --payroo-space-xl: 28px;
-  --payroo-radius-sm: calc(var(--radius) - 6px);
-  --payroo-radius-md: calc(var(--radius) - 4px);
-  --payroo-button-radius: calc(var(--radius) - 2px);
+    --payroo-space-sm: 4px;
+    --payroo-space-md: 8px;
+    --payroo-space-lg: 14px;
+    --payroo-space-xl: 28px;
+    --payroo-radius-sm: calc(var(--radius) - 6px);
+    --payroo-radius-md: calc(var(--radius) - 4px);
+    --payroo-button-radius: calc(var(--radius) - 2px);
+    --payroo-primary: #7f22fe;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --payroo-text: #ffffff;
-    --payroo-text-light: #cccccc;
-    --payroo-bg-color: #09090b;
-    --payroo-primary: #a676ff;
-  }
+    :root {
+        --payroo-text: #ffffff;
+        --payroo-text-light: #cccccc;
+        --payroo-bg-color: #09090b;
+        --payroo-primary: #a676ff;
+    }
 }
 
 #company-overview-container h1 {
-  color: var(--payroo-text);
+    color: var(--payroo-text);
 }
 
 #company-overview-container button[data-variant="outline"] {
-  color: var(--payroo-text-light);
+    color: var(--payroo-text-light);
 }
