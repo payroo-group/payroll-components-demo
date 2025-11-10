@@ -3,6 +3,9 @@
 This is a demo application showcasing Payroo payroll components for building embedded payroll solutions.
 It is built using [Vite](https://vitejs.dev/) and [React](https://reactjs.org/).
 
+> [!WARNING]
+Ensure that client side code does not make API calls directly to Payroo services.
+
 ## Prerequisites
 
 Read documentation for embedded payroll components at [Payroo Docs](https://docs.payroo.com.au/guide/embedding-payroll-components/getting-started).
@@ -10,6 +13,20 @@ Read documentation for embedded payroll components at [Payroo Docs](https://docs
 You will need:
 
 1. Payroo Partner API credentials.
+
+**Configure Environment Variables**
+
+Create a `.env` file in the root of the project and add your Payroo Partner API credentials:
+
+```sh
+cp .env.example .env
+```
+
+Then, edit the `.env` file to include your actual credentials:
+
+```env
+PAYROO_API_KEY=your_api_key
+```
 
 ## Customization
 
