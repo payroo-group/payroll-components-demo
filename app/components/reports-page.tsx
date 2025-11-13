@@ -1,19 +1,11 @@
 "use client";
 
-import { FileText } from "lucide-react";
 import {
     SidebarProvider,
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "~/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { ViewReport } from "@payroo-group/embed-sdk-react";
 import { useSession } from "~/hooks/use-session";
