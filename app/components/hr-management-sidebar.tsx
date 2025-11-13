@@ -95,7 +95,7 @@ export function HRManagementSidebar() {
                 >
                   <a href="/employee-profiles">
                     <UserCircle className="h-4 w-4" />
-                    <span>Employee Profiles</span>
+                    <span>Employees</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
