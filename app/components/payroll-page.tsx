@@ -1,6 +1,6 @@
 "use client";
 
-import { History, Database } from "lucide-react";
+import { History } from "lucide-react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { PayrunList } from "@payroo-group/embed-sdk-react";
 import {
@@ -9,13 +9,6 @@ import {
     SidebarTrigger,
 } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { useState } from "react";
@@ -64,45 +57,18 @@ export function PayrollPage() {
                     </Alert>
                     <div className="my-6" />
 
-                    <div id="payrun-embed-container" hidden={!setupRequired}>
+                    <div id="payrun-embed-container" hidden={setupRequired}>
                         <PayrunList
                             getEmbedUrl={getEmbedUrl}
-                            showStatSummary={true}
+                            showStatSummary={false}
                             showFilter={true}
+                            startDate="2025-07-01"
+                            options={{
+                                autoHeightAdjust: true,
+                                extraAllowedOrigins: ["https://sandbox-embed.payroo.com.au"],
+                            }}
                         />
                     </div>
-
-                    {/* Placeholder for Embedded Component */}
-                    <Card className="min-h-[600px]" hidden={setupRequired}>
-                        <CardHeader>
-                            <CardTitle>Run Payroll</CardTitle>
-                            <CardDescription>
-                                Embedded component will be added here
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent className="flex flex-col items-center justify-center min-h-[500px]">
-                            <div className="flex flex-col items-center gap-4 text-center">
-                                <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center">
-                                    <Database className="h-10 w-10 text-muted-foreground" />
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        Embedded Component Placeholder
-                                    </h3>
-                                    <p className="text-sm text-muted-foreground max-w-md">
-                                        This section is reserved for your embedded current payroll
-                                        component. Replace this placeholder with your custom payroll
-                                        data component when ready.
-                                    </p>
-                                </div>
-                                <div className="mt-4 p-4 bg-muted/50 rounded-lg">
-                                    <code className="text-sm text-muted-foreground">
-                                        {`{/* Add your embedded payroll component here */}`}
-                                    </code>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
                 </main>
             </SidebarInset>
         </SidebarProvider>

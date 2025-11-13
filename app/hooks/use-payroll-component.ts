@@ -29,7 +29,7 @@ const createSession = async (accountId: string, userId: string) => {
 // This is to keep the Payroo API key secure and not exposed on the client side
 const createEmbedURL = async <K extends Components>(
     sessionId: string,
-    component: Components,
+    component: K,
     params?: ComponentSchemaMap[K],
 ) => {
     const response = await fetch("/api/embed-url", {
@@ -60,8 +60,20 @@ export function usePayrollComponent(accountId: string, userId: string) {
         return session;
     }, [accountId, userId]);
 
-    const onCreateEmbedURL = useMemo(
-        () => createEmbedURL.bind(null, sessionId ?? ""),
+    const onCreateEmbedURL = useCallback(
+        async <K extends Components>(
+            component: K,
+            params?: ComponentSchemaMap[K],
+        ) => {
+            let currentSessionId = sessionId ?? "";
+            if (!currentSessionId) {
+                const session = await onSessionCreate();
+                currentSessionId = session.id;
+            }
+
+            const response = await createEmbedURL(currentSessionId, component, params);
+            return response.url;
+        },
         [sessionId],
     );
 
