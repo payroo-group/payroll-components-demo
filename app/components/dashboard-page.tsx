@@ -1,6 +1,6 @@
 "use client";
 
-import { UserCircle, Car, Route, AlertTriangle } from "lucide-react";
+import { UserCircle, Building2, Briefcase, AlertTriangle } from "lucide-react";
 import {
   Area,
   AreaChart,
@@ -28,7 +28,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import {
   Card,
   CardContent,
@@ -46,17 +46,17 @@ import type { ChartConfig } from "~/components/ui/chart";
 export function DashboardPage() {
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
-          <h1 className="text-lg font-semibold">Driver Management System</h1>
+          <h1 className="text-lg font-semibold">Human Resources</h1>
         </header>
         <main className="flex-1 p-6">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold">Fleet Control Dashboard</h2>
+            <h2 className="text-3xl font-bold">HR Dashboard</h2>
             <p className="text-muted-foreground mt-2">
-              Manage your drivers, vehicles, and operations from one central hub
+              Manage your workforce, track performance, and oversee operations from one central hub
             </p>
           </div>
 
@@ -64,27 +64,27 @@ export function DashboardPage() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Active Drivers
+                  Active Employees
                 </CardTitle>
                 <UserCircle className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">248</div>
                 <p className="text-xs text-muted-foreground">
-                  Currently on duty
+                  Currently active
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Vehicles</CardTitle>
-                <Car className="h-4 w-4 text-muted-foreground" />
+                <CardTitle className="text-sm font-medium">Departments</CardTitle>
+                <Building2 className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">156</div>
+                <div className="text-2xl font-bold">12</div>
                 <p className="text-xs text-muted-foreground">
-                  Fleet operational
+                  Active departments
                 </p>
               </CardContent>
             </Card>
@@ -92,9 +92,9 @@ export function DashboardPage() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Active Routes
+                  Active Projects
                 </CardTitle>
-                <Route className="h-4 w-4 text-muted-foreground" />
+                <Briefcase className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">89</div>
@@ -106,7 +106,7 @@ export function DashboardPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Incidents</CardTitle>
+                <CardTitle className="text-sm font-medium">HR Issues</CardTitle>
                 <AlertTriangle className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -122,17 +122,17 @@ export function DashboardPage() {
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-7">
             <Card className="col-span-4">
               <CardHeader>
-                <CardTitle>Driver Activity Overview</CardTitle>
+                <CardTitle>Employee Activity Overview</CardTitle>
                 <CardDescription>
-                  Daily active drivers for the last 7 days
+                  Daily active employees for the last 7 days
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ChartContainer
                   config={
                     {
-                      drivers: {
-                        label: "Active Drivers",
+                      employees: {
+                        label: "Active Employees",
                         color: "hsl(270, 70%, 60%)",
                       },
                     } satisfies ChartConfig
@@ -141,13 +141,13 @@ export function DashboardPage() {
                 >
                   <AreaChart
                     data={[
-                      { day: "Mon", drivers: 215 },
-                      { day: "Tue", drivers: 234 },
-                      { day: "Wed", drivers: 198 },
-                      { day: "Thu", drivers: 241 },
-                      { day: "Fri", drivers: 224 },
-                      { day: "Sat", drivers: 178 },
-                      { day: "Sun", drivers: 208 },
+                      { day: "Mon", employees: 215 },
+                      { day: "Tue", employees: 234 },
+                      { day: "Wed", employees: 198 },
+                      { day: "Thu", employees: 241 },
+                      { day: "Fri", employees: 224 },
+                      { day: "Sat", employees: 178 },
+                      { day: "Sun", employees: 208 },
                     ]}
                     margin={{ left: 12, right: 12, top: 12, bottom: 12 }}
                   >
@@ -166,7 +166,7 @@ export function DashboardPage() {
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <defs>
                       <linearGradient
-                        id="fillDrivers"
+                        id="fillEmployees"
                         x1="0"
                         y1="0"
                         x2="0"
@@ -191,9 +191,9 @@ export function DashboardPage() {
                     </defs>
                     <Area
                       type="monotone"
-                      dataKey="drivers"
+                      dataKey="employees"
                       stroke="hsl(270, 70%, 60%)"
-                      fill="url(#fillDrivers)"
+                      fill="url(#fillEmployees)"
                       strokeWidth={2}
                     />
                   </AreaChart>
@@ -203,7 +203,7 @@ export function DashboardPage() {
 
             <Card className="col-span-3">
               <CardHeader>
-                <CardTitle>Vehicle Performance Metrics</CardTitle>
+                <CardTitle>Department Performance Metrics</CardTitle>
                 <CardDescription>
                   Multi-dimensional performance analysis
                 </CardDescription>
@@ -235,35 +235,35 @@ export function DashboardPage() {
                   <RadarChart
                     data={[
                       {
-                        category: "Delivery",
+                        category: "Engineering",
                         utilization: 88,
                         efficiency: 92,
                         maintenance: 85,
                         safety: 95,
                       },
                       {
-                        category: "Cargo",
+                        category: "Sales",
                         utilization: 75,
                         efficiency: 82,
                         maintenance: 78,
                         safety: 88,
                       },
                       {
-                        category: "Passenger",
+                        category: "Marketing",
                         utilization: 92,
                         efficiency: 90,
                         maintenance: 88,
                         safety: 93,
                       },
                       {
-                        category: "Service",
+                        category: "Operations",
                         utilization: 68,
                         efficiency: 78,
                         maintenance: 82,
                         safety: 85,
                       },
                       {
-                        category: "Emergency",
+                        category: "Support",
                         utilization: 65,
                         efficiency: 95,
                         maintenance: 90,
@@ -325,14 +325,14 @@ export function DashboardPage() {
               <CardHeader>
                 <CardTitle>Getting Started</CardTitle>
                 <CardDescription>
-                  Quick tips to navigate the driver management system
+                  Quick tips to navigate the HR system
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
                   Use the sidebar to navigate through different sections of the
-                  driver management system. Start by viewing driver profiles,
-                  managing your fleet, or checking operational status.
+                  HR system. Start by viewing employee profiles,
+                  managing payroll, tracking time and attendance, or reviewing reports.
                 </p>
               </CardContent>
             </Card>

@@ -12,7 +12,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import {
   Card,
   CardContent,
@@ -26,18 +26,18 @@ import { Input } from "~/components/ui/input";
 export function TimesheetsPage() {
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
-          <h1 className="text-lg font-semibold">Timesheets</h1>
+          <h1 className="text-lg font-semibold">Time & Attendance</h1>
         </header>
         <main className="flex-1 p-6">
           <div className="mb-6 flex items-start justify-between">
             <div>
-              <h2 className="text-3xl font-bold">Driver Timesheets</h2>
+              <h2 className="text-3xl font-bold">Employee Time Tracking</h2>
               <p className="text-muted-foreground mt-2">
-                Track and manage driver work hours and attendance
+                Track and manage employee work hours, attendance, and time off
               </p>
             </div>
             <div className="flex gap-2">
@@ -55,9 +55,9 @@ export function TimesheetsPage() {
           {/* Placeholder for Embedded Timesheets Component */}
           <Card className="min-h-[600px]">
             <CardHeader>
-              <CardTitle>Timesheet Management</CardTitle>
+              <CardTitle>Time & Attendance Management</CardTitle>
               <CardDescription>
-                Embedded timesheets component will be added here
+                Track employee hours, manage schedules, and monitor attendance
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center min-h-[500px]">
@@ -67,11 +67,11 @@ export function TimesheetsPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">
-                    Embedded Timesheets Placeholder
+                    Time Tracking System
                   </h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for your embedded timesheets
-                    component. Add time tracking, work hours management, shift
+                    This section is reserved for your time tracking
+                    component. Add employee time tracking, work hours management, shift
                     scheduling, and attendance records here.
                   </p>
                 </div>

@@ -6,7 +6,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import {
   Card,
   CardContent,
@@ -19,17 +19,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 export function ReportsPage() {
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
-          <h1 className="text-lg font-semibold">Reports</h1>
+          <h1 className="text-lg font-semibold">HR Reports</h1>
         </header>
         <main className="flex-1 p-6">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold">Financial Reports & Payslips</h2>
+            <h2 className="text-3xl font-bold">HR Analytics & Reports</h2>
             <p className="text-muted-foreground mt-2">
-              Access payslips, financial reports, and payment documentation
+              Access payroll reports, employee analytics, payslips, and comprehensive HR documentation
             </p>
           </div>
 

@@ -7,7 +7,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import {
   Card,
   CardContent,
@@ -22,7 +22,7 @@ export function PayrollHistoryPage() {
 
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
@@ -38,18 +38,18 @@ export function PayrollHistoryPage() {
         </header>
         <main className="flex-1 p-6">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold">Historical Payroll Records</h2>
+            <h2 className="text-3xl font-bold">Payroll History</h2>
             <p className="text-muted-foreground mt-2">
-              View and manage past payroll cycles
+              View past payroll transactions, payment records, and historical data
             </p>
           </div>
 
           {/* Placeholder for Embedded Component */}
           <Card className="min-h-[600px]">
             <CardHeader>
-              <CardTitle>Payroll History Data</CardTitle>
+              <CardTitle>Payroll Transaction History</CardTitle>
               <CardDescription>
-                Embedded component will be added here
+                View detailed payment records and transaction history
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center min-h-[500px]">
@@ -59,12 +59,12 @@ export function PayrollHistoryPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">
-                    Embedded Component Placeholder
+                    Payroll History Records
                   </h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for your embedded payroll history
-                    component. Replace this placeholder with your custom
-                    component when ready.
+                    This section displays your payroll transaction history.
+                    Add detailed payment records, transaction history,
+                    and payroll documentation here.
                   </p>
                 </div>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">

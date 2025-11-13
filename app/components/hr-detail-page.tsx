@@ -23,7 +23,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import {
   Card,
   CardContent,
@@ -43,29 +43,29 @@ import {
   TableRow,
 } from "~/components/ui/table";
 
-// Sample driver data - in a real app, this would come from a database
-const driversData = [
+// Sample employee data - in a real app, this would come from a database
+const employeesData = [
   {
     id: "1",
     name: "John Martinez",
-    employeeId: "DRV-001",
+    employeeId: "EMP-001",
     status: "Active",
-    vehicleType: "Delivery Van",
-    licenseNumber: "DL-5847392",
+    department: "Engineering",
+    position: "Senior Developer",
     rating: 4.8,
-    totalDeliveries: 1247,
-    reviewer: "Eddie Lake",
+    totalProjects: 24,
+    manager: "Eddie Lake",
     email: "john.martinez@company.com",
     phone: "+61 2 9876 5432",
     address: "123 Main St, San Francisco, CA 94102",
     joinDate: "January 15, 2022",
-    vehicleAssigned: "Van #247 (Toyota Hiace)",
+    team: "Frontend Team",
     emergencyContact: "Maria Martinez - +61 412 345 678",
-    licenseExpiry: "December 31, 2025",
+    certification: "AWS Certified",
     completionRate: 98,
     onTimeRate: 96,
-    customerRating: 4.8,
-    totalDistance: "45,678 km",
+    performanceRating: 4.8,
+    yearsOfService: "2.5 years",
     bankAccounts: [
       {
         id: 1,
@@ -123,24 +123,24 @@ const driversData = [
   {
     id: "2",
     name: "Sarah Chen",
-    employeeId: "DRV-002",
+    employeeId: "EMP-002",
     status: "Active",
-    vehicleType: "Cargo Truck",
-    licenseNumber: "DL-9384756",
+    department: "Sales",
+    position: "Sales Manager",
     rating: 4.9,
-    totalDeliveries: 982,
-    reviewer: "Eddie Lake",
+    totalProjects: 18,
+    manager: "Eddie Lake",
     email: "sarah.chen@company.com",
     phone: "+61 3 8765 4321",
     address: "456 Oak Ave, Oakland, CA 94601",
     joinDate: "March 22, 2022",
-    vehicleAssigned: "Truck #189 (Isuzu NPR)",
+    team: "Enterprise Sales",
     emergencyContact: "David Chen - +61 423 456 789",
-    licenseExpiry: "June 15, 2026",
+    certification: "Salesforce Certified",
     completionRate: 99,
     onTimeRate: 97,
-    customerRating: 4.9,
-    totalDistance: "52,341 km",
+    performanceRating: 4.9,
+    yearsOfService: "2.2 years",
     bankAccounts: [
       {
         id: 1,
@@ -191,24 +191,24 @@ const driversData = [
   {
     id: "3",
     name: "Michael Johnson",
-    employeeId: "DRV-003",
+    employeeId: "EMP-003",
     status: "On Leave",
-    vehicleType: "Passenger Van",
-    licenseNumber: "DL-2847563",
+    department: "Marketing",
+    position: "Marketing Specialist",
     rating: 4.6,
-    totalDeliveries: 756,
-    reviewer: "Jamik Tashpulatov",
+    totalProjects: 15,
+    manager: "Jamik Tashpulatov",
     email: "michael.j@company.com",
     phone: "+61 7 5432 1098",
     address: "789 Pine St, Berkeley, CA 94704",
     joinDate: "June 10, 2022",
-    vehicleAssigned: "Van #312 (Mercedes Sprinter)",
+    team: "Digital Marketing",
     emergencyContact: "Lisa Johnson - +61 434 567 890",
-    licenseExpiry: "March 20, 2026",
+    certification: "Google Analytics Certified",
     completionRate: 95,
     onTimeRate: 93,
-    customerRating: 4.6,
-    totalDistance: "38,912 km",
+    performanceRating: 4.6,
+    yearsOfService: "1.8 years",
     bankAccounts: [
       {
         id: 1,
@@ -251,33 +251,33 @@ const driversData = [
   },
 ];
 
-export function DriverDetailPage() {
+export function EmployeeDetailPage() {
   const params = useParams();
   const navigate = useNavigate();
-  const driverId = params.id;
+  const employeeId = params.id;
 
-  // Find the driver by ID
-  const driver = driversData.find((d) => d.id === driverId);
+  // Find the employee by ID
+  const employee = employeesData.find((e) => e.id === employeeId);
 
-  if (!driver) {
+  if (!employee) {
     return (
       <SidebarProvider>
-        <DriverManagementSidebar />
+        <HRManagementSidebar />
         <SidebarInset>
           <header className="flex h-16 items-center gap-2 border-b px-4">
             <SidebarTrigger />
-            <h1 className="text-lg font-semibold">Driver Not Found</h1>
+            <h1 className="text-lg font-semibold">Employee Not Found</h1>
           </header>
           <main className="flex-1 p-6">
             <div className="flex flex-col items-center justify-center h-full">
               <AlertCircle className="h-16 w-16 text-muted-foreground mb-4" />
-              <h2 className="text-2xl font-bold mb-2">Driver Not Found</h2>
+              <h2 className="text-2xl font-bold mb-2">Employee Not Found</h2>
               <p className="text-muted-foreground mb-4">
-                The driver you're looking for doesn't exist.
+                The employee you're looking for doesn't exist.
               </p>
-              <Button onClick={() => navigate("/driver-profiles")}>
+              <Button onClick={() => navigate("/employee-profiles")}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Driver Profiles
+                Back to Employee Profiles
               </Button>
             </div>
           </main>
@@ -313,19 +313,19 @@ export function DriverDetailPage() {
 
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => navigate("/driver-profiles")}
+            onClick={() => navigate("/employee-profiles")}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Button>
-          <h1 className="text-lg font-semibold">Driver Details</h1>
+          <h1 className="text-lg font-semibold">Employee Profile</h1>
         </header>
         <main className="flex-1 p-6">
           {/* Header Section */}
@@ -333,25 +333,25 @@ export function DriverDetailPage() {
             <div className="flex items-center gap-4">
               <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center">
                 <span className="text-2xl font-bold text-primary">
-                  {driver.name
+                  {employee.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </span>
               </div>
               <div>
-                <h2 className="text-3xl font-bold">{driver.name}</h2>
-                <p className="text-muted-foreground">{driver.employeeId}</p>
+                <h2 className="text-3xl font-bold">{employee.name}</h2>
+                <p className="text-muted-foreground">{employee.employeeId} • {employee.position}</p>
                 <div className="flex items-center gap-2 mt-2">
-                  {getStatusBadge(driver.status)}
-                  <Badge variant="outline">{driver.vehicleType}</Badge>
+                  {getStatusBadge(employee.status)}
+                  <Badge variant="outline">{employee.department}</Badge>
                 </div>
               </div>
             </div>
             <div className="flex gap-2">
-              <Button variant="outline">Edit Profile</Button>
-              <Button onClick={() => navigate(`/employee-payroll/${driverId}`)}>
-                Manage Payroll
+              <Button variant="outline">Edit Employee</Button>
+              <Button onClick={() => navigate(`/employee-payroll/${employeeId}`)}>
+                View Payroll
               </Button>
             </div>
           </div>
@@ -372,7 +372,7 @@ export function DriverDetailPage() {
                     <div>
                       <p className="text-sm font-medium">Email</p>
                       <p className="text-sm text-muted-foreground">
-                        {driver.email}
+                        {employee.email}
                       </p>
                     </div>
                   </div>
@@ -381,7 +381,7 @@ export function DriverDetailPage() {
                     <div>
                       <p className="text-sm font-medium">Phone</p>
                       <p className="text-sm text-muted-foreground">
-                        {driver.phone}
+                        {employee.phone}
                       </p>
                     </div>
                   </div>
@@ -390,7 +390,7 @@ export function DriverDetailPage() {
                     <div>
                       <p className="text-sm font-medium">Address</p>
                       <p className="text-sm text-muted-foreground">
-                        {driver.address}
+                        {employee.address}
                       </p>
                     </div>
                   </div>
@@ -399,7 +399,7 @@ export function DriverDetailPage() {
                     <div>
                       <p className="text-sm font-medium">Join Date</p>
                       <p className="text-sm text-muted-foreground">
-                        {driver.joinDate}
+                        {employee.joinDate}
                       </p>
                     </div>
                   </div>
@@ -407,7 +407,7 @@ export function DriverDetailPage() {
                 <div className="pt-4 border-t">
                   <p className="text-sm font-medium mb-2">Emergency Contact</p>
                   <p className="text-sm text-muted-foreground">
-                    {driver.emergencyContact}
+                    {employee.emergencyContact}
                   </p>
                 </div>
               </CardContent>
@@ -424,27 +424,27 @@ export function DriverDetailPage() {
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium">Completion Rate</span>
                     <span className="text-sm font-bold">
-                      {driver.completionRate}%
+                      {employee.completionRate}%
                     </span>
                   </div>
-                  <Progress value={driver.completionRate} />
+                  <Progress value={employee.completionRate} />
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium">On-Time Rate</span>
                     <span className="text-sm font-bold">
-                      {driver.onTimeRate}%
+                      {employee.onTimeRate}%
                     </span>
                   </div>
-                  <Progress value={driver.onTimeRate} />
+                  <Progress value={employee.onTimeRate} />
                 </div>
                 <div className="pt-4 border-t">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">Customer Rating</span>
+                    <span className="text-sm font-medium">Performance Rating</span>
                     <div className="flex items-center gap-1">
                       <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
                       <span className="text-sm font-bold">
-                        {driver.customerRating}
+                        {employee.performanceRating}
                       </span>
                     </div>
                   </div>
@@ -452,38 +452,44 @@ export function DriverDetailPage() {
               </CardContent>
             </Card>
 
-            {/* License & Vehicle */}
+            {/* Department & Position */}
             <Card>
               <CardHeader>
-                <CardTitle>License & Vehicle</CardTitle>
-                <CardDescription>Credentials and assignments</CardDescription>
+                <CardTitle>Department & Position</CardTitle>
+                <CardDescription>Role and team information</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <p className="text-sm font-medium mb-1">License Number</p>
-                  <p className="text-sm text-muted-foreground font-mono">
-                    {driver.licenseNumber}
+                  <p className="text-sm font-medium mb-1">Department</p>
+                  <p className="text-sm text-muted-foreground">
+                    {employee.department}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium mb-1">License Expiry</p>
+                  <p className="text-sm font-medium mb-1">Position</p>
                   <p className="text-sm text-muted-foreground">
-                    {driver.licenseExpiry}
+                    {employee.position}
                   </p>
                 </div>
                 <div className="pt-4 border-t">
-                  <p className="text-sm font-medium mb-1">Assigned Vehicle</p>
+                  <p className="text-sm font-medium mb-1">Team</p>
                   <p className="text-sm text-muted-foreground">
-                    {driver.vehicleAssigned}
+                    {employee.team}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-1">Certification</p>
+                  <p className="text-sm text-muted-foreground">
+                    {employee.certification}
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Delivery Stats */}
+            {/* Project Stats */}
             <Card>
               <CardHeader>
-                <CardTitle>Delivery Statistics</CardTitle>
+                <CardTitle>Project Statistics</CardTitle>
                 <CardDescription>Activity overview</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -491,17 +497,17 @@ export function DriverDetailPage() {
                   <div className="flex items-center gap-2">
                     <Package className="h-5 w-5 text-muted-foreground" />
                     <span className="text-sm font-medium">
-                      Total Deliveries
+                      Total Projects
                     </span>
                   </div>
                   <span className="text-2xl font-bold">
-                    {driver.totalDeliveries}
+                    {employee.totalProjects}
                   </span>
                 </div>
                 <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-sm font-medium">Total Distance</span>
+                  <span className="text-sm font-medium">Years of Service</span>
                   <span className="text-xl font-bold">
-                    {driver.totalDistance}
+                    {employee.yearsOfService}
                   </span>
                 </div>
               </CardContent>
@@ -516,7 +522,7 @@ export function DriverDetailPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                {driver.bankAccounts?.map((account) => (
+                {employee.bankAccounts?.map((account) => (
                   <div
                     key={account.id}
                     className="flex items-center justify-between p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors"
@@ -575,26 +581,27 @@ export function DriverDetailPage() {
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent className="flex flex-col items-center justify-center min-h-[400px]">
-                <div className="flex flex-col items-center gap-4 text-center">
-                  <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center">
-                    <FileText className="h-10 w-10 text-muted-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      Embedded Payslip Placeholder
-                    </h3>
-                    <p className="text-sm text-muted-foreground max-w-md">
-                      This section is reserved for your embedded payslip
-                      component. Add detailed payment history, salary
-                      breakdowns, and downloadable payslips here.
-                    </p>
-                  </div>
-                  <div className="mt-4 p-4 bg-muted/50 rounded-lg">
-                    <code className="text-sm text-muted-foreground">
-                      {`{/* Add your embedded payslip component here */}`}
-                    </code>
-                  </div>
+              <CardContent>
+                <div className="space-y-3">
+                  {employee.payHistory?.map((payment, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors"
+                    >
+                      <div>
+                        <p className="text-sm font-semibold">{payment.date}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {payment.type} • {payment.method}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm font-bold">{payment.amount}</p>
+                        <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20 text-xs">
+                          {payment.status}
+                        </Badge>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -604,3 +611,4 @@ export function DriverDetailPage() {
     </SidebarProvider>
   );
 }
+

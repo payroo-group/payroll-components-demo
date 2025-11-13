@@ -3,8 +3,8 @@ import { PayrollPage } from "../components/payroll-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Payroll | Driver Management" },
-    { name: "description", content: "Manage driver payroll and salaries" },
+    { title: "Payroll | HR Management" },
+    { name: "description", content: "Manage employee payroll and salaries" },
   ];
 }
 

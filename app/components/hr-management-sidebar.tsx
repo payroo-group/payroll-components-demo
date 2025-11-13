@@ -7,7 +7,7 @@ import {
   ClipboardList,
   CircleDot,
   GraduationCap,
-  Car,
+  Briefcase,
   Wrench,
   Fuel,
   MapPin,
@@ -34,7 +34,7 @@ import {
   SidebarSeparator,
 } from "~/components/ui/sidebar";
 
-export function DriverManagementSidebar() {
+export function HRManagementSidebar() {
   const location = useLocation();
   
   return (
@@ -42,11 +42,11 @@ export function DriverManagementSidebar() {
       <SidebarHeader>
         <div className="flex items-center gap-2 px-4 py-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Car className="h-5 w-5" />
+            <Briefcase className="h-5 w-5" />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold">Driver Management</span>
-            <span className="text-xs text-muted-foreground">Fleet Control</span>
+            <span className="text-sm font-semibold">HR Management</span>
+            <span className="text-xs text-muted-foreground">Workforce Control</span>
           </div>
         </div>
       </SidebarHeader>
@@ -80,22 +80,22 @@ export function DriverManagementSidebar() {
 
         <SidebarSeparator />
 
-        {/* Driver Management Section */}
+        {/* Employee Management Section */}
         <SidebarGroup>
-          <SidebarGroupLabel>Driver Management</SidebarGroupLabel>
+          <SidebarGroupLabel>Employee Management</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
                   isActive={
-                    location.pathname === "/driver-profiles" ||
-                    location.pathname.startsWith("/driver-detail")
+                    location.pathname === "/employee-profiles" ||
+                    location.pathname.startsWith("/employee-detail")
                   }
                 >
-                  <a href="/driver-profiles">
+                  <a href="/employee-profiles">
                     <UserCircle className="h-4 w-4" />
-                    <span>Driver Profiles</span>
+                    <span>Employee Profiles</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -124,7 +124,7 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <CircleDot className="h-4 w-4" />
-                  <span>Driver Status</span>
+                  <span>Employee Status</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -163,13 +163,13 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <CreditCard className="h-4 w-4" />
-                  <span>Expenses</span>
+                  <span>Benefits</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <Receipt className="h-4 w-4" />
-                  <span>Invoicing</span>
+                  <span>Compensation</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -192,7 +192,7 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <Users className="h-4 w-4" />
-                  <span>User Management</span>
+                  <span>Roles & Permissions</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
@@ -214,3 +214,4 @@ export function DriverManagementSidebar() {
     </Sidebar>
   );
 }
+

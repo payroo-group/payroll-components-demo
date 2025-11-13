@@ -6,7 +6,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import {
   Card,
   CardContent,
@@ -18,7 +18,7 @@ import {
 export function CalendarPage() {
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
@@ -26,18 +26,18 @@ export function CalendarPage() {
         </header>
         <main className="flex-1 p-6">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold">Schedule & Calendar</h2>
+            <h2 className="text-3xl font-bold">Employee Calendar</h2>
             <p className="text-muted-foreground mt-2">
-              Manage driver schedules, shifts, and appointments
+              Manage employee schedules, shifts, time off, and appointments
             </p>
           </div>
 
           {/* Placeholder for Embedded Calendar Component */}
           <Card className="min-h-[700px]">
             <CardHeader>
-              <CardTitle>Calendar View</CardTitle>
+              <CardTitle>Schedule Calendar</CardTitle>
               <CardDescription>
-                Embedded calendar component will be added here
+                View and manage employee schedules and time off requests
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center min-h-[600px]">
@@ -47,12 +47,12 @@ export function CalendarPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">
-                    Embedded Calendar Placeholder
+                    Employee Calendar System
                   </h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    This section is reserved for your embedded calendar
-                    component. Add your custom calendar view, schedule
-                    management, or appointment booking system here.
+                    This section displays your employee calendar and schedule
+                    management system. Add your custom calendar view, schedule
+                    management, time off requests, or appointment booking system here.
                   </p>
                 </div>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
