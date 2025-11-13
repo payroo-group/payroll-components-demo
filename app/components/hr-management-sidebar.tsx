@@ -121,13 +121,7 @@ export function HRManagementSidebar() {
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <CircleDot className="h-4 w-4" />
-                  <span>Employee Status</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
+              </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
