@@ -26,7 +26,7 @@ async function createSession(account: string, user: string, userName: string) {
                 id: user, // Example: 8ba609ea-5d82-4e03-b7be-1601f2c72254
                 name: userName,
             },
-            allowOrigin: "http://localhost:5173", // Adjust this to your frontend origin
+            allowOrigin: process.env.APP_ORIGIN, // Adjust this to your frontend origin
         }),
     });
 
