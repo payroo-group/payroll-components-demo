@@ -22,3 +22,4 @@ primary_region = 'syd'
 
 [env]
   PAYROO_API_URL='https://sandbox-embed.payroo.com.au/api'
+  APP_ORIGIN='https://payroll-components-demo.fly.dev'
