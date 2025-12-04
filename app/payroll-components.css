@@ -10,15 +10,6 @@
     --payroo-primary: #7f22fe;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --payroo-text: #ffffff;
-        --payroo-text-light: #cccccc;
-        --payroo-bg-color: #121212;
-        --payroo-primary: #a676ff;
-    }
-}
-
 #company-overview-container h1 {
     color: var(--payroo-text);
 }
