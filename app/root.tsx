@@ -52,7 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-       
+       {/* ThemeProvider is not needed here because the theme is set in the app.css file */}
           {children}
         
         <ScrollRestoration />
