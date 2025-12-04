@@ -52,9 +52,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        <ThemeProvider>
+       
           {children}
-        </ThemeProvider>
+        
         <ScrollRestoration />
         <Scripts />
       </body>
