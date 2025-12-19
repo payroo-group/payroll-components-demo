@@ -101,7 +101,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/notifications"}
                 >
-                  <a href="/banking/notifications">
+                  <a>
                     <Bell className="h-4 w-4" />
                     <span>Notifications</span>
                   </a>
