@@ -15,6 +15,10 @@ import {
   HelpCircle,
   ChevronDown,
   Car,
+  DollarSign,
+  History,
+  UserPlus,
+  CalendarDays,
 } from "lucide-react";
 import { useLocation } from "react-router";
 import {
@@ -104,6 +108,17 @@ export function BankingSidebar() {
                   <a>
                     <Bell className="h-4 w-4" />
                     <span>Notifications</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/calendar"}
+                >
+                  <a href="/banking/calendar">
+                    <CalendarDays className="h-4 w-4" />
+                    <span>Calendar</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -203,6 +218,61 @@ export function BankingSidebar() {
                   <a href="/banking/statements">
                     <FileText className="h-4 w-4" />
                     <span>Statements</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Payroll Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Payroll</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/payroll"}
+                >
+                  <a href="/banking/payroll">
+                    <DollarSign className="h-4 w-4" />
+                    <span>Run Payroll</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/payroll/employees"}
+                >
+                  <a href="/banking/payroll/employees">
+                    <Users className="h-4 w-4" />
+                    <span>Employees</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/payroll/history"}
+                >
+                  <a href="/banking/payroll/history">
+                    <History className="h-4 w-4" />
+                    <span>Payroll History</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/payroll/documents"}
+                >
+                  <a href="/banking/payroll/documents">
+                    <FileText className="h-4 w-4" />
+                    <span>Tax Documents</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
