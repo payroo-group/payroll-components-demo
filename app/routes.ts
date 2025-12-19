@@ -14,4 +14,6 @@ export default [
     route("reports", "routes/reports.tsx"),
     route("api/session", "routes/api/session.ts"),
     route("api/embed-url", "routes/api/embed-url.ts"),
+    // Banking Demo App routes
+    route("banking", "routes/banking.tsx"),
 ] satisfies RouteConfig;

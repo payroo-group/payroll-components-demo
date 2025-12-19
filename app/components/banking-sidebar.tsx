@@ -1,0 +1,271 @@
+import {
+  LayoutDashboard,
+  Bell,
+  Landmark,
+  CreditCard,
+  Wallet,
+  ArrowLeftRight,
+  PiggyBank,
+  TrendingUp,
+  Receipt,
+  FileText,
+  Settings,
+  Users,
+  Shield,
+  HelpCircle,
+  ChevronDown,
+  Car,
+} from "lucide-react";
+import { useLocation } from "react-router";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarHeader,
+  SidebarSeparator,
+} from "~/components/ui/sidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "~/components/ui/dropdown-menu";
+
+export function BankingSidebar() {
+  const location = useLocation();
+
+  return (
+    <Sidebar>
+      <SidebarHeader>
+        {/* App Switcher Dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="flex w-full items-center gap-2 px-4 py-3 hover:bg-accent/50 transition-colors rounded-md focus:outline-none">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600 text-white">
+                <Landmark className="h-5 w-5" />
+              </div>
+              <div className="flex flex-1 flex-col items-start">
+                <span className="text-sm font-semibold">NeoBank</span>
+                <span className="text-xs text-muted-foreground">Banking Demo</span>
+              </div>
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="w-64">
+            <div className="px-2 py-1.5">
+              <p className="text-sm font-semibold">NeoBank</p>
+              <p className="text-xs text-muted-foreground">Banking Demo</p>
+            </div>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
+              <a href="/dashboard">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                  <Car className="h-4 w-4" />
+                </div>
+                <div className="flex flex-1 flex-col">
+                  <span className="text-sm font-medium">Driver Management</span>
+                  <span className="text-xs text-muted-foreground">Fleet Control</span>
+                </div>
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <SidebarSeparator />
+      </SidebarHeader>
+
+      <SidebarContent>
+        {/* Overview Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Overview</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking"}
+                >
+                  <a href="/banking">
+                    <LayoutDashboard className="h-4 w-4" />
+                    <span>Dashboard</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/notifications"}
+                >
+                  <a href="/banking/notifications">
+                    <Bell className="h-4 w-4" />
+                    <span>Notifications</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Accounts Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Accounts</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/accounts"}
+                >
+                  <a href="/banking/accounts">
+                    <Wallet className="h-4 w-4" />
+                    <span>My Accounts</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/cards"}
+                >
+                  <a href="/banking/cards">
+                    <CreditCard className="h-4 w-4" />
+                    <span>Cards</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/transfers"}
+                >
+                  <a href="/banking/transfers">
+                    <ArrowLeftRight className="h-4 w-4" />
+                    <span>Transfers</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/savings"}
+                >
+                  <a href="/banking/savings">
+                    <PiggyBank className="h-4 w-4" />
+                    <span>Savings Goals</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Finance Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Finance</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/investments"}
+                >
+                  <a href="/banking/investments">
+                    <TrendingUp className="h-4 w-4" />
+                    <span>Investments</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/transactions"}
+                >
+                  <a href="/banking/transactions">
+                    <Receipt className="h-4 w-4" />
+                    <span>Transactions</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/statements"}
+                >
+                  <a href="/banking/statements">
+                    <FileText className="h-4 w-4" />
+                    <span>Statements</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Settings Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Settings</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/settings"}
+                >
+                  <a href="/banking/settings">
+                    <Settings className="h-4 w-4" />
+                    <span>Settings</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/beneficiaries"}
+                >
+                  <a href="/banking/beneficiaries">
+                    <Users className="h-4 w-4" />
+                    <span>Beneficiaries</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/security"}
+                >
+                  <a href="/banking/security">
+                    <Shield className="h-4 w-4" />
+                    <span>Security</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/help"}
+                >
+                  <a href="/banking/help">
+                    <HelpCircle className="h-4 w-4" />
+                    <span>Help & Support</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
+  );
+}
+
