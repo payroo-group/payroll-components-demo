@@ -5,8 +5,7 @@ import {
   CreditCard,
   Wallet,
   ArrowLeftRight,
-  PiggyBank,
-  TrendingUp,
+  Send,
   Receipt,
   FileText,
   Settings,
@@ -17,8 +16,12 @@ import {
   Car,
   DollarSign,
   History,
-  UserPlus,
   CalendarDays,
+  Building2,
+  PieChart,
+  Banknote,
+  FileSpreadsheet,
+  UserCog,
 } from "lucide-react";
 import { useLocation } from "react-router";
 import {
@@ -56,7 +59,7 @@ export function BankingSidebar() {
               </div>
               <div className="flex flex-1 flex-col items-start">
                 <span className="text-sm font-semibold">NeoBank</span>
-                <span className="text-xs text-muted-foreground">Banking Demo</span>
+                <span className="text-xs text-muted-foreground">Business Banking</span>
               </div>
               <ChevronDown className="h-4 w-4 text-muted-foreground" />
             </button>
@@ -64,7 +67,7 @@ export function BankingSidebar() {
           <DropdownMenuContent align="start" className="w-64">
             <div className="px-2 py-1.5">
               <p className="text-sm font-semibold">NeoBank</p>
-              <p className="text-xs text-muted-foreground">Banking Demo</p>
+              <p className="text-xs text-muted-foreground">Business Banking</p>
             </div>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
@@ -105,7 +108,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/notifications"}
                 >
-                  <a>
+                  <a href="/banking/notifications">
                     <Bell className="h-4 w-4" />
                     <span>Notifications</span>
                   </a>
@@ -140,7 +143,7 @@ export function BankingSidebar() {
                 >
                   <a href="/banking/accounts">
                     <Wallet className="h-4 w-4" />
-                    <span>My Accounts</span>
+                    <span>Business Accounts</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -151,10 +154,32 @@ export function BankingSidebar() {
                 >
                   <a href="/banking/cards">
                     <CreditCard className="h-4 w-4" />
-                    <span>Cards</span>
+                    <span>Corporate Cards</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/treasury"}
+                >
+                  <a href="/banking/treasury">
+                    <Banknote className="h-4 w-4" />
+                    <span>Treasury</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Payments Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Payments</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
@@ -169,55 +194,22 @@ export function BankingSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={location.pathname === "/banking/savings"}
+                  isActive={location.pathname === "/banking/bill-pay"}
                 >
-                  <a href="/banking/savings">
-                    <PiggyBank className="h-4 w-4" />
-                    <span>Savings Goals</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarSeparator />
-
-        {/* Finance Section */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Finance</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/investments"}
-                >
-                  <a href="/banking/investments">
-                    <TrendingUp className="h-4 w-4" />
-                    <span>Investments</span>
+                  <a href="/banking/bill-pay">
+                    <Send className="h-4 w-4" />
+                    <span>Bill Pay</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={location.pathname === "/banking/transactions"}
+                  isActive={location.pathname === "/banking/vendors"}
                 >
-                  <a href="/banking/transactions">
-                    <Receipt className="h-4 w-4" />
-                    <span>Transactions</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/statements"}
-                >
-                  <a href="/banking/statements">
-                    <FileText className="h-4 w-4" />
-                    <span>Statements</span>
+                  <a href="/banking/vendors">
+                    <Users className="h-4 w-4" />
+                    <span>Vendors</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -271,7 +263,7 @@ export function BankingSidebar() {
                   isActive={location.pathname === "/banking/payroll/documents"}
                 >
                   <a href="/banking/payroll/documents">
-                    <FileText className="h-4 w-4" />
+                    <FileSpreadsheet className="h-4 w-4" />
                     <span>Tax Documents</span>
                   </a>
                 </SidebarMenuButton>
@@ -282,11 +274,77 @@ export function BankingSidebar() {
 
         <SidebarSeparator />
 
-        {/* Settings Section */}
+        {/* Reports Section */}
         <SidebarGroup>
-          <SidebarGroupLabel>Settings</SidebarGroupLabel>
+          <SidebarGroupLabel>Reports</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/transactions"}
+                >
+                  <a href="/banking/transactions">
+                    <Receipt className="h-4 w-4" />
+                    <span>Transactions</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/statements"}
+                >
+                  <a href="/banking/statements">
+                    <FileText className="h-4 w-4" />
+                    <span>Statements</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/analytics"}
+                >
+                  <a href="/banking/analytics">
+                    <PieChart className="h-4 w-4" />
+                    <span>Analytics</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
+        {/* Administration Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Administration</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/company"}
+                >
+                  <a href="/banking/company">
+                    <Building2 className="h-4 w-4" />
+                    <span>Company</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/team"}
+                >
+                  <a href="/banking/team">
+                    <UserCog className="h-4 w-4" />
+                    <span>Team & Permissions</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
@@ -295,17 +353,6 @@ export function BankingSidebar() {
                   <a href="/banking/settings">
                     <Settings className="h-4 w-4" />
                     <span>Settings</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/beneficiaries"}
-                >
-                  <a href="/banking/beneficiaries">
-                    <Users className="h-4 w-4" />
-                    <span>Beneficiaries</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -338,4 +385,3 @@ export function BankingSidebar() {
     </Sidebar>
   );
 }
-
