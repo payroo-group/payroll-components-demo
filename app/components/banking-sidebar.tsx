@@ -227,7 +227,7 @@ export function BankingSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={location.pathname === "/banking/payroll/employees"}
+                  isActive={location.pathname === "#"}
                 >
                   <a href="#">
                     <Users className="h-4 w-4" />
