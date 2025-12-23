@@ -19,4 +19,5 @@ export default [
     route("banking/calendar", "routes/banking-calendar.tsx"),
     route("banking/payroll", "routes/banking-payroll.tsx"),
     route("banking/payroll/history", "routes/banking-payroll-history.tsx"),
+    route("banking/payroll/reports", "routes/banking-reports.tsx"),
 ] satisfies RouteConfig;

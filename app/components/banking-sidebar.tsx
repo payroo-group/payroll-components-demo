@@ -249,55 +249,22 @@ export function BankingSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
+                  isActive={location.pathname === "/banking/payroll/reports"}
+                >
+                  <a href="/banking/payroll/reports">
+                    <FileSpreadsheet className="h-4 w-4" />
+                    <span>Reports</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
                   isActive={location.pathname === "/banking/payroll/documents"}
                 >
                   <a href="#">
                     <FileSpreadsheet className="h-4 w-4" />
                     <span>Tax Documents</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarSeparator />
-
-        {/* Reports Section */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Reports</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/transactions"}
-                >
-                  <a href="#">
-                    <Receipt className="h-4 w-4" />
-                    <span>Transactions</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/statements"}
-                >
-                  <a href="#">
-                    <FileText className="h-4 w-4" />
-                    <span>Statements</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/analytics"}
-                >
-                  <a href="#">
-                    <PieChart className="h-4 w-4" />
-                    <span>Analytics</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
