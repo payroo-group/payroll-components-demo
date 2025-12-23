@@ -260,11 +260,22 @@ export function BankingSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={location.pathname === "/banking/payroll/documents"}
+                  isActive={location.pathname === "/banking/payroll/super-batches"}
                 >
-                  <a href="#">
+                  <a href="/banking/payroll/super-batches">
                     <FileSpreadsheet className="h-4 w-4" />
-                    <span>Tax Documents</span>
+                    <span>Super Batches</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/payroll/expense-claims"}
+                >
+                  <a href="/banking/payroll/expense-claims">
+                    <FileSpreadsheet className="h-4 w-4" />
+                    <span>Expense Claims</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
