@@ -108,7 +108,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/notifications"}
                 >
-                  <a href="/banking/notifications">
+                  <a href="#">
                     <Bell className="h-4 w-4" />
                     <span>Notifications</span>
                   </a>
@@ -141,7 +141,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/accounts"}
                 >
-                  <a href="/banking/accounts">
+                  <a href="#">
                     <Wallet className="h-4 w-4" />
                     <span>Business Accounts</span>
                   </a>
@@ -152,20 +152,9 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/cards"}
                 >
-                  <a href="/banking/cards">
+                  <a href="#">
                     <CreditCard className="h-4 w-4" />
                     <span>Corporate Cards</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/treasury"}
-                >
-                  <a href="/banking/treasury">
-                    <Banknote className="h-4 w-4" />
-                    <span>Treasury</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -185,7 +174,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/transfers"}
                 >
-                  <a href="/banking/transfers">
+                  <a href="#">
                     <ArrowLeftRight className="h-4 w-4" />
                     <span>Transfers</span>
                   </a>
@@ -196,7 +185,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/bill-pay"}
                 >
-                  <a href="/banking/bill-pay">
+                  <a href="#">
                     <Send className="h-4 w-4" />
                     <span>Bill Pay</span>
                   </a>
@@ -207,7 +196,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/vendors"}
                 >
-                  <a href="/banking/vendors">
+                  <a href="#">
                     <Users className="h-4 w-4" />
                     <span>Vendors</span>
                   </a>
@@ -229,7 +218,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/payroll"}
                 >
-                  <a href="/banking/payroll">
+                  <a href="#">
                     <DollarSign className="h-4 w-4" />
                     <span>Run Payroll</span>
                   </a>
@@ -240,7 +229,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/payroll/employees"}
                 >
-                  <a href="/banking/payroll/employees">
+                  <a href="#">
                     <Users className="h-4 w-4" />
                     <span>Employees</span>
                   </a>
@@ -251,7 +240,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/payroll/history"}
                 >
-                  <a href="/banking/payroll/history">
+                  <a href="#">
                     <History className="h-4 w-4" />
                     <span>Payroll History</span>
                   </a>
@@ -262,7 +251,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/payroll/documents"}
                 >
-                  <a href="/banking/payroll/documents">
+                  <a href="#">
                     <FileSpreadsheet className="h-4 w-4" />
                     <span>Tax Documents</span>
                   </a>
@@ -284,7 +273,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/transactions"}
                 >
-                  <a href="/banking/transactions">
+                  <a href="#">
                     <Receipt className="h-4 w-4" />
                     <span>Transactions</span>
                   </a>
@@ -295,7 +284,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/statements"}
                 >
-                  <a href="/banking/statements">
+                  <a href="#">
                     <FileText className="h-4 w-4" />
                     <span>Statements</span>
                   </a>
@@ -306,7 +295,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/analytics"}
                 >
-                  <a href="/banking/analytics">
+                  <a href="#">
                     <PieChart className="h-4 w-4" />
                     <span>Analytics</span>
                   </a>
@@ -328,7 +317,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/company"}
                 >
-                  <a href="/banking/company">
+                  <a href="#">
                     <Building2 className="h-4 w-4" />
                     <span>Company</span>
                   </a>
@@ -339,7 +328,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/team"}
                 >
-                  <a href="/banking/team">
+                  <a href="#">
                     <UserCog className="h-4 w-4" />
                     <span>Team & Permissions</span>
                   </a>
@@ -350,7 +339,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/settings"}
                 >
-                  <a href="/banking/settings">
+                  <a href="#">
                     <Settings className="h-4 w-4" />
                     <span>Settings</span>
                   </a>
@@ -361,7 +350,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/security"}
                 >
-                  <a href="/banking/security">
+                  <a href="#">
                     <Shield className="h-4 w-4" />
                     <span>Security</span>
                   </a>
@@ -372,7 +361,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/help"}
                 >
-                  <a href="/banking/help">
+                  <a href="#">
                     <HelpCircle className="h-4 w-4" />
                     <span>Help & Support</span>
                   </a>
