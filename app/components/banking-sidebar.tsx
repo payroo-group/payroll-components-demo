@@ -240,7 +240,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/payroll/history"}
                 >
-                  <a href="#">
+                  <a href="/banking/payroll/history">
                     <History className="h-4 w-4" />
                     <span>Payroll History</span>
                   </a>
