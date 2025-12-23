@@ -218,7 +218,7 @@ export function BankingSidebar() {
                   asChild
                   isActive={location.pathname === "/banking/payroll"}
                 >
-                  <a href="#">
+                  <a href="/banking/payroll">
                     <DollarSign className="h-4 w-4" />
                     <span>Run Payroll</span>
                   </a>

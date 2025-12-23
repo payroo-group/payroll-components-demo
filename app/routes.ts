@@ -17,4 +17,5 @@ export default [
     // Banking Demo App routes
     route("banking", "routes/banking.tsx"),
     route("banking/calendar", "routes/banking-calendar.tsx"),
+    route("banking/payroll", "routes/banking-payroll.tsx"),
 ] satisfies RouteConfig;
