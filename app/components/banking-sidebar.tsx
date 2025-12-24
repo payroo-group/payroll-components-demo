@@ -54,7 +54,7 @@ export function BankingSidebar() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button className="flex w-full items-center gap-2 px-4 py-3 hover:bg-accent/50 transition-colors rounded-md focus:outline-none">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600 text-white">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#991AD6] text-white">
                 <Landmark className="h-5 w-5" />
               </div>
               <div className="flex flex-1 flex-col items-start">

@@ -87,7 +87,7 @@ const upcomingPayments = [
 const cashFlowChartConfig: ChartConfig = {
   inflow: {
     label: "Inflow",
-    color: "hsl(142.1 76.2% 36.3%)",
+    color: "#991AD6",
   },
   outflow: {
     label: "Outflow",
@@ -98,7 +98,7 @@ const cashFlowChartConfig: ChartConfig = {
 const revenueExpenseChartConfig: ChartConfig = {
   revenue: {
     label: "Revenue",
-    color: "hsl(142.1 76.2% 36.3%)",
+    color: "#991AD6",
   },
   expenses: {
     label: "Expenses",
@@ -134,7 +134,7 @@ export function BankingDashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">$284,520.00</div>
-                <p className="text-xs text-emerald-600 flex items-center gap-1">
+                <p className="text-xs text-[#991AD6] flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   +8.2% from last month
                 </p>
@@ -146,7 +146,7 @@ export function BankingDashboardPage() {
                 <CardTitle className="text-sm font-medium">
                   Accounts Receivable
                 </CardTitle>
-                <FileText className="h-4 w-4 text-emerald-600" />
+                <FileText className="h-4 w-4 text-[#991AD6]" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">$68,450.00</div>
@@ -201,8 +201,8 @@ export function BankingDashboardPage() {
                   <AreaChart data={cashFlowData} margin={{ left: 0, right: 0 }}>
                     <defs>
                       <linearGradient id="inflowGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="hsl(142.1 76.2% 36.3%)" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="hsl(142.1 76.2% 36.3%)" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#991AD6" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="#991AD6" stopOpacity={0} />
                       </linearGradient>
                       <linearGradient id="outflowGradient" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="hsl(0 84.2% 60.2%)" stopOpacity={0.3} />
@@ -216,7 +216,7 @@ export function BankingDashboardPage() {
                     <Area
                       type="monotone"
                       dataKey="inflow"
-                      stroke="hsl(142.1 76.2% 36.3%)"
+                      stroke="#991AD6"
                       fill="url(#inflowGradient)"
                       strokeWidth={2}
                     />
@@ -245,7 +245,7 @@ export function BankingDashboardPage() {
                     <XAxis dataKey="month" tickLine={false} axisLine={false} />
                     <YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
                     <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="revenue" fill="hsl(142.1 76.2% 36.3%)" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="revenue" fill="#991AD6" radius={[4, 4, 0, 0]} />
                     <Bar dataKey="expenses" fill="hsl(0 84.2% 60.2%)" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ChartContainer>
@@ -306,7 +306,7 @@ export function BankingDashboardPage() {
                         <div
                           className={`flex h-9 w-9 items-center justify-center rounded-full ${
                             tx.type === "income"
-                              ? "bg-emerald-100 text-emerald-600"
+                              ? "bg-[#991AD6]/10 text-[#991AD6]"
                               : "bg-rose-100 text-rose-600"
                           }`}
                         >
@@ -323,7 +323,7 @@ export function BankingDashboardPage() {
                       </div>
                       <span
                         className={`text-sm font-medium ${
-                          tx.type === "income" ? "text-emerald-600" : "text-rose-600"
+                          tx.type === "income" ? "text-[#991AD6]" : "text-rose-600"
                         }`}
                       >
                         {tx.type === "income" ? "+" : "-"}${Math.abs(tx.amount).toLocaleString()}
@@ -361,7 +361,7 @@ export function BankingDashboardPage() {
                           ${payment.amount.toLocaleString()}
                         </span>
                         <p className={`text-xs ${
-                          payment.status === "scheduled" ? "text-emerald-600" : "text-amber-600"
+                          payment.status === "scheduled" ? "text-[#991AD6]" : "text-amber-600"
                         }`}>
                           {payment.status === "scheduled" ? "Scheduled" : "Pending"}
                         </p>
@@ -417,7 +417,7 @@ export function BankingDashboardPage() {
           <div className="mt-8">
             <h3 className="text-lg font-semibold mb-4">Corporate Cards</h3>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <div className="relative h-48 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 p-6 text-white overflow-hidden">
+              <div className="relative h-48 rounded-xl bg-gradient-to-br from-[#991AD6] to-[#6b1299] p-6 text-white overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
                 <div className="relative z-10">
