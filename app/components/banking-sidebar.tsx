@@ -263,7 +263,7 @@ export function BankingSidebar() {
                   isActive={location.pathname === "/banking/payroll/super-batches"}
                 >
                   <a href="/banking/payroll/super-batches">
-                    <FileSpreadsheet className="h-4 w-4" />
+                    <Banknote className="h-4 w-4" />
                     <span>Super Batches</span>
                   </a>
                 </SidebarMenuButton>
@@ -274,7 +274,7 @@ export function BankingSidebar() {
                   isActive={location.pathname === "/banking/payroll/expense-claims"}
                 >
                   <a href="/banking/payroll/expense-claims">
-                    <FileSpreadsheet className="h-4 w-4" />
+                    <Receipt className="h-4 w-4" />
                     <span>Expense Claims</span>
                   </a>
                 </SidebarMenuButton>
