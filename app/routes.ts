@@ -20,4 +20,5 @@ export default [
     route("banking/payroll", "routes/banking-payroll.tsx"),
     route("banking/payroll/history", "routes/banking-payroll-history.tsx"),
     route("banking/payroll/reports", "routes/banking-reports.tsx"),
+    route("banking/payroll/super-batches", "routes/banking-super-batches.tsx"),
 ] satisfies RouteConfig;
