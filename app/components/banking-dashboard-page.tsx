@@ -87,22 +87,22 @@ const upcomingPayments = [
 const cashFlowChartConfig: ChartConfig = {
   inflow: {
     label: "Inflow",
-    color: "#991AD6",
+    color: "#002e9b",
   },
   outflow: {
     label: "Outflow",
-    color: "hsl(0 84.2% 60.2%)",
+    color: "#2766fa",
   },
 };
 
 const revenueExpenseChartConfig: ChartConfig = {
   revenue: {
     label: "Revenue",
-    color: "#991AD6",
+    color: "#002e9b",
   },
   expenses: {
     label: "Expenses",
-    color: "hsl(0 84.2% 60.2%)",
+    color: "#2766fa",
   },
 };
 
@@ -131,7 +131,7 @@ export function BankingDashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">$284,520.00</div>
-                <p className="text-xs text-[#991AD6] flex items-center gap-1">
+                <p className="text-xs text-[#002e9b] flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   +8.2% from last month
                 </p>
@@ -143,7 +143,7 @@ export function BankingDashboardPage() {
                 <CardTitle className="text-sm font-medium">
                   Accounts Receivable
                 </CardTitle>
-                <FileText className="h-4 w-4 text-[#991AD6]" />
+                <FileText className="h-4 w-4 text-[#002e9b]" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">$68,450.00</div>
@@ -158,7 +158,7 @@ export function BankingDashboardPage() {
                 <CardTitle className="text-sm font-medium">
                   Accounts Payable
                 </CardTitle>
-                <FileText className="h-4 w-4 text-rose-500" />
+                <FileText className="h-4 w-4 text-[#2766fa]" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">$42,180.00</div>
@@ -198,12 +198,12 @@ export function BankingDashboardPage() {
                   <AreaChart data={cashFlowData} margin={{ left: 0, right: 0 }}>
                     <defs>
                       <linearGradient id="inflowGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#991AD6" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#991AD6" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#002e9b" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="#002e9b" stopOpacity={0} />
                       </linearGradient>
                       <linearGradient id="outflowGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="hsl(0 84.2% 60.2%)" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="hsl(0 84.2% 60.2%)" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#2766fa" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="#2766fa" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -213,14 +213,14 @@ export function BankingDashboardPage() {
                     <Area
                       type="monotone"
                       dataKey="inflow"
-                      stroke="#991AD6"
+                      stroke="#002e9b"
                       fill="url(#inflowGradient)"
                       strokeWidth={2}
                     />
                     <Area
                       type="monotone"
                       dataKey="outflow"
-                      stroke="hsl(0 84.2% 60.2%)"
+                      stroke="#2766fa"
                       fill="url(#outflowGradient)"
                       strokeWidth={2}
                     />
@@ -242,8 +242,8 @@ export function BankingDashboardPage() {
                     <XAxis dataKey="month" tickLine={false} axisLine={false} />
                     <YAxis tickLine={false} axisLine={false} tickFormatter={(v) => `$${v / 1000}k`} />
                     <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="revenue" fill="#991AD6" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="expenses" fill="hsl(0 84.2% 60.2%)" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="revenue" fill="#002e9b" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="expenses" fill="#2766fa" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ChartContainer>
               </CardContent>
@@ -303,8 +303,8 @@ export function BankingDashboardPage() {
                         <div
                           className={`flex h-9 w-9 items-center justify-center rounded-full ${
                             tx.type === "income"
-                              ? "bg-[#991AD6]/10 text-[#991AD6]"
-                              : "bg-rose-100 text-rose-600"
+                              ? "bg-[#002e9b]/10 text-[#002e9b]"
+                              : "bg-[#2766fa]/10 text-[#2766fa]"
                           }`}
                         >
                           {tx.type === "income" ? (
@@ -320,7 +320,7 @@ export function BankingDashboardPage() {
                       </div>
                       <span
                         className={`text-sm font-medium ${
-                          tx.type === "income" ? "text-[#991AD6]" : "text-rose-600"
+                          tx.type === "income" ? "text-[#002e9b]" : "text-[#2766fa]"
                         }`}
                       >
                         {tx.type === "income" ? "+" : "-"}${Math.abs(tx.amount).toLocaleString()}
@@ -345,7 +345,7 @@ export function BankingDashboardPage() {
                   {upcomingPayments.map((payment) => (
                     <div key={payment.id} className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2766fa]/10 text-[#2766fa]">
                           <Clock className="h-4 w-4" />
                         </div>
                         <div>
@@ -358,7 +358,7 @@ export function BankingDashboardPage() {
                           ${payment.amount.toLocaleString()}
                         </span>
                         <p className={`text-xs ${
-                          payment.status === "scheduled" ? "text-[#991AD6]" : "text-amber-600"
+                          payment.status === "scheduled" ? "text-[#002e9b]" : "text-[#2766fa]"
                         }`}>
                           {payment.status === "scheduled" ? "Scheduled" : "Pending"}
                         </p>
@@ -414,7 +414,7 @@ export function BankingDashboardPage() {
           <div className="mt-8">
             <h3 className="text-lg font-semibold mb-4">Corporate Cards</h3>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <div className="relative h-48 rounded-xl bg-gradient-to-br from-[#991AD6] to-[#6b1299] p-6 text-white overflow-hidden">
+              <div className="relative h-48 rounded-xl bg-gradient-to-br from-[#002e9b] to-[#2766fa] p-6 text-white overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
                 <div className="relative z-10">
