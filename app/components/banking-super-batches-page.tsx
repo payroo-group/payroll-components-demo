@@ -8,7 +8,10 @@ import {
 import { BankingSidebar } from "~/components/banking-sidebar";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
-import { ViewReport } from "@payroo-group/embed-sdk-react";
+import { EmbedContainer, ViewReport } from "@payroo-group/embed-sdk-react";
+import { Suspense } from "react";
+import { Await } from "react-router";
+import { Components } from "@payroo-group/embed-sdk";
 
 export function BankingSuperBatchesPage() {
     const { accountId, userId } = useSession();
@@ -33,16 +36,28 @@ export function BankingSuperBatchesPage() {
                     </div>
 
                     <div id="super-batches-container">
-                        <ViewReport
-                            getEmbedUrl={getEmbedUrl}
-                            reportType="super"
-                            options={{
-                                autoHeightAdjust: true,
-                                extraAllowedOrigins: [
-                                    "https://sandbox-embed.payroo.com.au",
-                                ],
-                            }}
-                        />
+                        <Suspense fallback={<div className="embed-loading">Loading...</div>}>
+                            
+                                
+                                    <Await resolve={getEmbedUrl(Components.SUPER_BATCHES)}>
+                                    {
+                                        (url) => (
+                                            <EmbedContainer
+                                                url={url}
+                                                id="super-batches"
+                                                options={{
+                                                    autoHeightAdjust: true,
+                                                    extraAllowedOrigins: [
+                                                        "https://sandbox-embed.payroo.com.au",
+                                                    ],
+                                                }}
+                                            />
+                                        )
+                                    }
+                                    </Await>
+                               
+                            
+                        </Suspense>
                     </div>
                 </main>
             </SidebarInset>
