@@ -84,7 +84,7 @@ export function DriverManagementSidebar() {
               </a>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
-              <a href="/employee-profiles">
+              <a href="/hr-dashboard">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#7c3aed] text-white">
                   <Users className="h-4 w-4" />
                 </div>
