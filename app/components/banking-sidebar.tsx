@@ -114,17 +114,6 @@ export function BankingSidebar() {
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={location.pathname === "/banking/calendar"}
-                >
-                  <a href="/banking/calendar">
-                    <CalendarDays className="h-4 w-4" />
-                    <span>Calendar</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -227,11 +216,22 @@ export function BankingSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={location.pathname === "#"}
+                  isActive={location.pathname === "/banking/employees"}
                 >
-                  <a href="#">
+                  <a href="/banking/employees">
                     <Users className="h-4 w-4" />
                     <span>Employees</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === "/banking/calendar"}
+                >
+                  <a href="/banking/calendar">
+                    <CalendarDays className="h-4 w-4" />
+                    <span>Calendar</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
