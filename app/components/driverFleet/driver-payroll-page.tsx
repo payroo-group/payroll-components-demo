@@ -10,12 +10,12 @@ import {
 } from "~/components/ui/sidebar";
 import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
 import { Button } from "~/components/ui/button";
-import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { useState } from "react";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
 
-export function PayrollPage() {
+export function DriverPayrollPage() {
     const navigate = useNavigate();
     const [query] = useSearchParams();
     const [setupRequired] = useState(query.get("onboarded") !== "true");
@@ -27,7 +27,7 @@ export function PayrollPage() {
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Payroll Management</h1>
+                    <h1 className="text-lg font-semibold">Driver Payroll Management</h1>
                 </header>
                 <main className="flex-1 p-6">
                     <div className="mb-6 flex items-start justify-between">
@@ -37,7 +37,7 @@ export function PayrollPage() {
                                 Manage and process driver salaries and payments
                             </p>
                         </div>
-                        <Button onClick={() => navigate("/payroll-history")} hidden={setupRequired}>
+                        <Button onClick={() => navigate("/driver-payroll-history")} hidden={setupRequired}>
                             <History className="mr-2 h-4 w-4" />
                             Payroll History
                         </Button>
@@ -74,3 +74,4 @@ export function PayrollPage() {
         </SidebarProvider>
     );
 }
+

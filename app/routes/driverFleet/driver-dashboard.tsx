@@ -1,5 +1,5 @@
-import type { Route } from "./+types/dashboard";
-import { DashboardPage } from "../components/dashboard-page";
+import type { Route } from "./+types/driver-dashboard";
+import { DashboardPage } from "../../components/driverFleet/driver-dashboard-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,6 +8,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Dashboard() {
+export default function DriverDashboard() {
   return <DashboardPage />;
 }
+

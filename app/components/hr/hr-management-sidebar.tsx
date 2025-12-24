@@ -3,14 +3,8 @@ import {
     Bell,
     CalendarDays,
     UserCircle,
-    UserPlus,
     ClipboardList,
-    CircleDot,
-    GraduationCap,
     Briefcase,
-    Wrench,
-    Fuel,
-    MapPin,
     DollarSign,
     CreditCard,
     Receipt,
@@ -19,6 +13,9 @@ import {
     Users,
     Building2,
     Lock,
+    ChevronDown,
+    Landmark,
+    Car,
   } from "lucide-react";
   import { useLocation } from "react-router";
   import {
@@ -33,6 +30,13 @@ import {
     SidebarHeader,
     SidebarSeparator,
   } from "~/components/ui/sidebar";
+  import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "~/components/ui/dropdown-menu";
   
   export function HRManagementSidebar() {
     const location = useLocation();
@@ -40,16 +44,51 @@ import {
     return (
       <Sidebar>
         <SidebarHeader>
-          <div className="flex items-center gap-2 px-4 py-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Briefcase className="h-5 w-5" />
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="flex w-full items-center gap-2 px-4 py-3 hover:bg-accent/50 transition-colors rounded-md focus:outline-none">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#7c3aed] text-white">
+                <Briefcase className="h-5 w-5" />
+              </div>
+              <div className="flex flex-1 flex-col items-start">
+                <span className="text-sm font-semibold">HR Management</span>
+                <span className="text-xs text-muted-foreground">Workforce Control</span>
+              </div>
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="w-64">
+            <div className="px-2 py-1.5">
+              <p className="text-sm font-semibold">HR Management</p>
+              <p className="text-xs text-muted-foreground">Workforce Control</p>
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold">HR Management</span>
-              <span className="text-xs text-muted-foreground">Workforce Control</span>
-            </div>
-          </div>
-        </SidebarHeader>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
+              <a href="/dashboard">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                  <Car className="h-4 w-4" />
+                </div>
+                <div className="flex flex-1 flex-col">
+                  <span className="text-sm font-medium">Driver Management</span>
+                  <span className="text-xs text-muted-foreground">Fleet Control</span>
+                </div>
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
+              <a href="/banking">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#002e9b] text-white">
+                  <Landmark className="h-4 w-4" />
+                </div>
+                <div className="flex flex-1 flex-col">
+                  <span className="text-sm font-medium">NeoBank</span>
+                  <span className="text-xs text-muted-foreground">Banking Demo</span>
+                </div>
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <SidebarSeparator />
+      </SidebarHeader>
   
         <SidebarContent>
           {/* Overview Section */}
@@ -60,9 +99,9 @@ import {
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
-                    isActive={location.pathname === "/dashboard"}
+                    isActive={location.pathname === "/hr-dashboard"}
                   >
-                    <a href="/dashboard">
+                    <a href="/hr-dashboard">
                       <LayoutDashboard className="h-4 w-4" />
                       <span>Dashboard</span>
                     </a>
@@ -135,9 +174,9 @@ import {
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
-                    isActive={location.pathname === "/payroll"}
+                    isActive={location.pathname === "/hr-payroll"}
                   >
-                    <a href="/payroll">
+                    <a href="/hr-payroll">
                       <DollarSign className="h-4 w-4" />
                       <span>Payroll</span>
                     </a>

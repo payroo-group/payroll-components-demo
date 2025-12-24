@@ -2,12 +2,17 @@ import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
     index("routes/home.tsx"),
-    route("dashboard", "routes/dashboard.tsx"),
-    route("employee-profiles", "routes/hr/hr-profiles.tsx"),
-    route("employee-detail/:id", "routes/hr/hr-detail.$id.tsx"),
+    // Driver Fleet routes
+    route("dashboard", "routes/driverFleet/driver-dashboard.tsx"),
     route("driver-profiles", "routes/driverFleet/driver-profiles.tsx"),
     route("driver-detail/:id", "routes/driverFleet/driver-detail.$id.tsx"),
-    route("payroll", "routes/payroll.tsx"),
+    route("driver-payroll", "routes/driverFleet/driver-payroll.tsx"),
+    // HR Management routes
+    route("hr-dashboard", "routes/hr/hr-dashboard.tsx"),
+    route("employee-profiles", "routes/hr/hr-profiles.tsx"),
+    route("employee-detail/:id", "routes/hr/hr-detail.$id.tsx"),
+    route("hr-payroll", "routes/hr/hr-payroll.tsx"),
+    // Shared routes (to be organized later)
     route("payroll/onboarding", "routes/onboard-payroll.tsx"),
     route("payroll-history", "routes/payroll-history.tsx"),
     route("employee-payroll/:id", "routes/employee-payroll.$id.tsx"),

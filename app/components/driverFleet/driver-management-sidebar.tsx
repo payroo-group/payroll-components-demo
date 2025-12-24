@@ -84,7 +84,7 @@ export function DriverManagementSidebar() {
               </a>
             </DropdownMenuItem>
             <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
-              <a href="/hr-profiles">
+              <a href="/employee-profiles">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#7c3aed] text-white">
                   <Users className="h-4 w-4" />
                 </div>
@@ -189,9 +189,9 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={location.pathname === "/payroll"}
+                  isActive={location.pathname === "/driver-payroll"}
                 >
-                  <a href="/payroll">
+                  <a href="/driver-payroll">
                     <DollarSign className="h-4 w-4" />
                     <span>Payroll</span>
                   </a>
