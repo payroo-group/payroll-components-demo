@@ -27,7 +27,7 @@ export function PayrollHistoryPage() {
                     <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => navigate("/payroll")}
+                        onClick={() => navigate("/driver-payroll")}
                     >
                         <ArrowLeft className="mr-2 h-4 w-4" />
                         Back

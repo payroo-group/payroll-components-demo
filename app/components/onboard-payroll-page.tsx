@@ -84,7 +84,7 @@ export function OnboardPayrollPage() {
                                             Congratulations! You have completed the onboarding
                                             process. You can now access your payroll dashboard.
                                         </p>
-                                        <Button onClick={() => navigate("/payroll?onboarded=true")}>
+                                        <Button onClick={() => navigate("/driver-payroll?onboarded=true")}>
                                             Go to Payroll Dashboard
                                         </Button>
                                     </div>

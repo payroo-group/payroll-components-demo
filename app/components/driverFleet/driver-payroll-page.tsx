@@ -37,7 +37,7 @@ export function DriverPayrollPage() {
                                 Manage and process driver salaries and payments
                             </p>
                         </div>
-                        <Button onClick={() => navigate("/driver-payroll-history")} hidden={setupRequired}>
+                        <Button onClick={() => navigate("/payroll-history")} hidden={setupRequired}>
                             <History className="mr-2 h-4 w-4" />
                             Payroll History
                         </Button>

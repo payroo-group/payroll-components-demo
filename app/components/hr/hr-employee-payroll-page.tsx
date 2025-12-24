@@ -5,7 +5,6 @@ import {
   DollarSign,
   Calendar,
   TrendingUp,
-  Download,
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router";
 import {
@@ -13,7 +12,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
 import {
   Card,
   CardContent,
@@ -22,54 +21,53 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import { Badge } from "~/components/ui/badge";
 
-// Sample driver data - in a real app, this would come from a database
-const driversData = [
+// Sample employee data - in a real app, this would come from a database
+const employeesData = [
   {
     id: "1",
     name: "John Martinez",
-    employeeId: "DRV-001",
-    position: "Delivery Driver",
-    department: "Logistics",
-    payRate: "$18.50/hour",
+    employeeId: "EMP-001",
+    position: "Software Engineer",
+    department: "Engineering",
+    payRate: "$85,000/year",
     paySchedule: "Bi-weekly",
-    bankAccount: "Commonwealth Bank - ****5678",
+    bankAccount: "Commonwealth Bank - ****1234",
   },
   {
     id: "2",
     name: "Sarah Chen",
-    employeeId: "DRV-002",
-    position: "Cargo Truck Driver",
-    department: "Freight",
-    payRate: "$21.00/hour",
+    employeeId: "EMP-002",
+    position: "Marketing Manager",
+    department: "Marketing",
+    payRate: "$72,000/year",
     paySchedule: "Bi-weekly",
-    bankAccount: "ANZ Bank - ****8901",
+    bankAccount: "ANZ Bank - ****5678",
   },
   {
     id: "3",
     name: "Michael Johnson",
-    employeeId: "DRV-003",
-    position: "Passenger Van Driver",
-    department: "Transport",
-    payRate: "$19.25/hour",
+    employeeId: "EMP-003",
+    position: "HR Specialist",
+    department: "Human Resources",
+    payRate: "$65,000/year",
     paySchedule: "Bi-weekly",
-    bankAccount: "Westpac - ****2345",
+    bankAccount: "Westpac - ****9012",
   },
 ];
 
-export function EmployeePayrollPage() {
+export function HREmployeePayrollPage() {
   const params = useParams();
   const navigate = useNavigate();
-  const driverId = params.id;
+  const employeeId = params.id;
 
-  // Find the driver by ID
-  const driver = driversData.find((d) => d.id === driverId);
+  // Find the employee by ID
+  const employee = employeesData.find((e) => e.id === employeeId);
 
-  if (!driver) {
+  if (!employee) {
     return (
       <SidebarProvider>
-        <DriverManagementSidebar />
+        <HRManagementSidebar />
         <SidebarInset>
           <header className="flex h-16 items-center gap-2 border-b px-4">
             <SidebarTrigger />
@@ -81,7 +79,7 @@ export function EmployeePayrollPage() {
               <p className="text-muted-foreground mb-4">
                 The employee payroll details you're looking for don't exist.
               </p>
-              <Button onClick={() => navigate("/payroll")}>
+              <Button onClick={() => navigate("/hr-payroll")}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Payroll
               </Button>
@@ -94,14 +92,14 @@ export function EmployeePayrollPage() {
 
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => navigate(`/driver-detail/${driverId}`)}
+            onClick={() => navigate(`/employee-detail/${employeeId}`)}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Profile
@@ -112,9 +110,9 @@ export function EmployeePayrollPage() {
           {/* Header Section */}
           <div className="mb-6 flex items-start justify-between">
             <div>
-              <h2 className="text-3xl font-bold">{driver.name}</h2>
+              <h2 className="text-3xl font-bold">{employee.name}</h2>
               <p className="text-muted-foreground mt-1">
-                {driver.employeeId} • {driver.position}
+                {employee.employeeId} • {employee.position}
               </p>
             </div>
           </div>
@@ -123,12 +121,12 @@ export function EmployeePayrollPage() {
           <div className="grid gap-6 md:grid-cols-3 mb-8">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Pay Rate</CardTitle>
+                <CardTitle className="text-sm font-medium">Salary</CardTitle>
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{driver.payRate}</div>
-                <p className="text-xs text-muted-foreground">Standard rate</p>
+                <div className="text-2xl font-bold">{employee.payRate}</div>
+                <p className="text-xs text-muted-foreground">Annual salary</p>
               </CardContent>
             </Card>
 
@@ -140,7 +138,7 @@ export function EmployeePayrollPage() {
                 <Calendar className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{driver.paySchedule}</div>
+                <div className="text-2xl font-bold">{employee.paySchedule}</div>
                 <p className="text-xs text-muted-foreground">
                   Payment frequency
                 </p>
@@ -155,7 +153,7 @@ export function EmployeePayrollPage() {
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{driver.department}</div>
+                <div className="text-2xl font-bold">{employee.department}</div>
                 <p className="text-xs text-muted-foreground">Work division</p>
               </CardContent>
             </Card>
@@ -180,7 +178,7 @@ export function EmployeePayrollPage() {
                   <p className="text-sm text-muted-foreground max-w-md">
                     This section is reserved for detailed payroll information
                     including pay periods, earnings breakdown, deductions, tax
-                    information, and payment history for {driver.name}.
+                    information, and payment history for {employee.name}.
                   </p>
                 </div>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
@@ -196,3 +194,4 @@ export function EmployeePayrollPage() {
     </SidebarProvider>
   );
 }
+

@@ -350,7 +350,7 @@ export function DriverDetailPage() {
             </div>
             <div className="flex gap-2">
               <Button variant="outline">Edit Profile</Button>
-              <Button onClick={() => navigate(`/employee-payroll/${driverId}`)}>
+              <Button onClick={() => navigate(`/driver-employee-payroll/${driverId}`)}>
                 Manage Payroll
               </Button>
             </div>

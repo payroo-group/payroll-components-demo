@@ -350,7 +350,7 @@ export function EmployeeDetailPage() {
             </div>
             <div className="flex gap-2">
               <Button variant="outline">Edit Employee</Button>
-              <Button onClick={() => navigate(`/employee-payroll/${employeeId}`)}>
+              <Button onClick={() => navigate(`/hr-employee-payroll/${employeeId}`)}>
                 View Payroll
               </Button>
             </div>
