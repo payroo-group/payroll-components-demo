@@ -39,11 +39,11 @@ export function BankingPayrollPage() {
                             </p>
                         </div>
                         <div className="flex gap-2">
-                            <Button variant="outline" onClick={() => navigate("#")} hidden={setupRequired}>
+                            <Button className="bg-[#002e9b] hover:bg-[#153fa3]" onClick={() => navigate("#")} hidden={setupRequired}>
                                 <Users className="mr-2 h-4 w-4" />
                                 Employees
                             </Button>
-                            <Button variant="outline" onClick={() => navigate("#")} hidden={setupRequired}>
+                            <Button className="bg-[#002e9b] hover:bg-[#153fa3]" onClick={() => navigate("#")} hidden={setupRequired}>
                                 <History className="mr-2 h-4 w-4" />
                                 History
                             </Button>
@@ -59,7 +59,7 @@ export function BankingPayrollPage() {
                                 tax withholdings, and handle direct deposits.
                             </p>
                             <Link to="/payroll/onboarding">
-                                <Button className="cursor-pointer">Setup Payroll</Button>
+                                <Button className="cursor-pointer bg-[#002e9b] hover:bg-[#153fa3]">Setup Payroll</Button>
                             </Link>
                         </AlertDescription>
                     </Alert>
