@@ -7,7 +7,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import {
   Table,
   TableBody,
@@ -32,121 +32,121 @@ import {
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 
-// Sample driver data
-const driversData = [
+// Sample employee data
+const employeesData = [
   {
     id: "1",
     name: "John Martinez",
-    employeeId: "DRV-001",
+    employeeId: "EMP-001",
     status: "Active",
-    vehicleType: "Delivery Van",
-    licenseNumber: "DL-5847392",
+    department: "Engineering",
+    position: "Senior Developer",
     rating: 4.8,
-    totalDeliveries: 1247,
-    reviewer: "Eddie Lake",
+    totalProjects: 24,
+    manager: "Eddie Lake",
   },
   {
     id: "2",
     name: "Sarah Chen",
-    employeeId: "DRV-002",
+    employeeId: "EMP-002",
     status: "Active",
-    vehicleType: "Cargo Truck",
-    licenseNumber: "DL-9384756",
+    department: "Sales",
+    position: "Sales Manager",
     rating: 4.9,
-    totalDeliveries: 982,
-    reviewer: "Eddie Lake",
+    totalProjects: 18,
+    manager: "Eddie Lake",
   },
   {
     id: "3",
     name: "Michael Johnson",
-    employeeId: "DRV-003",
+    employeeId: "EMP-003",
     status: "On Leave",
-    vehicleType: "Passenger Van",
-    licenseNumber: "DL-2847563",
+    department: "Marketing",
+    position: "Marketing Specialist",
     rating: 4.6,
-    totalDeliveries: 756,
-    reviewer: "Jamik Tashpulatov",
+    totalProjects: 15,
+    manager: "Jamik Tashpulatov",
   },
   {
     id: "4",
     name: "Emily Rodriguez",
-    employeeId: "DRV-004",
+    employeeId: "EMP-004",
     status: "Active",
-    vehicleType: "Delivery Van",
-    licenseNumber: "DL-6473829",
+    department: "Engineering",
+    position: "Frontend Developer",
     rating: 4.7,
-    totalDeliveries: 1103,
-    reviewer: "Jamik Tashpulatov",
+    totalProjects: 22,
+    manager: "Jamik Tashpulatov",
   },
   {
     id: "5",
     name: "David Kim",
-    employeeId: "DRV-005",
+    employeeId: "EMP-005",
     status: "Inactive",
-    vehicleType: "Service Vehicle",
-    licenseNumber: "DL-8392047",
+    department: "Operations",
+    position: "Operations Manager",
     rating: 4.5,
-    totalDeliveries: 543,
-    reviewer: "Eddie Lake",
+    totalProjects: 11,
+    manager: "Eddie Lake",
   },
   {
     id: "6",
     name: "Lisa Anderson",
-    employeeId: "DRV-006",
+    employeeId: "EMP-006",
     status: "Active",
-    vehicleType: "Cargo Truck",
-    licenseNumber: "DL-1928374",
+    department: "Sales",
+    position: "Account Executive",
     rating: 4.9,
-    totalDeliveries: 1456,
-    reviewer: "Jamik Tashpulatov",
+    totalProjects: 29,
+    manager: "Jamik Tashpulatov",
   },
   {
     id: "7",
     name: "Robert Taylor",
-    employeeId: "DRV-007",
+    employeeId: "EMP-007",
     status: "Active",
-    vehicleType: "Passenger Van",
-    licenseNumber: "DL-5647382",
+    department: "Marketing",
+    position: "Content Manager",
     rating: 4.8,
-    totalDeliveries: 892,
-    reviewer: "Eddie Lake",
+    totalProjects: 18,
+    manager: "Eddie Lake",
   },
   {
     id: "8",
     name: "Maria Garcia",
-    employeeId: "DRV-008",
+    employeeId: "EMP-008",
     status: "On Leave",
-    vehicleType: "Delivery Van",
-    licenseNumber: "DL-9283746",
+    department: "Engineering",
+    position: "Backend Developer",
     rating: 4.7,
-    totalDeliveries: 678,
-    reviewer: "Jamik Tashpulatov",
+    totalProjects: 14,
+    manager: "Jamik Tashpulatov",
   },
   {
     id: "9",
     name: "James Wilson",
-    employeeId: "DRV-009",
+    employeeId: "EMP-009",
     status: "Active",
-    vehicleType: "Cargo Truck",
-    licenseNumber: "DL-3847562",
+    department: "Sales",
+    position: "Sales Representative",
     rating: 4.6,
-    totalDeliveries: 1234,
-    reviewer: "Eddie Lake",
+    totalProjects: 25,
+    manager: "Eddie Lake",
   },
   {
     id: "10",
     name: "Jennifer Brown",
-    employeeId: "DRV-010",
+    employeeId: "EMP-010",
     status: "Active",
-    vehicleType: "Service Vehicle",
-    licenseNumber: "DL-7463829",
+    department: "Operations",
+    position: "Operations Coordinator",
     rating: 4.8,
-    totalDeliveries: 923,
-    reviewer: "Jamik Tashpulatov",
+    totalProjects: 19,
+    manager: "Jamik Tashpulatov",
   },
 ];
 
-export function DriverProfilesPage() {
+export function EmployeeProfilesPage() {
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
@@ -158,10 +158,10 @@ export function DriverProfilesPage() {
   };
 
   const toggleAllRows = () => {
-    if (selectedRows.length === driversData.length) {
+    if (selectedRows.length === employeesData.length) {
       setSelectedRows([]);
     } else {
-      setSelectedRows(driversData.map((driver) => driver.id));
+      setSelectedRows(employeesData.map((employee) => employee.id));
     }
   };
 
@@ -192,18 +192,18 @@ export function DriverProfilesPage() {
 
   return (
     <SidebarProvider>
-      <DriverManagementSidebar />
+      <HRManagementSidebar />
       <SidebarInset>
         <header className="flex h-16 items-center gap-2 border-b px-4">
           <SidebarTrigger />
-          <h1 className="text-lg font-semibold">Driver Profiles</h1>
+          <h1 className="text-lg font-semibold">Employees</h1>
         </header>
         <main className="flex-1 p-6">
           <div className="mb-6 flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold">All Drivers</h2>
+              <h2 className="text-2xl font-bold">Employee Directory</h2>
               <p className="text-sm text-muted-foreground">
-                Manage and view all driver profiles
+                View and manage all employee profiles, information, and records
               </p>
             </div>
             <div className="flex gap-2">
@@ -215,15 +215,15 @@ export function DriverProfilesPage() {
                 <PopoverTrigger asChild>
                   <Button size="sm">
                     <Plus className="mr-2 h-4 w-4" />
-                    Add Driver
+                    Add Employee
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-96" align="end">
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <h4 className="font-semibold text-lg">Add New Driver</h4>
+                      <h4 className="font-semibold text-lg">Add New Employee</h4>
                       <p className="text-sm text-muted-foreground">
-                        Fill in the driver information below
+                        Fill in the employee information below
                       </p>
                     </div>
                     <div className="space-y-4">
@@ -233,15 +233,15 @@ export function DriverProfilesPage() {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="employeeId">Employee ID</Label>
-                        <Input id="employeeId" placeholder="DRV-011" />
+                        <Input id="employeeId" placeholder="EMP-011" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="vehicleType">Vehicle Type</Label>
-                        <Input id="vehicleType" placeholder="Delivery Van" />
+                        <Label htmlFor="department">Department</Label>
+                        <Input id="department" placeholder="Engineering" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="licenseNumber">License Number</Label>
-                        <Input id="licenseNumber" placeholder="DL-1234567" />
+                        <Label htmlFor="position">Position</Label>
+                        <Input id="position" placeholder="Software Developer" />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
@@ -254,25 +254,25 @@ export function DriverProfilesPage() {
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="totalDeliveries">
-                            Total Deliveries
+                          <Label htmlFor="totalProjects">
+                            Total Projects
                           </Label>
                           <Input
-                            id="totalDeliveries"
+                            id="totalProjects"
                             type="number"
-                            placeholder="100"
+                            placeholder="10"
                           />
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="reviewer">Reviewer</Label>
-                        <Input id="reviewer" placeholder="Eddie Lake" />
+                        <Label htmlFor="manager">Manager</Label>
+                        <Input id="manager" placeholder="Eddie Lake" />
                       </div>
                       <div className="flex gap-2 justify-end pt-2">
                         <Button variant="outline" size="sm">
                           Cancel
                         </Button>
-                        <Button size="sm">Add Driver</Button>
+                        <Button size="sm">Add Employee</Button>
                       </div>
                     </div>
                   </div>
@@ -284,7 +284,7 @@ export function DriverProfilesPage() {
           {selectedRows.length > 0 && (
             <div className="mb-4 rounded-md border bg-muted/50 p-3">
               <p className="text-sm">
-                {selectedRows.length} of {driversData.length} row(s) selected.
+                {selectedRows.length} of {employeesData.length} row(s) selected.
               </p>
             </div>
           )}
@@ -296,7 +296,7 @@ export function DriverProfilesPage() {
                   <TableHead className="w-12">
                     <input
                       type="checkbox"
-                      checked={selectedRows.length === driversData.length}
+                      checked={selectedRows.length === employeesData.length}
                       onChange={toggleAllRows}
                       className="h-4 w-4 rounded border-gray-300"
                     />
@@ -304,45 +304,45 @@ export function DriverProfilesPage() {
                   <TableHead>Name</TableHead>
                   <TableHead>Employee ID</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Vehicle Type</TableHead>
-                  <TableHead>License Number</TableHead>
+                  <TableHead>Department</TableHead>
+                  <TableHead>Position</TableHead>
                   <TableHead>Rating</TableHead>
-                  <TableHead>Total Deliveries</TableHead>
-                  <TableHead>Reviewer</TableHead>
+                  <TableHead>Total Projects</TableHead>
+                  <TableHead>Manager</TableHead>
                   <TableHead className="w-12"></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {driversData.map((driver) => (
-                  <TableRow key={driver.id}>
+                {employeesData.map((employee) => (
+                  <TableRow key={employee.id}>
                     <TableCell>
                       <input
                         type="checkbox"
-                        checked={selectedRows.includes(driver.id)}
-                        onChange={() => toggleRowSelection(driver.id)}
+                        checked={selectedRows.includes(employee.id)}
+                        onChange={() => toggleRowSelection(employee.id)}
                         className="h-4 w-4 rounded border-gray-300"
                       />
                     </TableCell>
-                    <TableCell className="font-medium">{driver.name}</TableCell>
+                    <TableCell className="font-medium">{employee.name}</TableCell>
                     <TableCell className="text-muted-foreground">
-                      {driver.employeeId}
+                      {employee.employeeId}
                     </TableCell>
-                    <TableCell>{getStatusBadge(driver.status)}</TableCell>
+                    <TableCell>{getStatusBadge(employee.status)}</TableCell>
                     <TableCell>
-                      <Badge variant="outline">{driver.vehicleType}</Badge>
+                      <Badge variant="outline">{employee.department}</Badge>
                     </TableCell>
-                    <TableCell className="font-mono text-sm">
-                      {driver.licenseNumber}
+                    <TableCell className="text-sm">
+                      {employee.position}
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-1">
                         <span className="text-yellow-500">★</span>
-                        <span className="font-medium">{driver.rating}</span>
+                        <span className="font-medium">{employee.rating}</span>
                       </div>
                     </TableCell>
-                    <TableCell>{driver.totalDeliveries}</TableCell>
+                    <TableCell>{employee.totalProjects}</TableCell>
                     <TableCell className="text-muted-foreground">
-                      {driver.reviewer}
+                      {employee.manager}
                     </TableCell>
                     <TableCell>
                       <DropdownMenu>
@@ -357,12 +357,12 @@ export function DriverProfilesPage() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem asChild>
-                            <a href={`/driver-detail/${driver.id}`}>
+                            <a href={`/employee-detail/${employee.id}`}>
                               View Details
                             </a>
                           </DropdownMenuItem>
-                          <DropdownMenuItem>Edit Driver</DropdownMenuItem>
-                          <DropdownMenuItem>Assign Vehicle</DropdownMenuItem>
+                          <DropdownMenuItem>Edit Employee</DropdownMenuItem>
+                          <DropdownMenuItem>Assign Department</DropdownMenuItem>
                           <DropdownMenuItem className="text-red-600">
                             Deactivate
                           </DropdownMenuItem>
@@ -377,7 +377,7 @@ export function DriverProfilesPage() {
 
           <div className="mt-4 flex items-center justify-between">
             <p className="text-sm text-muted-foreground">
-              {selectedRows.length} of {driversData.length} row(s) selected.
+              {selectedRows.length} of {employeesData.length} row(s) selected.
             </p>
             <div className="flex items-center gap-2">
               <p className="text-sm text-muted-foreground">
@@ -385,7 +385,7 @@ export function DriverProfilesPage() {
               </p>
               <p className="text-sm text-muted-foreground">
                 Page {currentPage} of{" "}
-                {Math.ceil(driversData.length / rowsPerPage)}
+                {Math.ceil(employeesData.length / rowsPerPage)}
               </p>
               <div className="flex gap-1">
                 <Button
@@ -411,7 +411,7 @@ export function DriverProfilesPage() {
                   size="icon"
                   className="h-8 w-8"
                   disabled={
-                    currentPage === Math.ceil(driversData.length / rowsPerPage)
+                    currentPage === Math.ceil(employeesData.length / rowsPerPage)
                   }
                   onClick={() => setCurrentPage((prev) => prev + 1)}
                 >
@@ -422,10 +422,10 @@ export function DriverProfilesPage() {
                   size="icon"
                   className="h-8 w-8"
                   disabled={
-                    currentPage === Math.ceil(driversData.length / rowsPerPage)
+                    currentPage === Math.ceil(employeesData.length / rowsPerPage)
                   }
                   onClick={() =>
-                    setCurrentPage(Math.ceil(driversData.length / rowsPerPage))
+                    setCurrentPage(Math.ceil(employeesData.length / rowsPerPage))
                   }
                 >
                   »
@@ -438,3 +438,4 @@ export function DriverProfilesPage() {
     </SidebarProvider>
   );
 }
+

@@ -3,7 +3,7 @@ import { ReportsPage } from "../components/reports-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Reports | Driver Management" },
+    { title: "Reports | HR Management" },
     { name: "description", content: "View payslips and financial reports" },
   ];
 }

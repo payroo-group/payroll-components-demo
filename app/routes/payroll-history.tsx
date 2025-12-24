@@ -3,7 +3,7 @@ import { PayrollHistoryPage } from "../components/payroll-history-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Payroll History | Driver Management" },
+    { title: "Payroll History | HR Management" },
     { name: "description", content: "View historical payroll records" },
   ];
 }

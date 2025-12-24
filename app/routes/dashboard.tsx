@@ -3,8 +3,8 @@ import { DashboardPage } from "../components/dashboard-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Dashboard | Driver Management" },
-    { name: "description", content: "Driver management dashboard" },
+    { title: "Dashboard | HR Management" },
+    { name: "description", content: "HR management dashboard" },
   ];
 }
 

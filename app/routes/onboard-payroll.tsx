@@ -3,7 +3,7 @@ import { OnboardPayrollPage } from "~/components/onboard-payroll-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Enable Payroll | Driver Management" },
+    { title: "Enable Payroll | HR Management" },
     { name: "description", content: "Set up and enable your payroll system" },
   ];
 }

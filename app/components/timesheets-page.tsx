@@ -8,7 +8,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import { Button } from "~/components/ui/button";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
@@ -27,7 +27,7 @@ export function TimesheetsPage() {
 
     return (
         <SidebarProvider>
-            <DriverManagementSidebar />
+            <HRManagementSidebar />
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
@@ -36,9 +36,9 @@ export function TimesheetsPage() {
                 <main className="flex-1 p-6">
                     <div className="mb-6 flex items-start justify-between">
                         <div>
-                            <h2 className="text-3xl font-bold">Driver Timesheets</h2>
+                            <h2 className="text-3xl font-bold">Employee Time Tracking</h2>
                             <p className="text-muted-foreground mt-2">
-                                Track and manage driver work hours and attendance
+                                Track and manage employee work hours, attendance, and time off
                             </p>
                         </div>
                         <div className="flex gap-2">

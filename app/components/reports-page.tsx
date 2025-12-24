@@ -5,7 +5,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { ViewReport } from "@payroo-group/embed-sdk-react";
 import { useSession } from "~/hooks/use-session";
@@ -14,23 +14,21 @@ import { usePayrollComponent } from "~/hooks/use-payroll-component";
 export function ReportsPage() {
     const { accountId, userId } = useSession();
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
-
     return (
         <SidebarProvider>
-            <DriverManagementSidebar />
+            <HRManagementSidebar />
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Reports</h1>
+                    <h1 className="text-lg font-semibold">HR Reports</h1>
                 </header>
                 <main className="flex-1 p-6">
                     <div className="mb-6">
-                        <h2 className="text-3xl font-bold">Financial Reports & Payslips</h2>
+                        <h2 className="text-3xl font-bold">HR Analytics & Reports</h2>
                         <p className="text-muted-foreground mt-2">
-                            Access payslips, financial reports, and payment documentation
+                            Access payroll reports, employee analytics, payslips, and comprehensive HR documentation
                         </p>
                     </div>
-
                     {/* Tabs Navigation */}
                     <Tabs defaultValue="payroll-summary" className="w-full">
                         <TabsList className="w-full h-auto flex flex-wrap justify-start gap-0 bg-transparent p-0 border-b border-border">

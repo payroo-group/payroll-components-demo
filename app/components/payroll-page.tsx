@@ -8,7 +8,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import { Button } from "~/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { useState } from "react";
@@ -23,7 +23,7 @@ export function PayrollPage() {
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
     return (
         <SidebarProvider>
-            <DriverManagementSidebar />
+            <HRManagementSidebar />
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />

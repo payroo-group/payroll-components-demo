@@ -5,7 +5,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr-management-sidebar";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
 import { useEffect } from "react";
@@ -26,7 +26,7 @@ export function CalendarPage() {
 
     return (
         <SidebarProvider>
-            <DriverManagementSidebar />
+            <HRManagementSidebar />
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
@@ -36,7 +36,7 @@ export function CalendarPage() {
                     <div className="mb-6">
                         <h2 className="text-3xl font-bold">Schedule & Calendar</h2>
                         <p className="text-muted-foreground mt-2">
-                            Manage driver schedules, shifts, and appointments
+                            Manage employee schedules, shifts, and appointments
                         </p>
                     </div>
                     <div id="calendar-component-container" />

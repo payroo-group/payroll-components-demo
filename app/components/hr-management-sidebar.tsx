@@ -7,7 +7,7 @@ import {
   ClipboardList,
   CircleDot,
   GraduationCap,
-  Car,
+  Briefcase,
   Wrench,
   Fuel,
   MapPin,
@@ -46,7 +46,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 
-export function DriverManagementSidebar() {
+export function HRManagementSidebar() {
   const location = useLocation();
   
   return (
@@ -117,22 +117,22 @@ export function DriverManagementSidebar() {
 
         <SidebarSeparator />
 
-        {/* Driver Management Section */}
+        {/* Employee Management Section */}
         <SidebarGroup>
-          <SidebarGroupLabel>Driver Management</SidebarGroupLabel>
+          <SidebarGroupLabel>Employee Management</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
                   isActive={
-                    location.pathname === "/driver-profiles" ||
-                    location.pathname.startsWith("/driver-detail")
+                    location.pathname === "/employee-profiles" ||
+                    location.pathname.startsWith("/employee-detail")
                   }
                 >
-                  <a href="/driver-profiles">
+                  <a href="/employee-profiles">
                     <UserCircle className="h-4 w-4" />
-                    <span>Driver Profiles</span>
+                    <span>Employees</span>
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -158,13 +158,7 @@ export function DriverManagementSidebar() {
                   </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <CircleDot className="h-4 w-4" />
-                  <span>Driver Status</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
+              </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
@@ -200,13 +194,13 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <CreditCard className="h-4 w-4" />
-                  <span>Expenses</span>
+                  <span>Benefits</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <Receipt className="h-4 w-4" />
-                  <span>Invoicing</span>
+                  <span>Compensation</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -229,7 +223,7 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <Users className="h-4 w-4" />
-                  <span>User Management</span>
+                  <span>Roles & Permissions</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
@@ -251,3 +245,4 @@ export function DriverManagementSidebar() {
     </Sidebar>
   );
 }
+

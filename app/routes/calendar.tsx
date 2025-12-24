@@ -3,7 +3,7 @@ import { CalendarPage } from "../components/calendar-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Calendar | Driver Management" },
+    { title: "Calendar | HR Management" },
     { name: "description", content: "Manage schedules and appointments" },
   ];
 }
