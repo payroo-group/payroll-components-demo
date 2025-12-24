@@ -117,10 +117,7 @@ export function BankingDashboardPage() {
         </header>
         <main className="flex-1 p-6">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold">Good morning, Acme Inc.</h2>
-            <p className="text-muted-foreground mt-2">
-              Here's your business financial overview for December 2025
-            </p>
+            <h2 className="text-3xl font-bold">Overview</h2>
           </div>
 
           {/* Business Stats */}
