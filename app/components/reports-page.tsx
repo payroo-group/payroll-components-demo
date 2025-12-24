@@ -5,7 +5,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { ViewReport } from "@payroo-group/embed-sdk-react";
 import { useSession } from "~/hooks/use-session";

@@ -7,7 +7,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
 import { Button } from "~/components/ui/button";
 import { PayrunList } from "@payroo-group/embed-sdk-react";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";

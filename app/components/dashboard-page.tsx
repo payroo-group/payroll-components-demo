@@ -28,7 +28,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
 import {
   Card,
   CardContent,

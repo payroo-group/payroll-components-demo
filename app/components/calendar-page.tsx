@@ -5,7 +5,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
 import { useEffect } from "react";

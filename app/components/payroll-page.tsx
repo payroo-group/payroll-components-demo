@@ -8,7 +8,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driver-management-sidebar";
+import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
 import { Button } from "~/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { useState } from "react";

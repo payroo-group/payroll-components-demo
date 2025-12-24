@@ -1,5 +1,5 @@
 import type { Route } from "./+types/driver-detail.$id";
-import { DriverDetailPage } from "../components/driver-detail-page";
+import { DriverDetailPage } from "../../components/driverFleet/driver-detail-page";
 
 export function meta({ params }: Route.MetaArgs) {
   return [
