@@ -30,6 +30,7 @@ export default [
     route("banking", "routes/banking/banking.tsx"),
     route("banking/calendar", "routes/banking/banking-calendar.tsx"),
     route("banking/payroll", "routes/banking/banking-payroll.tsx"),
+    route("banking/payroll/onboarding", "routes/banking/banking-onboard-payroll.tsx"),
     route("banking/payroll/history", "routes/banking/banking-payroll-history.tsx"),
     route("banking/payroll/reports", "routes/banking/banking-reports.tsx"),
     route("banking/payroll/super-batches", "routes/banking/banking-super-batches.tsx"),

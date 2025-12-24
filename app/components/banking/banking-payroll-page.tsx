@@ -58,7 +58,7 @@ export function BankingPayrollPage() {
                                 setup process. This will enable you to process salaries, manage
                                 tax withholdings, and handle direct deposits.
                             </p>
-                            <Link to="/payroll/onboarding">
+                            <Link to="/banking/payroll/onboarding">
                                 <Button className="cursor-pointer bg-[#002e9b] hover:bg-[#153fa3]">Setup Payroll</Button>
                             </Link>
                         </AlertDescription>
