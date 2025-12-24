@@ -8,7 +8,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
 import { Button } from "~/components/ui/button";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
@@ -17,7 +17,7 @@ import { Await } from "react-router";
 import { Components } from "@payroo-group/embed-sdk";
 import { Suspense, useMemo } from "react";
 
-export function TimesheetsPage() {
+export function HRTimesheetsPage() {
     const { accountId, userId } = useSession();
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
 
@@ -27,18 +27,18 @@ export function TimesheetsPage() {
 
     return (
         <SidebarProvider>
-            <DriverManagementSidebar />
+            <HRManagementSidebar />
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Timesheets</h1>
+                    <h1 className="text-lg font-semibold">Employee Timesheets</h1>
                 </header>
                 <main className="flex-1 p-6">
                     <div className="mb-6 flex items-start justify-between">
                         <div>
-                            <h2 className="text-3xl font-bold">Driver Timesheets</h2>
+                            <h2 className="text-3xl font-bold">Employee Timesheets</h2>
                             <p className="text-muted-foreground mt-2">
-                                Track and manage driver work hours and attendance
+                                Track and manage employee work hours and attendance
                             </p>
                         </div>
                         <div className="flex gap-2">
@@ -59,7 +59,7 @@ export function TimesheetsPage() {
                             {(url) => (
                                 <EmbedContainer
                                     url={url}
-                                    id="payroll-summary"
+                                    id="hr-timesheets"
                                     options={{
                                         autoHeightAdjust: true,
                                         extraAllowedOrigins: [
@@ -75,3 +75,4 @@ export function TimesheetsPage() {
         </SidebarProvider>
     );
 }
+

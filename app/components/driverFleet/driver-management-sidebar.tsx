@@ -150,9 +150,9 @@ export function DriverManagementSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={location.pathname === "/timesheets"}
+                  isActive={location.pathname === "/driver-timesheets"}
                 >
-                  <a href="/timesheets">
+                  <a href="/driver-timesheets">
                     <ClipboardList className="h-4 w-4" />
                     <span>Timesheets</span>
                   </a>

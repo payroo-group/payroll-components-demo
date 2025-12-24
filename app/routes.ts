@@ -9,6 +9,7 @@ export default [
     route("driver-payroll", "routes/driverFleet/driver-payroll.tsx"),
     route("driver-reports", "routes/driverFleet/driver-reports.tsx"),
     route("driver-calendar", "routes/driverFleet/driver-calendar.tsx"),
+    route("driver-timesheets", "routes/driverFleet/driver-timesheets.tsx"),
     // HR Management routes
     route("hr-dashboard", "routes/hr/hr-dashboard.tsx"),
     route("employee-profiles", "routes/hr/hr-profiles.tsx"),
@@ -16,11 +17,11 @@ export default [
     route("hr-payroll", "routes/hr/hr-payroll.tsx"),
     route("hr-reports", "routes/hr/hr-reports.tsx"),
     route("hr-calendar", "routes/hr/hr-calendar.tsx"),
+    route("hr-timesheets", "routes/hr/hr-timesheets.tsx"),
     // Shared routes (to be organized later)
     route("payroll/onboarding", "routes/onboard-payroll.tsx"),
     route("payroll-history", "routes/payroll-history.tsx"),
     route("employee-payroll/:id", "routes/employee-payroll.$id.tsx"),
-    route("timesheets", "routes/timesheets.tsx"),
     route("api/session", "routes/api/session.ts"),
     route("api/embed-url", "routes/api/embed-url.ts"),
     // Banking Demo App routes
