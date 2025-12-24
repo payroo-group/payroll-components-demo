@@ -1,5 +1,5 @@
 import type { Route } from "./+types/banking-expense-claims";
-import { BankingExpenseClaimsPage } from "../components/banking-expense-claims-page";
+import { BankingExpenseClaimsPage } from "../../components/banking/banking-expense-claims-page";
 
 export function meta({}: Route.MetaArgs) {
   return [

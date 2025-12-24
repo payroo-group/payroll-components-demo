@@ -5,7 +5,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { BankingSidebar } from "~/components/banking-sidebar";
+import { BankingSidebar } from "~/components/banking/banking-sidebar";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
 import { useEffect } from "react";

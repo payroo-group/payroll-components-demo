@@ -1,5 +1,5 @@
 import type { Route } from "./+types/banking-calendar";
-import { BankingCalendarPage } from "../components/banking-calendar-page";
+import { BankingCalendarPage } from "../../components/banking/banking-calendar-page";
 
 export function meta({}: Route.MetaArgs) {
   return [

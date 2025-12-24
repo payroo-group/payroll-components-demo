@@ -8,9 +8,9 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { BankingSidebar } from "~/components/banking-sidebar";
+import { BankingSidebar } from "~/components/banking/banking-sidebar";
 import { Button } from "~/components/ui/button";
-import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { useState } from "react";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";

@@ -7,7 +7,7 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { BankingSidebar } from "~/components/banking-sidebar";
+import { BankingSidebar } from "~/components/banking/banking-sidebar";
 import { Button } from "~/components/ui/button";
 import { PayrunList } from "@payroo-group/embed-sdk-react";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";

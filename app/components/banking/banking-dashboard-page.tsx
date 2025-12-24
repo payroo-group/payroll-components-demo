@@ -27,7 +27,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { BankingSidebar } from "~/components/banking-sidebar";
+import { BankingSidebar } from "~/components/banking/banking-sidebar";
 import {
   Card,
   CardContent,

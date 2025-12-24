@@ -1,5 +1,5 @@
 import type { Route } from "./+types/banking-super-batches";
-import { BankingSuperBatchesPage } from "../components/banking-super-batches-page";
+import { BankingSuperBatchesPage } from "../../components/banking/banking-super-batches-page";
 
 export function meta({}: Route.MetaArgs) {
   return [

@@ -1,5 +1,5 @@
 import type { Route } from "./+types/banking-reports";
-import { BankingReportsPage } from "../components/banking-reports-page";
+import { BankingReportsPage } from "../../components/banking/banking-reports-page";
 
 export function meta({}: Route.MetaArgs) {
   return [

@@ -1,5 +1,5 @@
 import type { Route } from "./+types/banking-payroll";
-import { BankingPayrollPage } from "../components/banking-payroll-page";
+import { BankingPayrollPage } from "../../components/banking/banking-payroll-page";
 
 export function meta({}: Route.MetaArgs) {
   return [
