@@ -5,13 +5,13 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { useSession } from "~/hooks/use-session";
 import { useEffect } from "react";
 import { CalendarComponent } from "@payroo-group/payroll-components";
 
-export function CalendarPage() {
+export function HRCalendarPage() {
     const { accountId, userId } = useSession();
     const { core } = usePayrollComponent(accountId, userId);
 
@@ -21,27 +21,28 @@ export function CalendarPage() {
             companyId: accountId,
             month: "2025-11",
         });
-        calendar.mount("#calendar-component-container");
+        calendar.mount("#hr-calendar-component-container");
     }, [core]);
 
     return (
         <SidebarProvider>
-            <DriverManagementSidebar />
+            <HRManagementSidebar />
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Calendar</h1>
+                    <h1 className="text-lg font-semibold">Employee Calendar</h1>
                 </header>
                 <main className="flex-1 p-6">
                     <div className="mb-6">
-                        <h2 className="text-3xl font-bold">Schedule & Calendar</h2>
+                        <h2 className="text-3xl font-bold">Employee Schedule & Calendar</h2>
                         <p className="text-muted-foreground mt-2">
-                            Manage driver schedules, shifts, and appointments
+                            Manage employee schedules, leave, and appointments
                         </p>
                     </div>
-                    <div id="calendar-component-container" />
+                    <div id="hr-calendar-component-container" />
                 </main>
             </SidebarInset>
         </SidebarProvider>
     );
 }
+

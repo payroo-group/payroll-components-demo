@@ -152,9 +152,9 @@ import {
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
-                    isActive={location.pathname === "/calendar"}
+                    isActive={location.pathname === "/hr-calendar"}
                   >
-                    <a href="/calendar">
+                    <a href="/hr-calendar">
                       <CalendarDays className="h-4 w-4" />
                       <span>Calendar</span>
                     </a>
