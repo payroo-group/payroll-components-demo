@@ -185,9 +185,9 @@ import {
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
-                    isActive={location.pathname === "/reports"}
+                    isActive={location.pathname === "/hr-reports"}
                   >
-                    <a href="/reports">
+                    <a href="/hr-reports">
                       <PieChart className="h-4 w-4" />
                       <span>Reports</span>
                     </a>

@@ -11,7 +11,7 @@ import { ViewReport } from "@payroo-group/embed-sdk-react";
 import { useSession } from "~/hooks/use-session";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
 
-export function ReportsPage() {
+export function DriverReportsPage() {
     const { accountId, userId } = useSession();
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
 
@@ -21,13 +21,13 @@ export function ReportsPage() {
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Reports</h1>
+                    <h1 className="text-lg font-semibold">Driver Reports</h1>
                 </header>
                 <main className="flex-1 p-6">
                     <div className="mb-6">
-                        <h2 className="text-3xl font-bold">Financial Reports & Payslips</h2>
+                        <h2 className="text-3xl font-bold">Driver Financial Reports</h2>
                         <p className="text-muted-foreground mt-2">
-                            Access payslips, financial reports, and payment documentation
+                            Access driver payslips, financial reports, and payment documentation
                         </p>
                     </div>
 
@@ -132,3 +132,4 @@ export function ReportsPage() {
         </SidebarProvider>
     );
 }
+
