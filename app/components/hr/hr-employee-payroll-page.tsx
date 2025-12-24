@@ -79,7 +79,7 @@ export function HREmployeePayrollPage() {
               <p className="text-muted-foreground mb-4">
                 The employee payroll details you're looking for don't exist.
               </p>
-              <Button onClick={() => navigate("/hr-payroll")}>
+              <Button onClick={() => navigate("/hr-payroll")} className="bg-[#0f766e] hover:bg-[#0d6559]">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Payroll
               </Button>

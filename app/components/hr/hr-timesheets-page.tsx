@@ -46,7 +46,7 @@ export function HRTimesheetsPage() {
                                 <Calendar className="mr-2 h-4 w-4" />
                                 Select Period
                             </Button>
-                            <Button size="sm">
+                            <Button size="sm" className="bg-[#0f766e] hover:bg-[#0d6559]">
                                 <Download className="mr-2 h-4 w-4" />
                                 Export
                             </Button>

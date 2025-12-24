@@ -213,7 +213,7 @@ export function EmployeeProfilesPage() {
               </Button>
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button size="sm">
+                  <Button size="sm" className="bg-[#0f766e] hover:bg-[#0d6559]">
                     <Plus className="mr-2 h-4 w-4" />
                     Add Employee
                   </Button>
@@ -272,7 +272,7 @@ export function EmployeeProfilesPage() {
                         <Button variant="outline" size="sm">
                           Cancel
                         </Button>
-                        <Button size="sm">Add Employee</Button>
+                        <Button size="sm" className="bg-[#0f766e] hover:bg-[#0d6559]">Add Employee</Button>
                       </div>
                     </div>
                   </div>

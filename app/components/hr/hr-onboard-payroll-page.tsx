@@ -72,7 +72,7 @@ export function HROnboardPayrollPage() {
                                             </AlertDescription>
                                         </Alert>
                                         <div id="hr-company-overview-container" />
-                                        <Button onClick={handleComplete}>
+                                        <Button onClick={handleComplete} className="bg-[#0f766e] hover:bg-[#0d6559]">
                                             Simulate Completion
                                         </Button>
                                     </div>
@@ -84,7 +84,7 @@ export function HROnboardPayrollPage() {
                                             Congratulations! You have completed the onboarding
                                             process. You can now access your employee payroll dashboard.
                                         </p>
-                                        <Button onClick={() => navigate("/hr-payroll?onboarded=true")}>
+                                        <Button onClick={() => navigate("/hr-payroll?onboarded=true")} className="bg-[#0f766e] hover:bg-[#0d6559]">
                                             Go to Employee Payroll Dashboard
                                         </Button>
                                     </div>

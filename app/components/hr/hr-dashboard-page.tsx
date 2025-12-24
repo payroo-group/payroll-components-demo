@@ -122,7 +122,7 @@ export function HRDashboardPage() {
                     {
                       employees: {
                         label: "Active Employees",
-                        color: "hsl(262, 83%, 58%)",
+                        color: "hsl(168, 76%, 36%)",
                       },
                     } satisfies ChartConfig
                   }
@@ -164,17 +164,17 @@ export function HRDashboardPage() {
                       >
                         <stop
                           offset="0%"
-                          stopColor="hsl(262, 83%, 58%)"
+                          stopColor="hsl(168, 76%, 36%)"
                           stopOpacity={0.9}
                         />
                         <stop
                           offset="50%"
-                          stopColor="hsl(262, 83%, 58%)"
+                          stopColor="hsl(168, 76%, 36%)"
                           stopOpacity={0.5}
                         />
                         <stop
                           offset="100%"
-                          stopColor="hsl(262, 83%, 58%)"
+                          stopColor="hsl(168, 76%, 36%)"
                           stopOpacity={0.1}
                         />
                       </linearGradient>
@@ -182,7 +182,7 @@ export function HRDashboardPage() {
                     <Area
                       type="monotone"
                       dataKey="employees"
-                      stroke="hsl(262, 83%, 58%)"
+                      stroke="hsl(168, 76%, 36%)"
                       fill="url(#fillEmployees)"
                       strokeWidth={2}
                     />
@@ -204,15 +204,15 @@ export function HRDashboardPage() {
                     {
                       productivity: {
                         label: "Productivity",
-                        color: "hsl(262, 83%, 70%)",
+                        color: "hsl(168, 76%, 46%)",
                       },
                       satisfaction: {
                         label: "Satisfaction",
-                        color: "hsl(262, 83%, 58%)",
+                        color: "hsl(168, 76%, 36%)",
                       },
                       retention: {
                         label: "Retention",
-                        color: "hsl(262, 83%, 46%)",
+                        color: "hsl(168, 76%, 26%)",
                       },
                     } satisfies ChartConfig
                   }
@@ -266,24 +266,24 @@ export function HRDashboardPage() {
                     <Radar
                       name="Productivity"
                       dataKey="productivity"
-                      stroke="hsl(262, 83%, 70%)"
-                      fill="hsl(262, 83%, 70%)"
+                      stroke="hsl(168, 76%, 46%)"
+                      fill="hsl(168, 76%, 46%)"
                       fillOpacity={0.3}
                       strokeWidth={2}
                     />
                     <Radar
                       name="Satisfaction"
                       dataKey="satisfaction"
-                      stroke="hsl(262, 83%, 58%)"
-                      fill="hsl(262, 83%, 58%)"
+                      stroke="hsl(168, 76%, 36%)"
+                      fill="hsl(168, 76%, 36%)"
                       fillOpacity={0.25}
                       strokeWidth={2}
                     />
                     <Radar
                       name="Retention"
                       dataKey="retention"
-                      stroke="hsl(262, 83%, 46%)"
-                      fill="hsl(262, 83%, 46%)"
+                      stroke="hsl(168, 76%, 26%)"
+                      fill="hsl(168, 76%, 26%)"
                       fillOpacity={0.2}
                       strokeWidth={2}
                     />

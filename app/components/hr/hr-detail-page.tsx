@@ -275,7 +275,7 @@ export function EmployeeDetailPage() {
               <p className="text-muted-foreground mb-4">
                 The employee you're looking for doesn't exist.
               </p>
-              <Button onClick={() => navigate("/employee-profiles")}>
+              <Button onClick={() => navigate("/employee-profiles")} className="bg-[#0f766e] hover:bg-[#0d6559]">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Employee Profiles
               </Button>
@@ -331,8 +331,8 @@ export function EmployeeDetailPage() {
           {/* Header Section */}
           <div className="mb-6 flex items-start justify-between">
             <div className="flex items-center gap-4">
-              <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center">
-                <span className="text-2xl font-bold text-primary">
+              <div className="h-20 w-20 rounded-full bg-[#0f766e]/10 flex items-center justify-center">
+                <span className="text-2xl font-bold text-[#0f766e]">
                   {employee.name
                     .split(" ")
                     .map((n) => n[0])
@@ -350,7 +350,7 @@ export function EmployeeDetailPage() {
             </div>
             <div className="flex gap-2">
               <Button variant="outline">Edit Employee</Button>
-              <Button onClick={() => navigate(`/hr-employee-payroll/${employeeId}`)}>
+              <Button onClick={() => navigate(`/hr-employee-payroll/${employeeId}`)} className="bg-[#0f766e] hover:bg-[#0d6559]">
                 View Payroll
               </Button>
             </div>
@@ -427,7 +427,7 @@ export function EmployeeDetailPage() {
                       {employee.completionRate}%
                     </span>
                   </div>
-                  <Progress value={employee.completionRate} />
+                  <Progress value={employee.completionRate} className="bg-[#0f766e]/20 [&>div]:bg-[#0f766e]" />
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-2">
@@ -436,7 +436,7 @@ export function EmployeeDetailPage() {
                       {employee.onTimeRate}%
                     </span>
                   </div>
-                  <Progress value={employee.onTimeRate} />
+                  <Progress value={employee.onTimeRate} className="bg-[#0f766e]/20 [&>div]:bg-[#0f766e]" />
                 </div>
                 <div className="pt-4 border-t">
                   <div className="flex items-center justify-between">
@@ -528,8 +528,8 @@ export function EmployeeDetailPage() {
                     className="flex items-center justify-between p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <Building2 className="h-5 w-5 text-primary" />
+                      <div className="h-10 w-10 rounded-lg bg-[#0f766e]/10 flex items-center justify-center">
+                        <Building2 className="h-5 w-5 text-[#0f766e]" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2">

@@ -51,7 +51,7 @@ export function HRPayrollPage() {
                                 payments efficiently.
                             </p>
                             <Link to="/hr-payroll/onboarding">
-                                <Button className="cursor-pointer">Enable Payroll</Button>
+                                <Button className="cursor-pointer bg-[#0f766e] hover:bg-[#0d6559]">Enable Payroll</Button>
                             </Link>
                         </AlertDescription>
                     </Alert>
