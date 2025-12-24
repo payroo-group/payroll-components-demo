@@ -153,7 +153,8 @@ export function DashboardPage() {
                   >
                     <CartesianGrid
                       strokeDasharray="0"
-                      stroke="hsl(240, 3%, 15%)"
+                      stroke="hsl(240, 3%, 70%)"
+                      strokeOpacity={0.4}
                       vertical={false}
                     />
                     <XAxis
@@ -271,7 +272,7 @@ export function DashboardPage() {
                       },
                     ]}
                   >
-                    <PolarGrid stroke="hsl(240, 5%, 20%)" strokeWidth={1} />
+                    <PolarGrid stroke="hsl(240, 5%, 80%)" strokeWidth={1} />
                     <PolarAngleAxis
                       dataKey="category"
                       tick={{ fill: "hsl(0, 0%, 70%)", fontSize: 12 }}
