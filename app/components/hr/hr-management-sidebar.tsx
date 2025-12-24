@@ -48,11 +48,11 @@ import {
           <DropdownMenuTrigger asChild>
             <button className="flex w-full items-center gap-2 px-4 py-3 hover:bg-accent/50 transition-colors rounded-md focus:outline-none">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0f766e] text-white">
-                <Briefcase className="h-5 w-5" />
-              </div>
+              <Users className="h-4 w-4" />
+            </div>
               <div className="flex flex-1 flex-col items-start">
-                <span className="text-sm font-semibold">HR Management</span>
-                <span className="text-xs text-muted-foreground">Workforce Control</span>
+              <span className="text-sm font-semibold">HR Management</span>
+              <span className="text-xs text-muted-foreground">Workforce Control</span>
               </div>
               <ChevronDown className="h-4 w-4 text-muted-foreground" />
             </button>
@@ -82,13 +82,13 @@ import {
                 <div className="flex flex-1 flex-col">
                   <span className="text-sm font-medium">NeoBank</span>
                   <span className="text-xs text-muted-foreground">Banking Demo</span>
-                </div>
+          </div>
               </a>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <SidebarSeparator />
-      </SidebarHeader>
+        </SidebarHeader>
   
         <SidebarContent>
           {/* Overview Section */}
