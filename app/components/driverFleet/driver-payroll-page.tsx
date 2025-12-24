@@ -50,7 +50,7 @@ export function DriverPayrollPage() {
                                 payroll solution. This will enable you to process salaries and
                                 payments efficiently.
                             </p>
-                            <Link to="/payroll/onboarding">
+                            <Link to="/driver-payroll/onboarding">
                                 <Button className="cursor-pointer">Enable Payroll</Button>
                             </Link>
                         </AlertDescription>

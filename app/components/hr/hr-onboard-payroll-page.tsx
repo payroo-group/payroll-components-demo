@@ -6,18 +6,18 @@ import {
     SidebarInset,
     SidebarTrigger,
 } from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
+import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
 import { useEffect, useState } from "react";
-import { Badge } from "./ui/badge";
+import { Badge } from "~/components/ui/badge";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
-import { Button } from "./ui/button";
-import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { Button } from "~/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { AlertCircleIcon } from "lucide-react";
 import { useSession } from "~/hooks/use-session";
 
 type State = "initial" | "onboarding" | "completed";
 
-export function OnboardPayrollPage() {
+export function HROnboardPayrollPage() {
     const navigate = useNavigate();
     const [state, setState] = useState<State>("onboarding");
     const { accountId, userId } = useSession();
@@ -28,7 +28,7 @@ export function OnboardPayrollPage() {
             const component = new CompanyOverviewComponent(core, {
                 companyId: accountId,
             });
-            component.mount("#company-overview-container");
+            component.mount("#hr-company-overview-container");
         }
     }, [state]);
 
@@ -38,18 +38,18 @@ export function OnboardPayrollPage() {
 
     return (
         <SidebarProvider>
-            <DriverManagementSidebar />
+            <HRManagementSidebar />
             <SidebarInset>
                 <header className="flex h-16 items-center gap-2 border-b px-4">
                     <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Payroll Management</h1>
+                    <h1 className="text-lg font-semibold">Employee Payroll Management</h1>
                 </header>
                 <main className="flex-1 p-6">
                     <div className="mb-6 flex items-start justify-between">
                         <div>
-                            <h2 className="text-3xl font-bold">Enable Payroll</h2>
+                            <h2 className="text-3xl font-bold">Enable Employee Payroll</h2>
                             <p className="text-muted-foreground mt-2">
-                                Get started by setting up your payroll system
+                                Get started by setting up your employee payroll system
                             </p>
                         </div>
                         <Badge variant="secondary" className="ml-4">
@@ -64,14 +64,14 @@ export function OnboardPayrollPage() {
                                     <div className="flex flex-col items-center min-h-screen pt-12 gap-1">
                                         <Alert variant="default" className="w-full max-w-lg">
                                             <AlertCircleIcon />
-                                            <AlertTitle>Payroll Setup Required</AlertTitle>
+                                            <AlertTitle>Employee Payroll Setup Required</AlertTitle>
                                             <AlertDescription>
-                                                It looks like you haven't set up your payroll system
+                                                It looks like you haven't set up your employee payroll system
                                                 yet. Click the button below to start the onboarding
                                                 process.
                                             </AlertDescription>
                                         </Alert>
-                                        <div id="company-overview-container" />
+                                        <div id="hr-company-overview-container" />
                                         <Button onClick={handleComplete}>
                                             Simulate Completion
                                         </Button>
@@ -82,10 +82,10 @@ export function OnboardPayrollPage() {
                                     <div className="flex flex-col items-center min-h-screen pt-12">
                                         <p className="mb-6 text-center max-w-md">
                                             Congratulations! You have completed the onboarding
-                                            process. You can now access your payroll dashboard.
+                                            process. You can now access your employee payroll dashboard.
                                         </p>
-                                        <Button onClick={() => navigate("/driver-payroll?onboarded=true")}>
-                                            Go to Payroll Dashboard
+                                        <Button onClick={() => navigate("/hr-payroll?onboarded=true")}>
+                                            Go to Employee Payroll Dashboard
                                         </Button>
                                     </div>
                                 );
@@ -98,3 +98,4 @@ export function OnboardPayrollPage() {
         </SidebarProvider>
     );
 }
+
