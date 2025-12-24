@@ -11,7 +11,6 @@ import type { Route } from "./+types/root";
 import "@payroo-group/payroll-components/styles.css";
 import "./app.css";
 import "./payroll-components.css";
-import { ThemeProvider } from "~/lib/theme-context";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -36,25 +35,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDark) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              })();
-            `,
-          }}
-        />
       </head>
       <body>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        {/* ThemeProvider is not needed here because the theme is set in the app.css file */}
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
