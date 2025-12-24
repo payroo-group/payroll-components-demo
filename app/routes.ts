@@ -23,4 +23,5 @@ export default [
     route("banking/payroll/super-batches", "routes/banking-super-batches.tsx"),
     route("banking/payroll/expense-claims", "routes/banking-expense-claims.tsx"),
     route("banking/employees", "routes/banking-employees.tsx"),
+    route("banking/settings", "routes/banking-settings.tsx"),
 ] satisfies RouteConfig;
