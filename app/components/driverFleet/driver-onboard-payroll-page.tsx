@@ -1,12 +1,6 @@
 "use client";
 import { CompanyOverviewComponent } from "@payroo-group/payroll-components";
 import { useNavigate } from "react-router";
-import {
-    SidebarProvider,
-    SidebarInset,
-    SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
 import { useEffect, useState } from "react";
 import { Badge } from "~/components/ui/badge";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
@@ -37,14 +31,7 @@ export function DriverOnboardPayrollPage() {
     };
 
     return (
-        <SidebarProvider>
-            <DriverManagementSidebar />
-            <SidebarInset>
-                <header className="flex h-16 items-center gap-2 border-b px-4">
-                    <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Driver Payroll Management</h1>
-                </header>
-                <main className="flex-1 p-6">
+        <div className="p-6">
                     <div className="mb-6 flex items-start justify-between">
                         <div>
                             <h2 className="text-3xl font-bold">Enable Driver Payroll</h2>
@@ -93,9 +80,7 @@ export function DriverOnboardPayrollPage() {
                                 return null;
                         }
                     })()}
-                </main>
-            </SidebarInset>
-        </SidebarProvider>
+        </div>
     );
 }
 

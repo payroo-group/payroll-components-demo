@@ -3,12 +3,6 @@
 import { History } from "lucide-react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { PayrunList } from "@payroo-group/embed-sdk-react";
-import {
-    SidebarProvider,
-    SidebarInset,
-    SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
 import { Button } from "~/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { useState } from "react";
@@ -22,14 +16,7 @@ export function HRPayrollPage() {
     const { accountId, userId } = useSession();
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
     return (
-        <SidebarProvider>
-            <HRManagementSidebar />
-            <SidebarInset>
-                <header className="flex h-16 items-center gap-2 border-b px-4">
-                    <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Employee Payroll Management</h1>
-                </header>
-                <main className="flex-1 p-6">
+        <div className="p-6">
                     <div className="mb-6 flex items-start justify-between">
                         <div>
                             <h2 className="text-3xl font-bold">Run Payroll</h2>
@@ -69,9 +56,7 @@ export function HRPayrollPage() {
                             }}
                         />
                     </div>
-                </main>
-            </SidebarInset>
-        </SidebarProvider>
+        </div>
     );
 }
 

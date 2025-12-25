@@ -2,12 +2,6 @@
 
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router";
-import {
-    SidebarProvider,
-    SidebarInset,
-    SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { BankingSidebar } from "~/components/banking/banking-sidebar";
 import { Button } from "~/components/ui/button";
 import { PayrunList } from "@payroo-group/embed-sdk-react";
 import { usePayrollComponent } from "~/hooks/use-payroll-component";
@@ -19,22 +13,7 @@ export function BankingPayrollHistoryPage() {
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
 
     return (
-        <SidebarProvider>
-            <BankingSidebar />
-            <SidebarInset>
-                <header className="flex h-16 items-center gap-2 border-b px-4">
-                    <SidebarTrigger />
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => navigate("/banking/payroll")}
-                    >
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Back
-                    </Button>
-                    <h1 className="text-lg font-semibold">NeoBank Business</h1>
-                </header>
-                <main className="flex-1 p-6">
+        <div className="p-6">
                     <div className="mb-6">
                         <h2 className="text-3xl font-bold">Payroll History</h2>
                         <p className="text-muted-foreground mt-2">
@@ -53,9 +32,7 @@ export function BankingPayrollHistoryPage() {
                             }}
                         />
                     </div>
-                </main>
-            </SidebarInset>
-        </SidebarProvider>
+        </div>
     );
 }
 

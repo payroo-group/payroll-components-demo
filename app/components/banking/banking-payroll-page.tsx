@@ -3,12 +3,6 @@
 import { History, Users, FileText } from "lucide-react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { PayrunList } from "@payroo-group/embed-sdk-react";
-import {
-    SidebarProvider,
-    SidebarInset,
-    SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { BankingSidebar } from "~/components/banking/banking-sidebar";
 import { Button } from "~/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { useState } from "react";
@@ -23,14 +17,7 @@ export function BankingPayrollPage() {
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
 
     return (
-        <SidebarProvider>
-            <BankingSidebar />
-            <SidebarInset>
-                <header className="flex h-16 items-center gap-2 border-b px-4">
-                    <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">NeoBank Business</h1>
-                </header>
-                <main className="flex-1 p-6">
+        <div className="p-6">
                     <div className="mb-6 flex items-start justify-between">
                         <div>
                             <h2 className="text-3xl font-bold">Run Payroll</h2>
@@ -78,9 +65,7 @@ export function BankingPayrollPage() {
                             }}
                         />
                     </div>
-                </main>
-            </SidebarInset>
-        </SidebarProvider>
+        </div>
     );
 }
 

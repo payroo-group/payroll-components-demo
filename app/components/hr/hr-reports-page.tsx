@@ -1,11 +1,5 @@
 "use client";
 
-import {
-    SidebarProvider,
-    SidebarInset,
-    SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { ViewReport } from "@payroo-group/embed-sdk-react";
 import { useSession } from "~/hooks/use-session";
@@ -16,14 +10,7 @@ export function HRReportsPage() {
     const { getEmbedUrl } = usePayrollComponent(accountId, userId);
 
     return (
-        <SidebarProvider>
-            <HRManagementSidebar />
-            <SidebarInset>
-                <header className="flex h-16 items-center gap-2 border-b px-4">
-                    <SidebarTrigger />
-                    <h1 className="text-lg font-semibold">Employee Reports</h1>
-                </header>
-                <main className="flex-1 p-6">
+        <div className="p-6">
                     <div className="mb-6">
                         <h2 className="text-3xl font-bold">Employee Financial Reports</h2>
                         <p className="text-muted-foreground mt-2">
@@ -127,9 +114,7 @@ export function HRReportsPage() {
                             />
                         </TabsContent>
                     </Tabs>
-                </main>
-            </SidebarInset>
-        </SidebarProvider>
+        </div>
     );
 }
 

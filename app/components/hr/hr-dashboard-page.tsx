@@ -13,12 +13,6 @@ import {
   Radar,
 } from "recharts";
 import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -34,14 +28,7 @@ import type { ChartConfig } from "~/components/ui/chart";
 
 export function HRDashboardPage() {
   return (
-    <SidebarProvider>
-      <HRManagementSidebar />
-      <SidebarInset>
-        <header className="flex h-16 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <h1 className="text-lg font-semibold">HR Management System</h1>
-        </header>
-        <main className="flex-1 p-6">
+    <div className="p-6">
           <div className="mb-8">
             <h2 className="text-3xl font-bold">Workforce Dashboard</h2>
             <p className="text-muted-foreground mt-2">
@@ -310,9 +297,7 @@ export function HRDashboardPage() {
               </CardContent>
             </Card>
           </div>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+    </div>
   );
 }
 

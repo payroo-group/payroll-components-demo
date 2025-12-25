@@ -24,12 +24,6 @@ import {
   RadarChart,
 } from "recharts";
 import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -45,14 +39,7 @@ import type { ChartConfig } from "~/components/ui/chart";
 
 export function DashboardPage() {
   return (
-    <SidebarProvider>
-      <DriverManagementSidebar />
-      <SidebarInset>
-        <header className="flex h-16 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <h1 className="text-lg font-semibold">Driver Management System</h1>
-        </header>
-        <main className="flex-1 p-6">
+    <div className="p-6">
           <div className="mb-8">
             <h2 className="text-3xl font-bold">Fleet Control Dashboard</h2>
             <p className="text-muted-foreground mt-2">
@@ -338,8 +325,6 @@ export function DashboardPage() {
               </CardContent>
             </Card>
           </div>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+    </div>
   );
 }

@@ -19,12 +19,6 @@ import {
   FileText,
 } from "lucide-react";
 import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -261,28 +255,19 @@ export function DriverDetailPage() {
 
   if (!driver) {
     return (
-      <SidebarProvider>
-        <DriverManagementSidebar />
-        <SidebarInset>
-          <header className="flex h-16 items-center gap-2 border-b px-4">
-            <SidebarTrigger />
-            <h1 className="text-lg font-semibold">Driver Not Found</h1>
-          </header>
-          <main className="flex-1 p-6">
-            <div className="flex flex-col items-center justify-center h-full">
-              <AlertCircle className="h-16 w-16 text-muted-foreground mb-4" />
-              <h2 className="text-2xl font-bold mb-2">Driver Not Found</h2>
-              <p className="text-muted-foreground mb-4">
-                The driver you're looking for doesn't exist.
-              </p>
-              <Button onClick={() => navigate("/driver-profiles")}>
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Driver Profiles
-              </Button>
-            </div>
-          </main>
-        </SidebarInset>
-      </SidebarProvider>
+      <div className="p-6">
+        <div className="flex flex-col items-center justify-center h-full">
+          <AlertCircle className="h-16 w-16 text-muted-foreground mb-4" />
+          <h2 className="text-2xl font-bold mb-2">Driver Not Found</h2>
+          <p className="text-muted-foreground mb-4">
+            The driver you're looking for doesn't exist.
+          </p>
+          <Button onClick={() => navigate("/driver-profiles")}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Driver Profiles
+          </Button>
+        </div>
+      </div>
     );
   }
 
@@ -312,22 +297,7 @@ export function DriverDetailPage() {
   };
 
   return (
-    <SidebarProvider>
-      <DriverManagementSidebar />
-      <SidebarInset>
-        <header className="flex h-16 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/driver-profiles")}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
-          <h1 className="text-lg font-semibold">Driver Details</h1>
-        </header>
-        <main className="flex-1 p-6">
+    <div className="p-6">
           {/* Header Section */}
           <div className="mb-6 flex items-start justify-between">
             <div className="flex items-center gap-4">
@@ -599,8 +569,6 @@ export function DriverDetailPage() {
               </CardContent>
             </Card>
           </div>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+    </div>
   );
 }

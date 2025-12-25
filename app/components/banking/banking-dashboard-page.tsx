@@ -23,12 +23,6 @@ import {
   YAxis,
 } from "recharts";
 import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { BankingSidebar } from "~/components/banking/banking-sidebar";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -108,14 +102,7 @@ const revenueExpenseChartConfig: ChartConfig = {
 
 export function BankingDashboardPage() {
   return (
-    <SidebarProvider>
-      <BankingSidebar />
-      <SidebarInset>
-        <header className="flex h-16 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <h1 className="text-lg font-semibold">NeoBank Business</h1>
-        </header>
-        <main className="flex-1 p-6">
+    <div className="p-6">
           <div className="mb-8">
             <h2 className="text-3xl font-bold">Overview</h2>
           </div>
@@ -481,8 +468,6 @@ export function BankingDashboardPage() {
               </div>
             </div>
           </div>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+    </div>
   );
 }

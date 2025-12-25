@@ -3,12 +3,6 @@
 import { useState } from "react";
 import { MoreHorizontal, Plus, Settings2 } from "lucide-react";
 import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
-import {
   Table,
   TableBody,
   TableCell,
@@ -191,14 +185,7 @@ export function EmployeeProfilesPage() {
   };
 
   return (
-    <SidebarProvider>
-      <HRManagementSidebar />
-      <SidebarInset>
-        <header className="flex h-16 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <h1 className="text-lg font-semibold">Employees</h1>
-        </header>
-        <main className="flex-1 p-6">
+    <div className="p-6">
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold">Employee Directory</h2>
@@ -433,8 +420,6 @@ export function EmployeeProfilesPage() {
               </div>
             </div>
           </div>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+    </div>
   );
 }

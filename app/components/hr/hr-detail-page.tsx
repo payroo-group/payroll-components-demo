@@ -19,12 +19,6 @@ import {
   FileText,
 } from "lucide-react";
 import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { HRManagementSidebar } from "~/components/hr/hr-management-sidebar";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -261,28 +255,19 @@ export function EmployeeDetailPage() {
 
   if (!employee) {
     return (
-      <SidebarProvider>
-        <HRManagementSidebar />
-        <SidebarInset>
-          <header className="flex h-16 items-center gap-2 border-b px-4">
-            <SidebarTrigger />
-            <h1 className="text-lg font-semibold">Employee Not Found</h1>
-          </header>
-          <main className="flex-1 p-6">
-            <div className="flex flex-col items-center justify-center h-full">
-              <AlertCircle className="h-16 w-16 text-muted-foreground mb-4" />
-              <h2 className="text-2xl font-bold mb-2">Employee Not Found</h2>
-              <p className="text-muted-foreground mb-4">
-                The employee you're looking for doesn't exist.
-              </p>
-              <Button onClick={() => navigate("/employee-profiles")} className="bg-[#0f766e] hover:bg-[#0d6559]">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Employee Profiles
-              </Button>
-            </div>
-          </main>
-        </SidebarInset>
-      </SidebarProvider>
+      <div className="p-6">
+        <div className="flex flex-col items-center justify-center h-full">
+          <AlertCircle className="h-16 w-16 text-muted-foreground mb-4" />
+          <h2 className="text-2xl font-bold mb-2">Employee Not Found</h2>
+          <p className="text-muted-foreground mb-4">
+            The employee you're looking for doesn't exist.
+          </p>
+          <Button onClick={() => navigate("/employee-profiles")} className="bg-[#0f766e] hover:bg-[#0d6559]">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Employee Profiles
+          </Button>
+        </div>
+      </div>
     );
   }
 
@@ -312,22 +297,7 @@ export function EmployeeDetailPage() {
   };
 
   return (
-    <SidebarProvider>
-      <HRManagementSidebar />
-      <SidebarInset>
-        <header className="flex h-16 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/employee-profiles")}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
-          <h1 className="text-lg font-semibold">Employee Profile</h1>
-        </header>
-        <main className="flex-1 p-6">
+    <div className="p-6">
           {/* Header Section */}
           <div className="mb-6 flex items-start justify-between">
             <div className="flex items-center gap-4">
@@ -606,8 +576,6 @@ export function EmployeeDetailPage() {
               </CardContent>
             </Card>
           </div>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+    </div>
   );
 }

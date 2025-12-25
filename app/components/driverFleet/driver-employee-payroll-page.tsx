@@ -8,12 +8,6 @@ import {
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router";
 import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
-import { DriverManagementSidebar } from "~/components/driverFleet/driver-management-sidebar";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -66,47 +60,23 @@ export function DriverEmployeePayrollPage() {
 
   if (!driver) {
     return (
-      <SidebarProvider>
-        <DriverManagementSidebar />
-        <SidebarInset>
-          <header className="flex h-16 items-center gap-2 border-b px-4">
-            <SidebarTrigger />
-            <h1 className="text-lg font-semibold">Driver Not Found</h1>
-          </header>
-          <main className="flex-1 p-6">
-            <div className="flex flex-col items-center justify-center h-full">
-              <h2 className="text-2xl font-bold mb-2">Driver Not Found</h2>
-              <p className="text-muted-foreground mb-4">
-                The driver payroll details you're looking for don't exist.
-              </p>
-              <Button onClick={() => navigate("/driver-payroll")}>
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Payroll
-              </Button>
-            </div>
-          </main>
-        </SidebarInset>
-      </SidebarProvider>
+      <div className="p-6">
+        <div className="flex flex-col items-center justify-center h-full">
+          <h2 className="text-2xl font-bold mb-2">Driver Not Found</h2>
+          <p className="text-muted-foreground mb-4">
+            The driver payroll details you're looking for don't exist.
+          </p>
+          <Button onClick={() => navigate("/driver-payroll")}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Payroll
+          </Button>
+        </div>
+      </div>
     );
   }
 
   return (
-    <SidebarProvider>
-      <DriverManagementSidebar />
-      <SidebarInset>
-        <header className="flex h-16 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate(`/driver-detail/${driverId}`)}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Profile
-          </Button>
-          <h1 className="text-lg font-semibold">Driver Payroll</h1>
-        </header>
-        <main className="flex-1 p-6">
+    <div className="p-6">
           {/* Header Section */}
           <div className="mb-6 flex items-start justify-between">
             <div>
@@ -189,9 +159,7 @@ export function DriverEmployeePayrollPage() {
               </div>
             </CardContent>
           </Card>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
+    </div>
   );
 }
 
