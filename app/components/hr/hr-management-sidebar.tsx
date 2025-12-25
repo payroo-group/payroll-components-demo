@@ -77,7 +77,7 @@ import {
             <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
               <a href="/banking">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#002e9b] text-white">
-                  <Landmark className="h-4 w-4" />
+                  <Landmark className="h-4 w-4 stroke-white" />
                 </div>
                 <div className="flex flex-1 flex-col">
                   <span className="text-sm font-medium">NeoBank</span>

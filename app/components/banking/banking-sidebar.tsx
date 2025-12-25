@@ -55,7 +55,7 @@ export function BankingSidebar() {
           <DropdownMenuTrigger asChild>
             <button className="flex w-full items-center gap-2 px-4 py-3 hover:bg-accent/50 transition-colors rounded-md focus:outline-none">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#002e9b] text-white">
-                <Landmark className="h-5 w-5" />
+                <Landmark className="h-5 w-5 stroke-white" />
               </div>
               <div className="flex flex-1 flex-col items-start">
                 <span className="text-sm font-semibold">NeoBank</span>
