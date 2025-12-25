@@ -48,7 +48,7 @@ import {
           <DropdownMenuTrigger asChild>
             <button className="flex w-full items-center gap-2 px-4 py-3 hover:bg-accent/50 transition-colors rounded-md focus:outline-none">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0f766e] text-white">
-              <Users className="h-4 w-4" />
+              <Users className="h-4 w-4 stroke-white" />
             </div>
               <div className="flex flex-1 flex-col items-start">
               <span className="text-sm font-semibold">HR Management</span>
@@ -65,8 +65,8 @@ import {
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild className="flex items-center gap-3 py-2 cursor-pointer">
               <a href="/dashboard">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <Car className="h-4 w-4" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+                  <Car className="h-4 w-4 stroke-white" />
                 </div>
                 <div className="flex flex-1 flex-col">
                   <span className="text-sm font-medium">Driver Management</span>
