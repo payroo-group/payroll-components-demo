@@ -17,3 +17,111 @@
 #company-overview-container button[data-variant="outline"] {
     color: var(--payroo-text-light);
 }
+
+/* HR Project Overview Styling */
+#hr-company-overview-container {
+    --hr-primary: #0f766e;
+}
+
+/* Text Elements */
+#hr-company-overview-container h1,
+#hr-company-overview-container .title_cwrquQ,
+#hr-company-overview-container .detailItem_cwrquQ {
+    color: var(--hr-primary) !important;
+}
+
+/* Checkboxes */
+#hr-company-overview-container .checkbox_cwrquQ:checked,
+#hr-company-overview-container input.checkbox_cwrquQ[type="checkbox"]:checked {
+    background-color: var(--hr-primary) !important;
+    border-color: var(--hr-primary) !important;
+    accent-color: var(--hr-primary) !important;
+}
+
+#hr-company-overview-container .checkbox_cwrquQ:checked::before,
+#hr-company-overview-container input.checkbox_cwrquQ[type="checkbox"]:checked::before {
+    background-color: var(--hr-primary) !important;
+}
+
+/* Buttons */
+#hr-company-overview-container button.btn_kNXBcA[data-variant="outline"] {
+    color: var(--hr-primary) !important;
+    border-color: var(--hr-primary) !important;
+}
+
+#hr-company-overview-container button.btn_kNXBcA[data-variant="outline"]:hover {
+    background-color: var(--hr-primary) !important;
+    color: white !important;
+}
+
+/* NeoBank Project Overview Styling */
+#banking-company-overview-container {
+    --banking-primary: #002e9b;
+}
+
+/* Text Elements */
+#banking-company-overview-container h1,
+#banking-company-overview-container .title_cwrquQ,
+#banking-company-overview-container .detailItem_cwrquQ {
+    color: var(--banking-primary) !important;
+}
+
+/* Checkboxes */
+#banking-company-overview-container .checkbox_cwrquQ:checked,
+#banking-company-overview-container input.checkbox_cwrquQ[type="checkbox"]:checked {
+    background-color: var(--banking-primary) !important;
+    border-color: var(--banking-primary) !important;
+    accent-color: var(--banking-primary) !important;
+}
+
+#banking-company-overview-container .checkbox_cwrquQ:checked::before,
+#banking-company-overview-container input.checkbox_cwrquQ[type="checkbox"]:checked::before {
+    background-color: var(--banking-primary) !important;
+}
+
+/* Buttons */
+#banking-company-overview-container button.btn_kNXBcA[data-variant="outline"] {
+    color: var(--banking-primary) !important;
+    border-color: var(--banking-primary) !important;
+}
+
+#banking-company-overview-container button.btn_kNXBcA[data-variant="outline"]:hover {
+    background-color: var(--banking-primary) !important;
+    color: white !important;
+}
+
+/* Driver Management Project Overview Styling */
+#driver-company-overview-container {
+    --driver-primary: #8b5cf6;
+}
+
+/* Text Elements */
+#driver-company-overview-container h1,
+#driver-company-overview-container .title_cwrquQ,
+#driver-company-overview-container .detailItem_cwrquQ {
+    color: var(--driver-primary) !important;
+}
+
+/* Checkboxes */
+#driver-company-overview-container .checkbox_cwrquQ:checked,
+#driver-company-overview-container input.checkbox_cwrquQ[type="checkbox"]:checked {
+    background-color: var(--driver-primary) !important;
+    border-color: var(--driver-primary) !important;
+    accent-color: var(--driver-primary) !important;
+}
+
+#driver-company-overview-container .checkbox_cwrquQ:checked::before,
+#driver-company-overview-container input.checkbox_cwrquQ[type="checkbox"]:checked::before {
+    background-color: var(--driver-primary) !important;
+}
+
+/* Buttons */
+#driver-company-overview-container button.btn_kNXBcA[data-variant="outline"] {
+    color: var(--driver-primary) !important;
+    border-color: var(--driver-primary) !important;
+}
+
+#driver-company-overview-container button.btn_kNXBcA[data-variant="outline"]:hover {
+    background-color: var(--driver-primary) !important;
+    color: white !important;
+}
