@@ -1,6 +1,6 @@
 import type { Components, ComponentSchemaMap } from "@payroo-group/embed-sdk";
 import { PayrollComponents } from "@payroo-group/payroll-components";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef } from "react";
 // Note: This function does not call Payroo API directly; it calls our own API route
 // which in turn calls Payroo API with the necessary authentication
 // This is to keep the Payroo API key secure and not exposed on the client side
@@ -51,42 +51,54 @@ const createEmbedURL = async <K extends Components>(
     return await response.json();
 };
 
+type Session = Awaited<ReturnType<typeof createSession>>;
+
 export function usePayrollComponent(accountId: string, userId: string) {
-    const [sessionId, setSessionId] = useState<string | null>(null);
-    const onSessionCreate = useCallback(async () => {
-        const session = await createSession(accountId, userId);
-        setSessionId(session.id);
+    // Pass as `key` to embed components so they remount (and reload their
+    // iframe) when the session account/user changes.
+    const sessionKey = `${accountId}:${userId}`;
 
-        return session;
+    // Session promise cached per account/user pair: created lazily on first use,
+    // shared between concurrent callers, and replaced when the pair changes.
+    const sessionRef = useRef<{ key: string; promise: Promise<Session> } | null>(
+        null,
+    );
+
+    const onSessionCreate = useCallback(() => {
+        const key = `${accountId}:${userId}`;
+        if (sessionRef.current?.key !== key) {
+            const promise = createSession(accountId, userId);
+            promise.catch(() => {
+                // Don't cache failures; the next call retries.
+                if (sessionRef.current?.promise === promise) {
+                    sessionRef.current = null;
+                }
+            });
+            sessionRef.current = { key, promise };
+        }
+        return sessionRef.current.promise;
     }, [accountId, userId]);
-
-    useEffect(() => {
-      onSessionCreate();
-    }, [accountId, userId])
 
     const onCreateEmbedURL = useCallback(
         async <K extends Components>(
             component: K,
             params?: ComponentSchemaMap[K],
         ) => {
-            let currentSessionId = sessionId ?? "";
-            if (!currentSessionId) {
-                const session = await onSessionCreate();
-                currentSessionId = session.id;
-            }
-
-            const response = await createEmbedURL(currentSessionId, component, params);
+            const session = await onSessionCreate();
+            const response = await createEmbedURL(session.id, component, params);
             return response.url;
         },
-        [sessionId],
+        [onSessionCreate],
     );
 
-    const [core] = useState(
-        new PayrollComponents({
-            environment: "sandbox",
-            onSessionCreate,
-        }),
+    const core = useMemo(
+        () =>
+            new PayrollComponents({
+                environment: "sandbox",
+                onSessionCreate,
+            }),
+        [onSessionCreate],
     );
 
-    return { core, getEmbedUrl: onCreateEmbedURL };
+    return { core, getEmbedUrl: onCreateEmbedURL, sessionKey };
 }

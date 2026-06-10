@@ -7,7 +7,7 @@ import { usePayrollComponent } from "~/hooks/use-payroll-component";
 
 export function DriverReportsPage() {
     const { accountId, userId } = useSession();
-    const { getEmbedUrl } = usePayrollComponent(accountId, userId);
+    const { getEmbedUrl, sessionKey } = usePayrollComponent(accountId, userId);
 
     return (
         <div className="p-6">
@@ -57,6 +57,7 @@ export function DriverReportsPage() {
                         {/* Payroll Summary Tab */}
                         <TabsContent value="payroll-summary">
                             <ViewReport
+                                key={sessionKey}
                                 getEmbedUrl={getEmbedUrl}
                                 reportType="summary"
                                 options={{
@@ -69,6 +70,7 @@ export function DriverReportsPage() {
                         {/* Payroll Variance Tab */}
                         <TabsContent value="payroll-variance">
                             <ViewReport
+                                key={sessionKey}
                                 getEmbedUrl={getEmbedUrl}
                                 reportType="variance"
                                 options={{
@@ -81,6 +83,7 @@ export function DriverReportsPage() {
                         {/* Finalisations Tab */}
                         <TabsContent value="finalisations">
                             <ViewReport
+                                key={sessionKey}
                                 getEmbedUrl={getEmbedUrl}
                                 reportType="finalisations"
                                 options={{
@@ -93,6 +96,7 @@ export function DriverReportsPage() {
                         {/* Leave Balances Tab */}
                         <TabsContent value="leave-balances">
                             <ViewReport
+                                key={sessionKey}
                                 getEmbedUrl={getEmbedUrl}
                                 reportType="leaves"
                                 options={{
@@ -105,6 +109,7 @@ export function DriverReportsPage() {
                         {/* Super Contributions Tab */}
                         <TabsContent value="super-contributions">
                             <ViewReport
+                                key={sessionKey}
                                 getEmbedUrl={getEmbedUrl}
                                 reportType="super"
                                 options={{

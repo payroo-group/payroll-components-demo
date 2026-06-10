@@ -14,7 +14,7 @@ export function BankingPayrollPage() {
     const [query] = useSearchParams();
     const [setupRequired] = useState(query.get("onboarded") !== "true");
     const { accountId, userId } = useSession();
-    const { getEmbedUrl } = usePayrollComponent(accountId, userId);
+    const { getEmbedUrl, sessionKey } = usePayrollComponent(accountId, userId);
 
     return (
         <div className="p-6">
@@ -55,6 +55,7 @@ export function BankingPayrollPage() {
 
                     <div id="banking-payrun-container" hidden={setupRequired}>
                         <PayrunList
+                            key={sessionKey}
                             getEmbedUrl={getEmbedUrl}
                             showStatSummary={false}
                             showFilter={true}

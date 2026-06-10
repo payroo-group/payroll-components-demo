@@ -10,7 +10,7 @@ import { useSession } from "~/hooks/use-session";
 export function BankingPayrollHistoryPage() {
     const navigate = useNavigate();
     const { accountId, userId } = useSession();
-    const { getEmbedUrl } = usePayrollComponent(accountId, userId);
+    const { getEmbedUrl, sessionKey } = usePayrollComponent(accountId, userId);
 
     return (
         <div className="p-6">
@@ -22,6 +22,7 @@ export function BankingPayrollHistoryPage() {
                     </div>
                     <div id="banking-payroll-history-container">
                         <PayrunList
+                            key={sessionKey}
                             getEmbedUrl={getEmbedUrl}
                             showStatSummary={false}
                             showFilter={true}

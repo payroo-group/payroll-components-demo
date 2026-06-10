@@ -14,7 +14,7 @@ export function DriverPayrollPage() {
     const [query] = useSearchParams();
     const [setupRequired] = useState(query.get("onboarded") !== "true");
     const { accountId, userId } = useSession();
-    const { getEmbedUrl } = usePayrollComponent(accountId, userId);
+    const { getEmbedUrl, sessionKey } = usePayrollComponent(accountId, userId);
     return (
         <div className="p-6">
                     <div className="mb-6 flex items-start justify-between">
@@ -46,6 +46,7 @@ export function DriverPayrollPage() {
 
                     <div id="payrun-embed-container" hidden={setupRequired}>
                         <PayrunList
+                            key={sessionKey}
                             getEmbedUrl={getEmbedUrl}
                             showStatSummary={false}
                             showFilter={true}
