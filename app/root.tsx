@@ -8,6 +8,7 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import { SessionSwitcher } from "./components/session-switcher";
 import "@payroo-group/payroll-components/styles.css";
 import "./app.css";
 import "./payroll-components.css";
@@ -47,7 +48,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <Outlet />
+      <SessionSwitcher />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

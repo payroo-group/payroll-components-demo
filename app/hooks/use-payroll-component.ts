@@ -1,6 +1,6 @@
 import type { Components, ComponentSchemaMap } from "@payroo-group/embed-sdk";
 import { PayrollComponents } from "@payroo-group/payroll-components";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 // Note: This function does not call Payroo API directly; it calls our own API route
 // which in turn calls Payroo API with the necessary authentication
 // This is to keep the Payroo API key secure and not exposed on the client side
@@ -59,6 +59,10 @@ export function usePayrollComponent(accountId: string, userId: string) {
 
         return session;
     }, [accountId, userId]);
+
+    useEffect(() => {
+      onSessionCreate();
+    }, [accountId, userId])
 
     const onCreateEmbedURL = useCallback(
         async <K extends Components>(
