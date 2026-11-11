@@ -1,22 +1,10 @@
 "use client";
 
-import { usePayrollComponent } from "~/hooks/use-payroll-component";
-import { useSession } from "~/hooks/use-session";
-import { useEffect } from "react";
-import { CalendarComponent } from "@payroo-group/payroll-components";
+import { Calendar } from "@payroo-group/embedded-react";
+import { EmbeddedPayroll } from "~/components/embedded-payroll";
+import { PRODUCT_THEMES } from "~/lib/embedded-config";
 
 export function BankingCalendarPage() {
-    const { accountId, userId } = useSession();
-    const { core } = usePayrollComponent(accountId, userId);
-
-    useEffect(() => {
-        const calendar = new CalendarComponent(core, {
-            companyId: accountId,
-            month: "2025-12",
-        });
-        calendar.mount("#banking-calendar-container");
-    }, [core, accountId]);
-
     return (
         <div className="p-6">
             <div className="mb-6">
@@ -25,7 +13,11 @@ export function BankingCalendarPage() {
                     View payroll dates, payment schedules, and important deadlines
                 </p>
             </div>
-            <div id="banking-calendar-container" />
+            <div id="banking-calendar-container">
+                <EmbeddedPayroll theme={PRODUCT_THEMES.banking}>
+                    <Calendar />
+                </EmbeddedPayroll>
+            </div>
         </div>
     );
 }

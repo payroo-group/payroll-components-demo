@@ -10,8 +10,9 @@ async function createSession(account: string, user: string, userName: string) {
         throw new Error("PAYROO_API_KEY is not set in environment variables");
     }
 
-    const apiUrl =
-        process.env.PAYROO_API_URL || "https://sandbox-embed.payroo.com.au/api";
+    // Legacy embed API. Hardcoded because PAYROO_API_URL now points at the new
+    // Embedded API; this route goes away once the frontend moves to the new flow.
+    const apiUrl = "https://sandbox-embed.payroo.com.au/api";
     const response = await fetch(`${apiUrl}/embed/session`, {
         method: "POST",
         headers: {

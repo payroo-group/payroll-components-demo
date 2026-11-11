@@ -2,19 +2,17 @@
 
 import { History, Users, FileText } from "lucide-react";
 import { Link, useNavigate, useSearchParams } from "react-router";
-import { PayrunList } from "@payroo-group/embed-sdk-react";
+import { RunPayroll } from "@payroo-group/embedded-react";
 import { Button } from "~/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { useState } from "react";
-import { usePayrollComponent } from "~/hooks/use-payroll-component";
-import { useSession } from "~/hooks/use-session";
+import { EmbeddedPayroll } from "~/components/embedded-payroll";
+import { PRODUCT_THEMES } from "~/lib/embedded-config";
 
 export function BankingPayrollPage() {
     const navigate = useNavigate();
     const [query] = useSearchParams();
     const [setupRequired] = useState(query.get("onboarded") !== "true");
-    const { accountId, userId } = useSession();
-    const { getEmbedUrl, sessionKey } = usePayrollComponent(accountId, userId);
 
     return (
         <div className="p-6">
@@ -54,17 +52,9 @@ export function BankingPayrollPage() {
                     <div className="my-6" />
 
                     <div id="banking-payrun-container" hidden={setupRequired}>
-                        <PayrunList
-                            key={sessionKey}
-                            getEmbedUrl={getEmbedUrl}
-                            showStatSummary={false}
-                            showFilter={true}
-                            startDate="2025-07-01"
-                            options={{
-                                autoHeightAdjust: true,
-                                extraAllowedOrigins: ["https://sandbox-embed.payroo.com.au"],
-                            }}
-                        />
+                        <EmbeddedPayroll theme={PRODUCT_THEMES.banking}>
+                            <RunPayroll />
+                        </EmbeddedPayroll>
                     </div>
         </div>
     );

@@ -3,14 +3,12 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router";
 import { Button } from "~/components/ui/button";
-import { PayrunList } from "@payroo-group/embed-sdk-react";
-import { usePayrollComponent } from "~/hooks/use-payroll-component";
-import { useSession } from "~/hooks/use-session";
+import { PayrunHistory } from "@payroo-group/embedded-react";
+import { EmbeddedPayroll } from "~/components/embedded-payroll";
+import { PRODUCT_THEMES } from "~/lib/embedded-config";
 
 export function BankingPayrollHistoryPage() {
     const navigate = useNavigate();
-    const { accountId, userId } = useSession();
-    const { getEmbedUrl, sessionKey } = usePayrollComponent(accountId, userId);
 
     return (
         <div className="p-6">
@@ -21,17 +19,9 @@ export function BankingPayrollHistoryPage() {
                         </p>
                     </div>
                     <div id="banking-payroll-history-container">
-                        <PayrunList
-                            key={sessionKey}
-                            getEmbedUrl={getEmbedUrl}
-                            showStatSummary={false}
-                            showFilter={true}
-                            startDate="2024-07-01"
-                            options={{
-                                autoHeightAdjust: true,
-                                extraAllowedOrigins: ["https://sandbox-embed.payroo.com.au"],
-                            }}
-                        />
+                        <EmbeddedPayroll theme={PRODUCT_THEMES.banking}>
+                            <PayrunHistory />
+                        </EmbeddedPayroll>
                     </div>
         </div>
     );

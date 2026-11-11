@@ -1,18 +1,12 @@
 "use client";
 
-import { usePayrollComponent } from "~/hooks/use-payroll-component";
-import { useSession } from "~/hooks/use-session";
-import { EmbedContainer } from "@payroo-group/embed-sdk-react";
-import { Suspense } from "react";
-import { Await } from "react-router";
-import { Components } from "@payroo-group/embed-sdk";
+import { Employees } from "@payroo-group/embedded-react";
+import { EmbeddedPayroll } from "~/components/embedded-payroll";
+import { PRODUCT_THEMES } from "~/lib/embedded-config";
 import { Button } from "~/components/ui/button";
 import { UserPlus } from "lucide-react";
 
 export function BankingEmployeesPage() {
-    const { accountId, userId } = useSession();
-    const { getEmbedUrl } = usePayrollComponent(accountId, userId);
-
     return (
         <div className="p-6">
                     <div className="mb-6 flex items-start justify-between">
@@ -29,22 +23,9 @@ export function BankingEmployeesPage() {
                     </div>
 
                     <div id="employees-container">
-                        <Suspense fallback={<div className="embed-loading">Loading...</div>}>
-                            <Await resolve={getEmbedUrl(Components.EMPLOYEE_LIST)}>
-                                {(url) => (
-                                    <EmbedContainer
-                                        url={url}
-                                        id="employees-list"
-                                        options={{
-                                            autoHeightAdjust: true,
-                                            extraAllowedOrigins: [
-                                                "https://sandbox-embed.payroo.com.au",
-                                            ],
-                                        }}
-                                    />
-                                )}
-                            </Await>
-                        </Suspense>
+                        <EmbeddedPayroll theme={PRODUCT_THEMES.banking}>
+                            <Employees />
+                        </EmbeddedPayroll>
                     </div>
         </div>
     );

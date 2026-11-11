@@ -44,5 +44,6 @@ export default [
         route("payroll-history", "routes/payroll-history.tsx"),
         route("api/session", "routes/api/session.ts"),
         route("api/embed-url", "routes/api/embed-url.ts"),
+        route("api/embedded/session", "routes/api/embedded-session.ts"),
     ]),
 ] satisfies RouteConfig;

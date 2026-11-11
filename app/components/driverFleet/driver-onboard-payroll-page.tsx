@@ -1,30 +1,19 @@
 "use client";
-import { CompanyOverviewComponent } from "@payroo-group/payroll-components";
+import { CompanySetupChecklist } from "@payroo-group/embedded-react";
+import { EmbeddedPayroll } from "~/components/embedded-payroll";
+import { PRODUCT_THEMES } from "~/lib/embedded-config";
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Badge } from "~/components/ui/badge";
-import { usePayrollComponent } from "~/hooks/use-payroll-component";
 import { Button } from "~/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { AlertCircleIcon } from "lucide-react";
-import { useSession } from "~/hooks/use-session";
 
 type State = "initial" | "onboarding" | "completed";
 
 export function DriverOnboardPayrollPage() {
     const navigate = useNavigate();
     const [state, setState] = useState<State>("onboarding");
-    const { accountId, userId } = useSession();
-    const { core } = usePayrollComponent(accountId, userId);
-
-    useEffect(() => {
-        if (state === "onboarding") {
-            const component = new CompanyOverviewComponent(core, {
-                companyId: accountId,
-            });
-            component.mount("#driver-company-overview-container");
-        }
-    }, [state]);
 
     const handleComplete = () => {
         setState("completed");
@@ -58,7 +47,11 @@ export function DriverOnboardPayrollPage() {
                                                 process.
                                             </AlertDescription>
                                         </Alert>
-                                        <div id="driver-company-overview-container" />
+                                        <div id="driver-company-overview-container" className="w-full max-w-lg my-4">
+                                            <EmbeddedPayroll theme={PRODUCT_THEMES.driverFleet}>
+                                                <CompanySetupChecklist />
+                                            </EmbeddedPayroll>
+                                        </div>
                                         <Button onClick={handleComplete}>
                                             Simulate Completion
                                         </Button>
