@@ -21,9 +21,10 @@ import {
  * and expects Payroo's response passed through as is.
  *
  * Modes (VITE_PAYROO_EMBEDDED_MODE):
- *   mock    (default) mints with the in-process mock from @payroo-group/embedded-mock: synthetic
+ *   staging (default) forwards to the Payroo Embedded API at PAYROO_API_URL with PAYROO_API_KEY
+ *           (the real sandbox org).
+ *   mock    mints with the in-process mock from @payroo-group/embedded-mock: synthetic
  *           data, no credential, no network. The browser's mock adopts the session.
- *   staging forwards to the Payroo Embedded API at PAYROO_API_URL with PAYROO_API_KEY.
  */
 
 const EMPLOYER_COMPONENTS = [
@@ -164,6 +165,7 @@ export async function action({ request }: ActionFunctionArgs) {
         }
 
         const apiKey = process.env.PAYROO_API_KEY;
+        console.log("Using API Key:", apiKey);
         if (!apiKey) {
             return error(501, "unconfigured", "PAYROO_API_KEY is not set");
         }

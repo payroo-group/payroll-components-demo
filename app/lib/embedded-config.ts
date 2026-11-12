@@ -4,12 +4,13 @@
 export type EmbeddedMode = "mock" | "staging";
 
 /**
- * mock    (default): synthetic data from @payroo-group/embedded-mock; no credential, no network
- *         calls to Payroo's API. Frames come from Payroo's hosted mock frame host.
- * staging: Payroo Embedded API at PAYROO_API_URL with PAYROO_API_KEY (server-side).
+ * staging (default): the real Payroo sandbox org, via the Embedded API at PAYROO_API_URL with
+ *         PAYROO_API_KEY (server-side).
+ * mock:   synthetic data from @payroo-group/embedded-mock; no credential, no network calls to
+ *         Payroo's API. Opt in with VITE_PAYROO_EMBEDDED_MODE=mock for offline UI work.
  */
 export const EMBEDDED_MODE: EmbeddedMode =
-    import.meta.env.VITE_PAYROO_EMBEDDED_MODE === "staging" ? "staging" : "mock";
+    import.meta.env.VITE_PAYROO_EMBEDDED_MODE === "mock" ? "mock" : "staging";
 
 /** Mock mode only: where Payroo-origin frames (secure fields, dialogs, PayrooFrame) load from. */
 export const FRAME_ORIGIN: string =

@@ -47,6 +47,22 @@ async function postSession(body: Record<string, unknown>) {
     return res.json();
 }
 
+// Share one in-flight mint per employer/user. In dev, StrictMode runs PayrooProvider's effect
+// twice, so two mints would go out at once, and the sandbox can answer one of two concurrent
+// mints for the same user with a 500.
+const inflightMints = new Map<string, Promise<unknown>>();
+function mintOnce(employerId: string, externalUserId: string) {
+    const key = `${employerId}:${externalUserId}`;
+    let p = inflightMints.get(key);
+    if (!p) {
+        p = postSession({ action: "mint", employerId, externalUserId }).finally(() =>
+            inflightMints.delete(key),
+        );
+        inflightMints.set(key, p);
+    }
+    return p;
+}
+
 function createAdapter(employerId: string, externalUserId: string): EmbeddedAdapter {
     const mock = EMBEDDED_MODE === "mock";
     const base = createServerSessionAdapter({
@@ -60,7 +76,7 @@ function createAdapter(employerId: string, externalUserId: string): EmbeddedAdap
     // the session route knows who to mint for.
     return {
         ...base,
-        getSession: () => postSession({ action: "mint", employerId, externalUserId }),
+        getSession: () => mintOnce(employerId, externalUserId) as ReturnType<EmbeddedAdapter["getSession"]>,
         refreshSession: (s) => postSession({ action: "refresh", sessionId: s.sessionId }),
         getBootstrap: (s, opts) =>
             postSession({ action: "bootstrap", sessionId: s.sessionId, ...(opts ?? {}) }),
